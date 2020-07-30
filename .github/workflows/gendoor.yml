@@ -20,7 +20,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: install git tree
+    - name: install git
       run: |
         sudo apt-get update
         sudo apt-get -y install git
@@ -28,7 +28,6 @@ jobs:
       run: |
         git clone --depth=1 https://github.com/gedoor/legado.git /opt/legado
         touch "ojbk">/opt/legado/app/src/main/assets/18PlusList.txt
-        cat /opt/legado/app/src/main/assets/18PlusList.txt
     - name: Build with Gradle
       run: |
         cd /opt/legado
