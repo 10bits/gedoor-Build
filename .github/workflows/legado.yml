@@ -41,6 +41,7 @@ jobs:
         sed '$a\RELEASE_KEY_PASSWORD=gedoor_legado' /opt/legado/gradle.properties -i
         sed "s/'.release'/'.releaseA'/" /opt/legado/app/build.gradle -i
         sed 's/.release/.releaseA/g' /opt/legado/app/google-services.json -i
+        sed '98a\        android:backgroundTint="#389099"' /opt/legado/app/src/main/res/layout/activity_book_search.xml -i
       
     - name: Build with Gradle
       run: |
