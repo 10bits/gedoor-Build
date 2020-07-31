@@ -29,7 +29,8 @@ jobs:
         git clone https://github.com/gedoor/legado.git /opt/legado
         git clone https://github.com/10bits/gedoor-Build.git /opt/gedoor-Build
         echo "release apk增加签名"
-        sed '$a\RELEASE_STORE_FILE="/opt/gedoor-Build/.github/workflows/legado.jks"' /opt/legado/gradle.properties -i 
+        copy /opt/gedoor-Build/.github/workflows/legado.jks /opt/legado
+        sed '$a\RELEASE_STORE_FILE="/opt/legado/legado.jks"' /opt/legado/gradle.properties -i 
         sed '$a\RELEASE_KEY_ALIAS="legado"' /opt/legado/gradle.properties -i
         sed '$a\RELEASE_STORE_PASSWORD="gedoor_legado"' /opt/legado/gradle.properties -i
         sed '$a\RELEASE_KEY_PASSWORD="gedoor_legado"' /opt/legado/gradle.properties -i
