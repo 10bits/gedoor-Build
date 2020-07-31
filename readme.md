@@ -1,6 +1,6 @@
 ## legado阅读3.0自动构建
 
-> 默认从最新TAG构建,每次构建会自动清空18PlusList.txt
+> 默认从最新发布的TAG构建,每次构建会自动清空18PlusList.txt
 
 > 最新TAG: 3.20.072917
   
