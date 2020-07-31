@@ -14,7 +14,7 @@
 
 1. `安装失败(-102)`问题,给release apk增加了签名,已解决
 2. `与已安装应用签名不同`问题,请卸载重新安装,已解决
-3. `共存问题`已解决,默认生成debug apk,不用卸载重装了
+3. `共存问题`已解决,通过修改`applicationIdSuffix='.releaseA'`,不用卸载重装了
 4. 使用过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
 
 ## 免责声明
