@@ -33,10 +33,10 @@ jobs:
       run: |
         git clone https://github.com/10bits/gedoor-Build.git /opt/gedoor-Build
         cp /opt/gedoor-Build/.github/workflows/legado.jks /opt/legado/legado.jks
-        sed '$a\RELEASE_STORE_FILE="/opt/legado/legado.jks"' /opt/legado/gradle.properties -i 
-        sed '$a\RELEASE_KEY_ALIAS="legado"' /opt/legado/gradle.properties -i
-        sed '$a\RELEASE_STORE_PASSWORD="gedoor_legado"' /opt/legado/gradle.properties -i
-        sed '$a\RELEASE_KEY_PASSWORD="gedoor_legado"' /opt/legado/gradle.properties -i
+        sed '$a\RELEASE_STORE_FILE=./legado.jks' /opt/legado/gradle.properties -i 
+        sed '$a\RELEASE_KEY_ALIAS=legado' /opt/legado/gradle.properties -i
+        sed '$a\RELEASE_STORE_PASSWORD=gedoor_legado' /opt/legado/gradle.properties -i
+        sed '$a\RELEASE_KEY_PASSWORD=gedoor_legado' /opt/legado/gradle.properties -i
     - name: Build with Gradle
       run: |
         cd /opt/legado
