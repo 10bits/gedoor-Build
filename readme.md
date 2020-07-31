@@ -5,3 +5,4 @@
 * 清空了18PlusList.txt啦
 * apk自动打包,去[Actions](https://github.com/10bits/gedoor-Build/actions)里找
 * 给release apk增加了签名,解决`安装失败(-102)`问题
+* 如果遇到`与已安装应用签名不同`问题,请卸载重新安装
