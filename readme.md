@@ -1,9 +1,8 @@
 ## legado阅读3.0自动构建
 > 会自动清空18PlusList.txt,如果你喜欢的话
 1. fork到自己的仓库
-2. 点一下star就会自动编译
-3. 点一下unstar,再点一下star就会再次编译了
-4. apk自动打包,去[Actions](https://github.com/10bits/gedoor-Build/actions)里找
+2. 在你自己的仓库,点一下右上角star就会自动构建,点一下右上角unstar,再点一下star就会再次构建了
+3. apk自动打包,去[Actions](https://github.com/10bits/gedoor-Build/actions)里找
 ## 如果你遇到以下问题
 1. `安装失败(-102)`问题,给release apk增加了签名,已解决
 2. `与已安装应用签名不同`问题,请卸载重新安装,已解决
