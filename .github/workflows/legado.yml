@@ -25,8 +25,10 @@ jobs:
         sudo apt-get update
         sudo apt-get -y install git
     - name: clone code
+      env:
+        TAG: 3.20.072917
       run: |
-        git clone https://github.com/gedoor/legado.git /opt/legado
+        git clone --branch $TAG https://github.com/gedoor/legado.git /opt/legado
         echo "清空18PlusList.txt"
         echo "ojbk">/opt/legado/app/src/main/assets/18PlusList.txt
     - name: release apk sign
