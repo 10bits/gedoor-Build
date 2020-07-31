@@ -16,7 +16,14 @@
 2. `与已安装应用签名不同`问题,请卸载重新安装,已解决
 3. `共存问题`已解决,通过修改`applicationIdSuffix='.releaseA'`,不用卸载重装了
 4. 使用过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
-
+## 定制你的APP(举例)
+> 来自酷安深情小奶思的需求:搜索界面,止步按钮颜色修改为#389099
+```yaml
+- name: custom your app
+      run: |
+        sed '98a\        android:backgroundTint="#389099"' /opt/legado/app/src/main/res/layout/activity_book_search.xml -i
+```
+请触类旁通
 ## 免责声明
 
 * 使用github actions自动构建,不会对原仓库代码程序进行任何修改
