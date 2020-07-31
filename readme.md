@@ -1,4 +1,5 @@
-## legado阅读3.0自动构建,会自动清空18PlusList.txt
+## legado阅读3.0自动构建
+> 会自动清空18PlusList.txt,如果你喜欢的话
 1. fork到自己的仓库
 2. 点一下star就会自动编译
 3. 点一下unstar,再点一下star就会再次编译了
