@@ -2,7 +2,7 @@
 
 > 默认从最新发布的TAG构建,每次构建会自动清空18PlusList.txt
 
-> 最新tag:$LatestTag
+> 最新tag:3.20.072917
   
 1. fork到你自己的仓库
 2. 去你fork了的仓库,点一下右上角star就会自动构建,已经star的点unstar,再点一下star就会再次构建了
