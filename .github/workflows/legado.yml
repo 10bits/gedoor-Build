@@ -45,7 +45,7 @@ jobs:
         sed "s/'.release'/'.releaseA'/" /opt/legado/app/build.gradle -i
         sed 's/.release/.releaseA/g' /opt/legado/app/google-services.json -i     
     - name: custom your app
-      run: bash $GITHUB_WORKSPACE/.github/custom.sh
+      run: bash $GITHUB_WORKSPACE/.github/workflows/custom.sh
     - name: build with Gradle
       run: |
         cd /opt/legado
