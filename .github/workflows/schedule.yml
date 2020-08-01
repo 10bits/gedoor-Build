@@ -31,7 +31,7 @@ jobs:
         cd /opt/legado
         LatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
         cd $GITHUB_WORKSPACE
-        sed '5c > 最新tag:$LatestTag' readme.md -i
+        sed "5c > 最新tag:$LatestTag" readme.md -i
         git config user.name github-actions
         git config user.email github-actions@github.com
         git add .
