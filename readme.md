@@ -24,7 +24,7 @@
 sed '/id\/fb_stop/a\        android:backgroundTint="#389099"' /opt/legado/app/src/main/res/layout/activity_book_search.xml -i
 #缩小apk体积
 sed '/minifyEnabled/i\            shrinkResources true' /opt/legado/app/build.gradle -i
-sed 's/minifyEnabled false/minifyEnabled true/g'        /opt/legado/app/build.gradle -i
+sed 's/minifyEnabled false/minifyEnabled true/'         /opt/legado/app/build.gradle -i
 ```
 ## 免责声明
 
