@@ -24,5 +24,6 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Check latest tag
       run: |
+        echo $GITHUB_WORKSPACE
         echo $(date)
         echo $(ls -al)
