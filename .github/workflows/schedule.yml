@@ -29,6 +29,7 @@ jobs:
         git clone https://github.com/gedoor/legado.git /opt/legado
         cd /opt/legado
         LatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
+        echo "最新tag:$LatestTag"
         cd $GITHUB_WORKSPACE
         sed "5c > 当前最新tag:$LatestTag" readme.md -i
         git config user.name github-actions
