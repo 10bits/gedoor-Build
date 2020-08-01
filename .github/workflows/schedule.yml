@@ -5,7 +5,6 @@ name: Schedule Run
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  push:
   schedule:
     - cron: '0 */12 * * *'
 
@@ -31,7 +30,7 @@ jobs:
         cd /opt/legado
         LatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
         cd $GITHUB_WORKSPACE
-        sed "5c > 最新tag:$LatestTag" readme.md -i
+        sed "5c > 当前最新tag:$LatestTag" readme.md -i
         git config user.name github-actions
         git config user.email github-actions@github.com
         git add .
