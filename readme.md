@@ -17,8 +17,6 @@
 3. `与已安装程序共存`问题,通过修改`applicationIdSuffix='.releaseA'`,已解决,不用卸载重装了
 4. 使用过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
 ## 如何定制你自己的APP(举例)
-> 来自酷安深情小奶思的需求:搜索界面,浮动停止加载按钮颜色修改为#389099
-
 > 请在custom.sh里进行定制
 ```bash
 #!/bin/sh
