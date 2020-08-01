@@ -51,7 +51,7 @@ jobs:
       run: |
         cd /opt/legado
         chmod +x gradlew
-        ./gradlew assembleRelease
+        ./gradlew aR
     - name : upload apk
       uses: actions/upload-artifact@master
       if: always()
