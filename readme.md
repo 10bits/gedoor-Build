@@ -18,12 +18,13 @@
 4. 使用过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
 ## 如何定制你自己的APP(举例)
 > 来自酷安深情小奶思的需求:搜索界面,浮动停止加载按钮颜色修改为#389099
-```yaml
-- name: custom your app
-      run: |
-        sed '98a\        android:backgroundTint="#389099"' /opt/legado/app/src/main/res/layout/activity_book_search.xml -i
+
+> 请在custom.sh里进行定制
+```bash
+#!/bin/sh
+#搜索界面,浮动停止加载按钮颜色修改为#389099
+sed '98a\        android:backgroundTint="#389099"' /opt/legado/app/src/main/res/layout/activity_book_search.xml -i
 ```
-请触类旁通
 ## 免责声明
 
 * 使用github actions自动构建,不会对原仓库代码程序进行任何修改
