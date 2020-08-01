@@ -21,9 +21,18 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Runs a set of commands using the runners shell
+    - name: install git
+      run: |
+        sudo apt-get update
+        sudo apt-get -y install git
     - name: Check latest tag
       run: |
-        echo $GITHUB_WORKSPACE
-        echo $(date)
-        echo $(ls -al)
+        git clone https://github.com/gedoor/legado.git /opt/legado
+        cd /opt/legado
+        LatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
+        cd $GITHUB_WORKSPACE
+        sed '5c > 最新tag:$LatestTag' readme.md -i
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git commit -m "update readme.md"
+        git push
