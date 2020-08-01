@@ -47,6 +47,7 @@ jobs:
     - name: custom your app
       run: |
         sed '98a\        android:backgroundTint="#389099"' /opt/legado/app/src/main/res/layout/activity_book_search.xml -i
+        sed '59a\            shrinkResources true' /opt/legado/app/build.gradle -i
     - name: build with Gradle
       run: |
         cd /opt/legado
