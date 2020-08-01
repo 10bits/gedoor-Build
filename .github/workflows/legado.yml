@@ -45,9 +45,7 @@ jobs:
         sed "s/'.release'/'.releaseA'/" /opt/legado/app/build.gradle -i
         sed 's/.release/.releaseA/g' /opt/legado/app/google-services.json -i     
     - name: custom your app
-      run: |
-        sed '98a\        android:backgroundTint="#389099"' /opt/legado/app/src/main/res/layout/activity_book_search.xml -i
-        sed '59a\            shrinkResources true' /opt/legado/app/build.gradle -i
+      run: bash $GITHUB_WORKSPACE/.github/custom.sh
     - name: build with Gradle
       run: |
         cd /opt/legado
