@@ -28,6 +28,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get -y install git
+        export check=${{ true }}
     - name: Check latest tag
       run: bash $GITHUB_WORKSPACE/schedule.sh
     - name: Check check
