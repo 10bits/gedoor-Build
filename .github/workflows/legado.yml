@@ -16,8 +16,8 @@ jobs:
     env:
         tag: 3.20.072917
         name:  legado
-        workspace: /opt/$name
-        upload: $name apk
+        workspace: /opt/legado
+        upload: legado apk
     steps:
     - uses: actions/checkout@v2
     - name: set up JDK 1.8
