@@ -9,7 +9,7 @@ echo "检查时间:$LatestCheck"
 echo "最新tag:$LatestTag"
 
 cd $GITHUB_WORKSPACE
-sed "5c > 当前最新tag:$LatestTag 上次检查时间:$LatestCheck" readme.md -i
+sed "5c > 当前最新tag:$LatestTag 上次检查时间:$LatestCheck" README.md -i
 git config user.name github-actions
 git config user.email github-actions@github.com
 git commit -a -m "update readme.md"
