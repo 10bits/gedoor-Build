@@ -1,8 +1,7 @@
 #!/bin/sh
+#本脚本会定时更新README.md里的最新tag显示
 
-#定时更新readme.md里的最新tag
 git clone https://github.com/gedoor/legado.git /opt/legado
-
 cd /opt/legado
 LatestCheck = $(date -u -d"+8 hour" "+%Y-%m-%d %H:%M:%S")
 LatestTag   = $(git describe --tags `git rev-list --tags --max-count=1`)
