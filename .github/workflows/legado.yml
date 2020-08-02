@@ -35,7 +35,7 @@ jobs:
       run: bash $GITHUB_WORKSPACE/custom.sh
     - name: build with Gradle
       run: |
-        cd {{ env.workspace }}
+        cd ${{ env.workspace }}
         chmod +x gradlew
         ./gradlew aR
     - name : upload apk
