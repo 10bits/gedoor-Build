@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #本脚本用来获取clone项目最新tag
 
 git clone https://github.com/gedoor/legado.git /opt/legado
