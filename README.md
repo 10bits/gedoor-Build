@@ -5,9 +5,9 @@
 > 当前最新tag:3.20.072917
   
 1. fork到你自己的仓库
-2. 去你fork了的仓库,点一下右上角star就会自动构建,已经star的点unstar,再点一下star就会再次构建了
+2. 去你自己的仓库,点一下右上角star就会自动构建,已经star的点unstar,再点一下star就会再次构建了
 3. 构建完,apk会自动打包,去你自己的[Actions](https://github.com/10bits/gedoor-Build/actions)列表里找
-4. 每次构建大概十几分钟,喝杯茶的功夫再去Actions列表看看构建完没有
+4. 每次构建大概十几分钟,请耐心等待
 5. 为什么要去自己的仓库构建,因为这么多人一起构建,Actions列表会显的乱七八糟
 
 ## 如果你遇到以下问题
