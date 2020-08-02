@@ -1,4 +1,5 @@
 #!/bin/sh
+#本脚本用来个性化定制app,不会修改任何程序代码
 
 #解决安装程序共存问题
 sed "s/'.release'/'.releaseA'/" /opt/legado/app/build.gradle -i
