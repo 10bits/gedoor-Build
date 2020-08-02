@@ -29,7 +29,8 @@ jobs:
         sudo apt-get update
         sudo apt-get -y install git
         echo "check:$check"
+        check = ${{ true }}
+        echo "check:${{ check }}"
     - name: Check latest tag
-      if: ${{ env.check }}
       run: bash $GITHUB_WORKSPACE/schedule.sh
      
