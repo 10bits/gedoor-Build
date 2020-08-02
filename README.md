@@ -26,6 +26,8 @@ sed '/id\/fb_stop/a\        android:backgroundTint="#389099"' /opt/legado/app/sr
 sed '/minifyEnabled/i\            shrinkResources true' /opt/legado/app/build.gradle -i
 sed 's/minifyEnabled false/minifyEnabled true/'         /opt/legado/app/build.gradle -i
 ```
+## 定时更新脚本
+`schedule.sh`脚本会定时更新本页面里`当前最新tag`的显示
 ## 免责声明
 
 * 使用github actions自动构建,不会对原仓库代码程序进行任何修改
