@@ -10,13 +10,8 @@ echo "最新tag:$LatestTag"
 
 cd $GITHUB_WORKSPACE
 sed "5c > 当前最新tag:$LatestTag 上次检查时间:$LatestCheck" readme.md -i
+git config user.name github-actions
+git config user.email github-actions@github.com
+git commit -a -m "update readme.md"
+git push
 
-if git status|grep -wq "nothing to commit"
-then
-  echo "nothing to commit"
-else
-  git config user.name github-actions
-  git config user.email github-actions@github.com
-  git commit -a -m "update readme.md"
-  git push
-fi
