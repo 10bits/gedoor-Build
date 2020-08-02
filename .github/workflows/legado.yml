@@ -27,14 +27,7 @@ jobs:
     - name: clone code
       env:
         TAG: 3.20.072917
-      run: |
-        git clone https://github.com/gedoor/legado.git /opt/legado
-        cd /opt/legado
-        LatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
-        echo "最新tag:$LatestTag"
-        git checkout $LatestTag
-        echo "清空18PlusList.txt"
-        echo "ojbk">/opt/legado/app/src/main/assets/18PlusList.txt
+      run: bash $GITHUB_WORKSPACE/clone.sh
     - name: release apk sign
       run: |
         cp $GITHUB_WORKSPACE/.github/workflows/legado.jks /opt/legado/app/legado.jks
