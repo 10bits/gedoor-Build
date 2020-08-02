@@ -28,7 +28,7 @@ sed '/minifyEnabled/i\            shrinkResources true' /opt/legado/app/build.gr
 sed 's/minifyEnabled false/minifyEnabled true/'         /opt/legado/app/build.gradle -i
 ```
 ## 构建任务过程中用到的脚本
-> 环境变量`$workspace`是clone项目工作目录
+> 环境变量`$workspace`是clone项目工作目录,`$name`是你app的名字,`$tag`是clone项目最新tag
 * `clone.sh`脚本用来clone远端仓库到`$workspace`
 * `sign.sh`脚本用来给app进行签名
 * `custom.sh`脚本用来个性化定制app
