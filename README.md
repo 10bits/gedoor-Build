@@ -27,8 +27,12 @@ sed '/id\/fb_stop/a\        android:backgroundTint="#389099"' /opt/legado/app/sr
 sed '/minifyEnabled/i\            shrinkResources true' /opt/legado/app/build.gradle -i
 sed 's/minifyEnabled false/minifyEnabled true/'         /opt/legado/app/build.gradle -i
 ```
-## 定时更新脚本
-`schedule.sh`脚本会定时更新本页面里`当前最新tag`的显示
+## 构建任务过程中用到的脚本
+> 环境变量`$workspace`是clone项目工作目录
+* `clone.sh`脚本用来clone远端仓库到`$workspace`
+* `sign.sh`脚本用来给app进行签名
+* `custom.sh`脚本用来个性化定制app
+* `schedule.sh`脚本会定时更新本页面里`当前最新tag`的显示
 ## 免责声明
 
 * 使用github actions自动构建,不会对原仓库代码程序进行任何修改
