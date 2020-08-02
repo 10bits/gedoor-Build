@@ -13,7 +13,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+        tag: 3.20.072917
+        workspace: /opt/legado
     steps:
     - uses: actions/checkout@v2
     - name: set up JDK 1.8
@@ -25,9 +27,6 @@ jobs:
         sudo apt-get update
         sudo apt-get -y install git
     - name: clone code
-      env:
-        tag: 3.20.072917
-        workspace: /opt/legado
       run: bash $GITHUB_WORKSPACE/clone.sh
     - name: release apk sign
       run: bash $GITHUB_WORKSPACE/sign.sh    
