@@ -31,6 +31,6 @@ jobs:
     - name: Check latest tag
       run: bash $GITHUB_WORKSPACE/schedule.sh
     - name: Check check
-      if: ${{ env.check }}
+      if: ${{ env.check==true }}
       run: echo ${{ env.check }}
      
