@@ -17,20 +17,19 @@ jobs:
     # The type of runner that the job will run on
 
     runs-on: ubuntu-latest
-
+    env:
+      check: ${{ false }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-      env:
-        check: ${{ 'haha' }}
+      
     - name: install git
       run: |
         sudo apt-get update
         sudo apt-get -y install git
-        echo "check:$check"
-        check="heihei"
-        echo "check:$check"
+    
     - name: Check latest tag
+      if: ${{ check }}
       run: bash $GITHUB_WORKSPACE/schedule.sh
      
