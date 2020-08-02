@@ -15,7 +15,7 @@
 1. `安装失败(-102)`问题,给release apk增加了签名,已解决
 2. `与已安装应用签名不同`问题,请卸载重新安装,已解决
 3. `与已安装程序共存`问题,通过修改`applicationIdSuffix='.releaseA'`,已解决,不用卸载重装了
-4. 使用过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
+> 使用app过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
 ## 如何定制你自己的APP(举例)
 请在`custom.sh`脚本里进行定制
 ```bash
