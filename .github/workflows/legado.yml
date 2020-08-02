@@ -16,6 +16,7 @@ jobs:
     env:
         tag: 3.20.072917
         workspace: /opt/legado
+        upload: legado apk
     steps:
     - uses: actions/checkout@v2
     - name: set up JDK 1.8
@@ -32,7 +33,7 @@ jobs:
       run: bash $GITHUB_WORKSPACE/sign.sh    
     - name: custom your app
       run: bash $GITHUB_WORKSPACE/custom.sh
-    - name: build with Gradle
+    - name: build with gradle
       run: |
         cd ${{ env.workspace }}
         chmod +x gradlew
@@ -41,5 +42,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: legado apk
-        path: /opt/legado/app/build/outputs/apk/app/release
+        name: ${{ env.upload }}
+        path: ${{ env.workspace }}/app/build/outputs/apk/app/release
