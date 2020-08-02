@@ -23,12 +23,12 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-      
+    - name: set env
+      run: echo "::set-env name=check::true"
     - name: install git
       run: |
         sudo apt-get update
         sudo apt-get -y install git
-        echo "::set-env name=check::true"
         echo ${{ env.check }}
     - name: Check latest tag
       run: bash $GITHUB_WORKSPACE/schedule.sh
