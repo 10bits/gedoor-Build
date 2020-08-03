@@ -9,9 +9,9 @@ sed 's/.release/.releaseA/'    $workspace/app/google-services.json -i
 #sed '/id\/fb_stop/a\        android:backgroundTint="#389099"' $workspace/app/src/main/res/layout/activity_book_search.xml -i
 
 #缩小apk体积
-#sed '/minifyEnabled/i\            shrinkResources true' $workspace/app/build.gradle -i
-#sed 's/minifyEnabled false/minifyEnabled true/'         $workspace/app/build.gradle -i
+sed '/minifyEnabled/i\            shrinkResources true' $workspace/app/build.gradle -i
+sed 's/minifyEnabled false/minifyEnabled true/'         $workspace/app/build.gradle -i
 
 #删除一些用不到的资源
-#rm $workspace/app/src/main/assets/bg -rf
-#rm $workspace/app/src/main/assets/web/new -rf
+rm $workspace/app/src/main/assets/bg -rf
+rm $workspace/app/src/main/assets/web/new -rf
