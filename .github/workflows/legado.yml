@@ -1,11 +1,6 @@
 name: Android CI
 
 on: 
-  release:
-    types: [published]
-  push:
-    tags:
-    - 'v*'
   watch:
     types: [started]
 
