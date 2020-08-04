@@ -3,10 +3,26 @@ name: Android CI
 on: 
   watch:
     types: [started]
+  schedule:
+    - cron: '0 3 * * *'
 
 jobs:
-  build:
+  schedule:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: install git
+      run: |
+        sudo apt-get update
+        sudo apt-get -y install git
 
+    - name: check latest tag
+      shell: bash
+      run: source $GITHUB_WORKSPACE/action_schedule.sh
+
+  build:
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     env:
         tag: 3.20.072917
