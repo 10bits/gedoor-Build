@@ -18,7 +18,8 @@
 3. `与已安装程序共存`问题,通过修改`applicationIdSuffix='.releaseA'`,已解决,不用卸载重装了
 > 使用app过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
 ## 如何定制你自己的APP(举例)
-请在`custom.sh`脚本里进行定制
+请在`action_app_custom.sh`脚本里进行定制
+> 现在只有仓库的拥有者才能运行此脚本
 ```bash
 #!/bin/sh
 #设置搜索界面浮动按钮颜色
@@ -29,10 +30,12 @@ sed 's/minifyEnabled false/minifyEnabled true/'         /opt/legado/app/build.gr
 ```
 ## 构建任务过程中用到的脚本
 > 环境变量`$workspace`是clone项目工作目录,`$name`是你app的名字,`$tag`是clone项目最新tag
-* `clone.sh`脚本用来clone远端仓库到`$workspace`
-* `sign.sh`脚本用来给app进行签名
-* `custom.sh`脚本用来个性化定制app
-* `schedule.sh`脚本会定时更新本页面里`当前最新tag`的显示
+* `action_clone.sh`脚本用来clone远端仓库到`$workspace`
+* `action_check_tag.sh`脚本用来获取远端仓库最新tag
+* `action_app_sign.sh`脚本用来给app进行签名
+* `action_app_custom.sh`脚本用来个性化定制app
+* `action_app_together.sh`脚本用来解决安装程序共存
+* `action_schedule.sh`脚本用来定时更新本页面里`当前最新tag`的显示
 ## 免责声明
 
 * 使用github actions自动构建,不会对原仓库代码程序进行任何修改
