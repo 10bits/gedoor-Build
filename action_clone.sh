@@ -6,5 +6,4 @@ cd $workspace
 LatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
 echo "最新tag:$LatestTag"
 git checkout $LatestTag
-echo "清空18PlusList.txt"
-echo "">$workspace/app/src/main/assets/18PlusList.txt
+

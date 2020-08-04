@@ -19,21 +19,35 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+
     - name: install git
       run: |
         sudo apt-get update
         sudo apt-get -y install git
+
     - name: clone code
-      run: bash $GITHUB_WORKSPACE/clone.sh
+      shell: bash
+      run: source $GITHUB_WORKSPACE/action_clone.sh
+
     - name: release apk sign
-      run: bash $GITHUB_WORKSPACE/sign.sh    
+      shell: bash
+      run: source $GITHUB_WORKSPACE/action_app_sign.sh
+
+    - name: apk live together
+      shell: bash
+      run: source  $GITHUB_WORKSPACE/action_app_together.sh  
+
     - name: custom your app
-      run: bash $GITHUB_WORKSPACE/custom.sh
+      if: github.repository_owner == github.actor
+      shell: bash
+      run: source $GITHUB_WORKSPACE/action_app_custom.sh
+
     - name: build with gradle
       run: |
         cd ${{ env.workspace }}
         chmod +x gradlew
         ./gradlew aR
+        
     - name : upload apk
       uses: actions/upload-artifact@master
       if: always()
