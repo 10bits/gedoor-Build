@@ -59,4 +59,4 @@ jobs:
       if: always()
       with:
         name: ${{ env.APP_UPLOAD_NAME }}
-        path: ${{ env.APP_UPLOAD }}/app/build/outputs/apk/app/release
+        path: ${{ env.APP_UPLOAD }}
