@@ -3,8 +3,9 @@
 
 function app_clear_18plus()
 {
+    echo $APP_NAME
     if [ $APP_NAME = 'legado']; then
-        #"清空18PlusList.txt"
+        echo "清空18PlusList.txt"
         echo "">$APP_WORKSPACE/app/src/main/assets/18PlusList.txt
     fi
 }
