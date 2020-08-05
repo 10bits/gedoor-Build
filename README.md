@@ -31,7 +31,7 @@ sed 's/minifyEnabled false/minifyEnabled true/'         /opt/legado/app/build.gr
 ## 构建任务过程中用到的脚本
 * `action_setenv.sh`用来设置环境变量
 * `action_clone.sh`用来clone远端仓库
-* `action_custom_app.sh`用来定制app
+* `action_app_custom.sh`用来定制app
 > 脚本中用的的环境变量
 
 |环境变量名      |描述|
