@@ -14,7 +14,7 @@ function app_color_set()
 function app_resources_unuse()
 {
     #删除一些用不到的资源
-    m  $APP_WORKSPACE/app/src/main/assets/bg      -rf
+    rm  $APP_WORKSPACE/app/src/main/assets/bg      -rf
     rm $APP_WORKSPACE/app/src/main/assets/web/new -rf
 }
 function app_minify()
