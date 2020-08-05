@@ -2,7 +2,6 @@
 #本脚本会定时更新README.md里的最新tag显示
 
 source $GITHUB_WORKSPACE/action_clone.sh
-init_workspace;
 LatestTag=$APP_LATEST_TAG
 LatestCheck=$(date -u -d"+8 hour" "+%Y-%m-%d %H:%M:%S")
 cd $GITHUB_WORKSPACE
