@@ -24,11 +24,6 @@ jobs:
   build:
     if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
-    env:
-        tag: 3.20.072917
-        name:  legado
-        workspace: /opt/legado
-        upload: legado apk
     steps:
     - uses: actions/checkout@v2
     - name: set up JDK 1.8
@@ -41,26 +36,21 @@ jobs:
         sudo apt-get update
         sudo apt-get -y install git
 
+    - name: set env
+      shell: bash
+      run: source $GITHUB_WORKSPACE/action_setenv.sh
+      
     - name: clone code
       shell: bash
       run: source $GITHUB_WORKSPACE/action_clone.sh
 
-    - name: release apk sign
-      shell: bash
-      run: source $GITHUB_WORKSPACE/action_app_sign.sh
-
-    - name: apk live together
-      shell: bash
-      run: source  $GITHUB_WORKSPACE/action_app_together.sh  
-
     - name: custom your app
-      if: github.repository_owner == github.actor
       shell: bash
       run: source $GITHUB_WORKSPACE/action_app_custom.sh
 
     - name: build with gradle
       run: |
-        cd ${{ env.workspace }}
+        cd ${{ env.APP_WORKSPACE }}
         chmod +x gradlew
         ./gradlew aR
         
@@ -68,5 +58,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: ${{ env.upload }}
-        path: ${{ env.workspace }}/app/build/outputs/apk/app/release
+        name: ${{ env.APP_UPLOAD_NAME }}
+        path: ${{ env.APP_UPLOAD }}/app/build/outputs/apk/app/release
