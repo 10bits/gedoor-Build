@@ -3,7 +3,7 @@
 
 function app_clear_18plus()
 {
-    "清空18PlusList.txt"
+    #"清空18PlusList.txt"
     echo "">$APP_WORKSPACE/app/src/main/assets/18PlusList.txt
 }
 function app_color_set()
