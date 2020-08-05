@@ -8,6 +8,8 @@ function init_workspace()
     cd $APP_WORKSPACE
     LatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
     git checkout $LatestTag
+    echo ::set-env name=APP_LATEST_TAG::$LatestTag
+    echo ::set-env name=APP_UPLOAD_NAME::$APP_NAME-$LatestTag
     echo $LatestTag
 }
 init_workspace;
