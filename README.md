@@ -41,7 +41,12 @@ sed 's/minifyEnabled false/minifyEnabled true/'         /opt/legado/app/build.gr
 |APP_WORKSPACE  |构建app的工作目录|
 |APP_UPLOAD_NAME|构建完打包名|
 |APP_UPLOAD     |构建完apk打包路径|
+## 编译其他开源APP(MyBookshelf阅读2.0)
+> 修改`action_setenv.sh`脚本里的坏境变量`APP_NAME`,`APP_GIT_URL`
+```bash
+APP_NAME='MyBookshelf'
+APP_GIT_URL='https://github.com/gedoor/MyBookshelf.git'
+```
 ## 免责声明
-
 * 使用github actions自动构建,不会对原仓库代码程序进行任何修改
 * 如果你使用了自动打包的apk对你的设备产生伤害,与本人无关,一切都是自动构建的
