@@ -19,7 +19,7 @@
 > 使用app过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
 ## 如何定制你自己的APP(举例)
 请在`action_app_custom.sh`脚本里进行定制
-> 现在只有仓库的拥有者才能运行此脚本
+
 ```bash
 #!/bin/sh
 #设置搜索界面浮动按钮颜色
