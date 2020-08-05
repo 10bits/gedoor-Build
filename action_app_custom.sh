@@ -30,11 +30,11 @@ function app_live_together(){
     sed 's/.release/.releaseA/'     $APP_WORKSPACE/app/google-services.json -i 
 }
 function app_sign(){
-    cp $GITHUB_WORKSPACE/.github/workflows/legado.jks APP_WORKSPACE/app/legado.jks
-    sed '$a\RELEASE_STORE_FILE=./legado.jks'          APP_WORKSPACE/gradle.properties -i 
-    sed '$a\RELEASE_KEY_ALIAS=legado'                 APP_WORKSPACE/gradle.properties -i
-    sed '$a\RELEASE_STORE_PASSWORD=gedoor_legado'     APP_WORKSPACE/gradle.properties -i
-    sed '$a\RELEASE_KEY_PASSWORD=gedoor_legado'       APP_WORKSPACE/gradle.properties -i
+    cp $GITHUB_WORKSPACE/.github/workflows/legado.jks $APP_WORKSPACE/app/legado.jks
+    sed '$a\RELEASE_STORE_FILE=./legado.jks'          $APP_WORKSPACE/gradle.properties -i 
+    sed '$a\RELEASE_KEY_ALIAS=legado'                 $APP_WORKSPACE/gradle.properties -i
+    sed '$a\RELEASE_STORE_PASSWORD=gedoor_legado'     $APP_WORKSPACE/gradle.properties -i
+    sed '$a\RELEASE_KEY_PASSWORD=gedoor_legado'       $APP_WORKSPACE/gradle.properties -i
 
 }
 app_clear_18plus;app_sign;app_live_together;app_minify;app_resources_unuse
