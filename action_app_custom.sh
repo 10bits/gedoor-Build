@@ -3,19 +3,25 @@
 
 function app_clear_18plus()
 {
-    #"清空18PlusList.txt"
-    echo "">$APP_WORKSPACE/app/src/main/assets/18PlusList.txt
+    if [ $APP_NAME = 'legado']; then
+        #"清空18PlusList.txt"
+        echo "">$APP_WORKSPACE/app/src/main/assets/18PlusList.txt
+    fi
 }
 function app_color_set()
 {
-    #设置搜索界面浮动按钮颜色
-    sed '/id\/fb_stop/a\        android:backgroundTint="#389099"' $APP_WORKSPACE/app/src/main/res/layout/activity_book_search.xml -i
+    if [ $APP_NAME = 'legado']; then
+        #设置搜索界面浮动按钮颜色
+        sed '/id\/fb_stop/a\        android:backgroundTint="#389099"' $APP_WORKSPACE/app/src/main/res/layout/activity_book_search.xml -i
+    fi
 }
 function app_resources_unuse()
 {
     #删除一些用不到的资源
-    rm $APP_WORKSPACE/app/src/main/assets/bg      -rf
-    rm $APP_WORKSPACE/app/src/main/assets/web/new -rf
+    if [ $APP_NAME = 'legado']; then
+        rm $APP_WORKSPACE/app/src/main/assets/bg      -rf
+        rm $APP_WORKSPACE/app/src/main/assets/web/new -rf
+    fi
 }
 function app_minify()
 {

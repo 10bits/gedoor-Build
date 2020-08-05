@@ -1,6 +1,6 @@
 #!/bin/sh
 #本脚本会定时更新README.md里的最新tag显示
-source $GITHUB_WORKSPACE/action_setenv.sh
+
 source $GITHUB_WORKSPACE/action_clone.sh
 
 LatestTag=$(init_workspace)

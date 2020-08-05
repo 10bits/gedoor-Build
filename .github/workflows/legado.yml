@@ -16,6 +16,9 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get -y install git
+    - name: set env
+      shell: bash
+      run: source $GITHUB_WORKSPACE/action_setenv.sh
 
     - name: check latest tag
       shell: bash
