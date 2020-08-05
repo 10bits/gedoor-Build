@@ -4,14 +4,14 @@
 function app_clear_18plus()
 {
     echo "当前app:$APP_NAME"
-    if [ $APP_NAME = 'legado']; then
+    if [ $APP_NAME = 'legado' ]; then
         echo "清空18PlusList.txt"
         echo "">$APP_WORKSPACE/app/src/main/assets/18PlusList.txt
     fi
 }
 function app_color_set()
 {
-    if [ $APP_NAME = 'legado']; then
+    if [ $APP_NAME = 'legado' ]; then
         #设置搜索界面浮动按钮颜色
         sed '/id\/fb_stop/a\        android:backgroundTint="#389099"' $APP_WORKSPACE/app/src/main/res/layout/activity_book_search.xml -i
     fi
@@ -19,7 +19,8 @@ function app_color_set()
 function app_resources_unuse()
 {
     #删除一些用不到的资源
-    if [ $APP_NAME = 'legado']; then
+    if [ $APP_NAME = 'legado' ]; then
+        echo "删除一些用不到的资源"
         rm $APP_WORKSPACE/app/src/main/assets/bg      -rf
         rm $APP_WORKSPACE/app/src/main/assets/web/new -rf
     fi
