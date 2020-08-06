@@ -57,7 +57,7 @@ function app_other()
 {
     if [ $APP_NAME = 'MyBookshelf' ]; then
         echo "$APP_NAME 解压MyBookshelf_Keys.zip"
-        unzip -o $APP_WORKSPACE/app/MyBookshelf_Keys.zip $APP_WORKSPACE/app
+        unzip -o $APP_WORKSPACE/app/MyBookshelf_Keys.zip -d $APP_WORKSPACE/app
         rm $APP_WORKSPACE/app/gradle.properties
     fi
 }
