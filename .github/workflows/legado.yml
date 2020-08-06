@@ -43,6 +43,10 @@ jobs:
 
     - name: set env
       shell: bash
+      env:
+        SECRETS_APP_NAME: ${{ secrets.APP_NAME }}
+        SECRETS_GIT_URL: ${{ secrets.GIT_URL }}
+        SECRETS_GIT_TAG: ${{ secrets.GIT_TAG }}
       run: source $GITHUB_WORKSPACE/action_setenv.sh
       
     - name: clone code
