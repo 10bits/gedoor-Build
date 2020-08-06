@@ -29,7 +29,6 @@ function app_minify()
     sed '/minifyEnabled/i\            shrinkResources true' $APP_WORKSPACE/app/build.gradle -i
     sed 's/minifyEnabled false/minifyEnabled true/'         $APP_WORKSPACE/app/build.gradle -i
 }
-
 function app_live_together()
 {
     if [ $APP_NAME = 'legado' ]; then
@@ -38,20 +37,28 @@ function app_live_together()
         sed 's/.release/.releaseA/'     $APP_WORKSPACE/app/google-services.json -i 
     fi
 }
-function app_not_apply_plugin(){
-    if [ $APP_NAME = 'MyBookshelf' ]; then
-        echo "解决$APP_NAME google-services.json丢失"
-        sed '/io.fabric/d'       $APP_WORKSPACE/app/build.gradle -i
-        sed '/com.google.gms/d'  $APP_WORKSPACE/app/build.gradle -i
-    fi
-}
 function app_sign()
 {
     echo "给apk增加签名"
-    cp $GITHUB_WORKSPACE/.github/workflows/legado.jks $APP_WORKSPACE/app/legado.jks
+    cp $GITHUB_WORKSPACE/.github/wosrkflows/legado.jks $APP_WORKSPACE/app/legado.jks
     sed '$a\RELEASE_STORE_FILE=./legado.jks'          $APP_WORKSPACE/gradle.properties -i 
     sed '$a\RELEASE_KEY_ALIAS=legado'                 $APP_WORKSPACE/gradle.properties -i
     sed '$a\RELEASE_STORE_PASSWORD=gedoor_legado'     $APP_WORKSPACE/gradle.properties -i
     sed '$a\RELEASE_KEY_PASSWORD=gedoor_legado'       $APP_WORKSPACE/gradle.properties -i
 }
-app_clear_18plus;app_sign;app_live_together;app_minify;app_resources_unuse;app_not_apply_plugin
+function app_not_apply_plugin()
+{
+    if [ $APP_NAME = 'MyBookshelf' ]; then
+        sed '/io.fabric/d'       $APP_WORKSPACE/app/build.gradle -i
+        sed '/com.google.gms/d'  $APP_WORKSPACE/app/build.gradle -i
+    fi
+}
+function app_other()
+{
+    if [ $APP_NAME = 'MyBookshelf' ]; then
+        echo "$APP_NAME 解压MyBookshelf_Keys.zip"
+        unzip -o $APP_WORKSPACE/app/MyBookshelf_Keys.zip
+        rm $APP_WORKSPACE/app/gradle.properties
+    fi
+}
+app_clear_18plus;app_sign;app_live_together;app_minify;app_resources_unuse;app_other
