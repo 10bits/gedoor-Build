@@ -54,16 +54,10 @@ jobs:
       shell: bash
       run: source $GITHUB_WORKSPACE/action_clone.sh
 
-    - name: custom your app
+    - name: custom your app and build
       shell: bash
       run: source $GITHUB_WORKSPACE/action_app_custom.sh
 
-    - name: build with gradle
-      run: |
-        cd ${{ env.APP_WORKSPACE }}
-        chmod +x gradlew
-        ./gradlew aR
-        
     - name : upload apk
       uses: actions/upload-artifact@master
       if: always()

@@ -48,7 +48,6 @@ function app_sign()
 }
 function app_not_apply_plugin()
 {
-    
     echo "删除google services相关"
     sed '/io.fabric/d'            $APP_WORKSPACE/app/build.gradle -i
     sed '/com.google.firebase/d'  $APP_WORKSPACE/app/build.gradle -i
@@ -63,4 +62,12 @@ function app_other()
         #sed 's/com.gedoor.monkeybook/com.kunfei.bookshelf/' $APP_WORKSPACE/app/build.gradle -i
     fi
 }
-app_clear_18plus;app_sign;app_live_together;app_not_apply_plugin
+function app_build()
+{
+    echo "build with gradle"
+    cd $APP_WORKSPACE
+    chmod +x gradlew
+    ./gradlew aR
+    echo $(ls -al $APP_WORKSPACE/app/build/outputs/apk/app/)
+}
+app_clear_18plus;app_sign;app_live_together;app_not_apply_plugin;app_build
