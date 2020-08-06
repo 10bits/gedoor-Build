@@ -49,6 +49,7 @@ function app_sign()
 function app_not_apply_plugin()
 {
     if [ $APP_NAME = 'MyBookshelf' ]; then
+        echo "删除google services"
         sed '/io.fabric/d'       $APP_WORKSPACE/app/build.gradle -i
         sed '/com.google.gms/d'  $APP_WORKSPACE/app/build.gradle -i
     fi
@@ -59,7 +60,7 @@ function app_other()
         echo "$APP_NAME 解压MyBookshelf_Keys.zip"
         unzip -o $APP_WORKSPACE/app/MyBookshelf_Keys.zip -d $APP_WORKSPACE/app
         rm $APP_WORKSPACE/app/gradle.properties
-        sed 's/com.gedoor.monkeybook/com.kunfei.bookshelf/' $APP_WORKSPACE/app/build.gradle -i
+        #sed 's/com.gedoor.monkeybook/com.kunfei.bookshelf/' $APP_WORKSPACE/app/build.gradle -i
     fi
 }
-app_clear_18plus;app_sign;app_live_together;app_other
+app_clear_18plus;app_sign;app_live_together;app_not_apply_plugin
