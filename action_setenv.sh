@@ -13,7 +13,6 @@ APP_LATEST_TAG='latest'
 APP_UPLOAD_NAME="$APP_NAME-$APP_LATEST_TAG"
 APP_UPLOAD="$APP_WORKSPACE/app/build/outputs/apk/app/release"
 
-
 set_env APP_NAME        $APP_NAME
 set_env APP_WORKSPACE   $APP_WORKSPACE
 set_env APP_GIT_URL     $APP_GIT_URL

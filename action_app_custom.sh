@@ -68,6 +68,6 @@ function app_build()
     cd $APP_WORKSPACE
     chmod +x gradlew
     ./gradlew aR
-    echo $(ls -al $APP_WORKSPACE/app/build/outputs/apk/app/)
+    echo $(ls -al $APP_WORKSPACE/app)
 }
 app_clear_18plus;app_sign;app_live_together;app_not_apply_plugin;app_build
