@@ -61,4 +61,4 @@ function app_other()
         rm $APP_WORKSPACE/app/gradle.properties
     fi
 }
-app_clear_18plus;app_sign;app_live_together;app_minify;app_resources_unuse;app_other
+app_clear_18plus;app_sign;app_live_together;app_other
