@@ -71,8 +71,7 @@ function app_build()
     chmod +x gradlew
     ./gradlew aR
     if [ $APP_NAME = 'MyBookshelf' ]; then
-        echo ::set-env name=APP_UPLOAD::$APP_WORKSPACE/app/build
-        echo $(ls $APP_WORKSPACE/app/build)
+        echo ::set-env name=APP_UPLOAD::$APP_WORKSPACE/app/build/outputs/apk/release
     fi
 }
 app_clear_18plus;app_sign;app_live_together;app_not_apply_plugin;app_build
