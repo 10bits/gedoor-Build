@@ -40,7 +40,7 @@ function app_live_together()
 function app_sign()
 {
     echo "给apk增加签名"
-    cp $GITHUB_WORKSPACE/.github/workflows/legado.jks $APP_WORKSPACE/app/legado.jks
+    cp $GITHUB_WORKSPACE/.github/workflows/legado.jks  $APP_WORKSPACE/app/legado.jks
     sed '$a\RELEASE_STORE_FILE=./legado.jks'           $APP_WORKSPACE/gradle.properties -i 
     sed '$a\RELEASE_KEY_ALIAS=legado'                  $APP_WORKSPACE/gradle.properties -i
     sed '$a\RELEASE_STORE_PASSWORD=gedoor_legado'      $APP_WORKSPACE/gradle.properties -i
@@ -57,7 +57,7 @@ function app_other()
 {
     if [ $APP_NAME = 'MyBookshelf' ]; then
         echo "$APP_NAME 解压MyBookshelf_Keys.zip"
-        unzip -o $APP_WORKSPACE/app/MyBookshelf_Keys.zip
+        unzip -o $APP_WORKSPACE/app/MyBookshelf_Keys.zip $APP_WORKSPACE/app
         rm $APP_WORKSPACE/app/gradle.properties
     fi
 }
