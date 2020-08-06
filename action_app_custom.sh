@@ -32,10 +32,17 @@ function app_minify()
 
 function app_live_together()
 {
-    #解决安装程序共存问题
-    sed "s/'.release'/'.releaseA'/" $APP_WORKSPACE/app/build.gradle -i
     if [ $APP_NAME = 'legado' ]; then
+        echo "解决安装程序共存问题"
+        sed "s/'.release'/'.releaseA'/" $APP_WORKSPACE/app/build.gradle -i
         sed 's/.release/.releaseA/'     $APP_WORKSPACE/app/google-services.json -i 
+    fi
+}
+function app_not_apply_plugin(){
+    if [ $APP_NAME = 'MyBookshelf' ]; then
+        echo "解决$APP_NAME google-services.json丢失"
+        sed '/io.fabric/d'       $APP_WORKSPACE/app/build.gradle -i
+        sed '/com.google.gms/d'  $APP_WORKSPACE/app/build.gradle -i
     fi
 }
 function app_sign()
@@ -47,4 +54,4 @@ function app_sign()
     sed '$a\RELEASE_STORE_PASSWORD=gedoor_legado'     $APP_WORKSPACE/gradle.properties -i
     sed '$a\RELEASE_KEY_PASSWORD=gedoor_legado'       $APP_WORKSPACE/gradle.properties -i
 }
-app_clear_18plus;app_sign;app_live_together;app_minify;app_resources_unuse
+app_clear_18plus;app_sign;app_live_together;app_minify;app_resources_unuse;app_not_apply_plugin
