@@ -58,8 +58,7 @@ function app_other()
     if [ $APP_NAME = 'MyBookshelf' ]; then
         echo "$APP_NAME 解压MyBookshelf_Keys.zip"
         unzip -o $APP_WORKSPACE/app/MyBookshelf_Keys.zip -d $APP_WORKSPACE/app
-        rm $APP_WORKSPACE/app/gradle.properties
-        echo ::set-env name=APP_UPLOAD::$APP_WORKSPACE/app/build
+        rm $APP_WORKSPACE/app/gradle.properties       
         #sed 's/com.gedoor.monkeybook/com.kunfei.bookshelf/' $APP_WORKSPACE/app/build.gradle -i
     fi
 }
@@ -69,6 +68,7 @@ function app_build()
     cd $APP_WORKSPACE
     chmod +x gradlew
     ./gradlew aR
+    echo ::set-env name=APP_UPLOAD::$APP_WORKSPACE/app/build
     echo $(ls $APP_WORKSPACE/app/build)
 }
 app_clear_18plus;app_sign;app_live_together;app_not_apply_plugin;app_build
