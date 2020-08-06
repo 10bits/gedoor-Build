@@ -48,10 +48,12 @@ function app_sign()
 }
 function app_not_apply_plugin()
 {
-    echo "删除google services相关"
-    sed '/io.fabric/d'            $APP_WORKSPACE/app/build.gradle -i
-    sed '/com.google.firebase/d'  $APP_WORKSPACE/app/build.gradle -i
-    sed '/com.google.gms/d'       $APP_WORKSPACE/app/build.gradle -i
+    if [ $APP_NAME = 'MyBookshelf' ]; then
+        echo "删除google services相关"
+        sed '/io.fabric/d'            $APP_WORKSPACE/app/build.gradle -i
+        sed '/com.google.firebase/d'  $APP_WORKSPACE/app/build.gradle -i
+        sed '/com.google.gms/d'       $APP_WORKSPACE/app/build.gradle -i
+    fi
 }
 function app_other()
 {
