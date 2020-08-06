@@ -34,7 +34,9 @@ function app_live_together()
 {
     #解决安装程序共存问题
     sed "s/'.release'/'.releaseA'/" $APP_WORKSPACE/app/build.gradle -i
-    sed 's/.release/.releaseA/'     $APP_WORKSPACE/app/google-services.json -i 
+    if [ $APP_NAME = 'legado' ]; then
+        sed 's/.release/.releaseA/'     $APP_WORKSPACE/app/google-services.json -i 
+    fi
 }
 function app_sign()
 {
