@@ -3,7 +3,7 @@
 
 function app_clear_18plus()
 {
-    if [ $APP_NAME = 'legado' ]; then
+    if [ $APP_NAME = '神器' ]; then
         echo "清空18PlusList.txt"
         echo "">$APP_WORKSPACE/app/src/main/assets/18PlusList.txt
     fi
