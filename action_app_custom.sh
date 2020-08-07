@@ -74,4 +74,7 @@ function app_build()
         echo ::set-env name=APP_UPLOAD::$APP_WORKSPACE/app/build/outputs/apk/release
     fi
 }
+if [ $SECRETS_MINIFY = 'true' ]; then
+    app_minify;app_resources_unuse
+fi
 app_clear_18plus;app_sign;app_live_together;app_not_apply_plugin;app_build

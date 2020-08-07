@@ -48,6 +48,7 @@ jobs:
         SECRETS_GIT_URL: ${{ secrets.GIT_URL }}
         SECRETS_GIT_TAG: ${{ secrets.GIT_TAG }}
         SECRETS_ENABLE: ${{ secrets.ENABLE }}
+        SECRETS_MINIFY: ${{ secrets.MINIFY }}
       run: source $GITHUB_WORKSPACE/action_setenv.sh
       
     - name: clone code
