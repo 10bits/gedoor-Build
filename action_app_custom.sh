@@ -29,14 +29,7 @@ function app_minify()
     sed '/minifyEnabled/i\            shrinkResources true' $APP_WORKSPACE/app/build.gradle -i
     sed 's/minifyEnabled false/minifyEnabled true/'         $APP_WORKSPACE/app/build.gradle -i
 }
-function app_live_together()
-{
-    if [ $APP_NAME = 'legado' ]; then
-        echo "解决安装程序共存问题"
-        sed "com.amazon.kindlefc" $APP_WORKSPACE/app/build.gradle -i
-        sed 'com.amazon.kindlefc'     $APP_WORKSPACE/app/google-services.json -i 
-    fi
-}
+
 function app_sign()
 {
     echo "给apk增加签名"
