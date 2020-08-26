@@ -33,8 +33,8 @@ function app_live_together()
 {
     if [ $APP_NAME = 'legado' ]; then
         echo "解决安装程序共存问题"
-        sed "s/'.release'/'.releaseA'/" $APP_WORKSPACE/app/build.gradle -i
-        sed 's/.release/.releaseA/'     $APP_WORKSPACE/app/google-services.json -i 
+        sed "s/'.release'/'.kindlefc'/" $APP_WORKSPACE/app/build.gradle -i
+        sed 's/.release/.kindlefc/'     $APP_WORKSPACE/app/google-services.json -i 
     fi
 }
 function app_sign()
