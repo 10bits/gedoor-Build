@@ -3,7 +3,7 @@
 function set_env() { echo ::set-env name=$1::$2; }
 
 APP_NAME="legado"
-APP_GIT_URL="https://github.com/gedoor/legado.git"
+APP_GIT_URL="https://github.com/lmex621/legado.git"
 if [ $SECRETS_ENABLE = 'true' ] && [ -n "$SECRETS_APP_NAME" ] && [ -n "$SECRETS_GIT_URL" ]; then
     APP_NAME=$SECRETS_APP_NAME
     APP_GIT_URL=$SECRETS_GIT_URL
