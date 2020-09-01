@@ -8,6 +8,12 @@ function app_clear_18plus()
         echo "">$APP_WORKSPACE/app/src/main/assets/18PlusList.txt
     fi
 }
+function app_rename()
+{
+    if [ $APP_NAME = 'legado' ]; then
+        sed 's/"app_name">阅读/"app_name">阅读.A/' $APP_WORKSPACE/app/src/main/res/values-zh/strings.xml -i
+    fi
+}
 function app_color_set()
 {
     if [ $APP_NAME = 'legado' ]; then
@@ -77,4 +83,4 @@ function app_build()
 if [ $SECRETS_MINIFY = 'true' ]; then
     app_minify;app_resources_unuse
 fi
-app_clear_18plus;app_sign;app_live_together;app_not_apply_plugin;app_build
+app_clear_18plus;app_rename;app_sign;app_live_together;app_not_apply_plugin;app_build
