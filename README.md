@@ -9,7 +9,6 @@
 3. 每次构建完,apk会自动打包为`legado.apk.zip
 `,去你自己的[Actions](https://github.com/10bits/gedoor-Build/actions)列表里找
 4. 每次构建大概十几分钟,请耐心等待
-5. 为什么要去自己的仓库构建,因为很多人一起构建,Actions列表会显的乱七八糟
 
 ## 如果你安装apk遇到以下问题
 
