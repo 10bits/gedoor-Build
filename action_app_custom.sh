@@ -11,7 +11,7 @@ function app_clear_18plus()
 function app_rename()
 {
     if [ $APP_NAME = 'legado' ]; then
-        sed 's/"app_name">阅读/"app_name">阅读.A/' $APP_WORKSPACE/app/src/main/res/values-zh/strings.xml -i
+        sed 's/"app_name">阅读/"app_name">阅读.'"$APP_SUFFIX"'/' $APP_WORKSPACE/app/src/main/res/values-zh/strings.xml -i
     fi
 }
 function app_color_set()
@@ -39,8 +39,8 @@ function app_live_together()
 {
     if [ $APP_NAME = 'legado' ]; then
         echo "解决安装程序共存问题"
-        sed "s/'.release'/'.releaseA'/" $APP_WORKSPACE/app/build.gradle -i
-        sed 's/.release/.releaseA/'     $APP_WORKSPACE/app/google-services.json -i 
+        sed "s/'.release'/'.release$APP_SUFFIX'/" $APP_WORKSPACE/app/build.gradle -i
+        sed "s/.release/.release$APP_SUFFIX/"     $APP_WORKSPACE/app/google-services.json -i 
     fi
 }
 function app_sign()
