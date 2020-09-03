@@ -26,7 +26,7 @@ function app_resources_unuse()
     if [ $APP_NAME = 'legado' ]; then
         echo "删除一些用不到的资源"
         rm $APP_WORKSPACE/app/src/main/assets/bg      -rf
-        rm $APP_WORKSPACE/app/src/main/assets/web/new -rf
+        #rm $APP_WORKSPACE/app/src/main/assets/web/new -rf
     fi
 }
 function app_minify()
