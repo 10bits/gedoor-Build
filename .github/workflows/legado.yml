@@ -52,7 +52,9 @@ jobs:
 
     - name: custom your app and build
       shell: bash
-      run: source $GITHUB_WORKSPACE/action_app_custom.sh
+      run: |
+        source $GITHUB_WORKSPACE/action_app_custom.sh
+        app_clear_18plus;app_rename;app_sign;app_live_together;app_not_apply_plugin;app_build
 
     - name : upload apk
       uses: actions/upload-artifact@master
