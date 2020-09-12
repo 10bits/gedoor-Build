@@ -36,7 +36,7 @@ jobs:
         app_clear_18plus;app_rename;app_sign;app_live_together;app_not_apply_plugin;app_build
         cd $GITHUB_WORKSPACE
         if [ -d $APP_UPLOAD ]; then
-          if [ $(find $APP_UPLOAD -name "*.apk"|wc -l) ==1 ]; then
+          if [ $(find $APP_UPLOAD -name "*.apk"|wc -l) == 1 ]; then
             zip --junk-paths $APP_UPLOAD_NAME $APP_UPLOAD/*.apk
             echo ::set-output name=if_publish::true
             echo ::set-env name=APP_RELEASE_NAME::$APP_UPLOAD_NAME.zip
