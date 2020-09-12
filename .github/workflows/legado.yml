@@ -19,6 +19,22 @@ jobs:
     - name: check latest tag
       shell: bash
       run: source $GITHUB_WORKSPACE/action_schedule.sh
+    - name: check if release
+      id: check_release
+      shell: bash
+    - run: |
+        function version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
+        if version_gt $APP_LATEST_TAG $APP_LAST_TAG; then
+          echo ::set-output name=if_release::true
+        fi
+    - name: build apk
+      if: steps.check_release.outputs.if_release == 'true'
+      id: build_apk
+      shell: bash
+      run: |
+        source $GITHUB_WORKSPACE/action_app_custom.sh
+        app_clear_18plus;app_rename;app_sign;app_live_together;app_not_apply_plugin;app_build
+        zip --junk-paths $APP_UPLOAD_NAME $APP_UPLOAD/*.apk
 
   build:
     if: github.event_name != 'schedule'
