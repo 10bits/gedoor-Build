@@ -9,7 +9,7 @@ APP_GIT_URL="https://github.com/gedoor/legado.git"
 APP_SUFFIX="A"
 APP_WORKSPACE="/opt/$APP_NAME"
 APP_UPLOAD="$APP_WORKSPACE/app/build/outputs/apk/app/release"
-SECRETS_MINIFY = 'true'
+SECRETS_MINIFY='true'
 
 set_env APP_NAME        $APP_NAME
 set_env APP_WORKSPACE   $APP_WORKSPACE
