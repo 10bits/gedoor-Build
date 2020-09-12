@@ -83,4 +83,3 @@ function app_build()
 if [ $SECRETS_MINIFY = 'true' ]; then
     app_minify;app_resources_unuse
 fi
-app_clear_18plus;app_rename;app_sign;app_live_together;app_not_apply_plugin;app_build
