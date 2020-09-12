@@ -8,7 +8,7 @@ on:
 
 jobs:
   schedule:
-    if: github.event_name != 'schedule'
+    if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -67,7 +67,7 @@ jobs:
         asset_content_type: application/zip
   
   build:
-    if: github.event_name == 'schedule'
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2  
