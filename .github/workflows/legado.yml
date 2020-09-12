@@ -16,9 +16,11 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get -y install git
+        
     - name: check latest tag
       shell: bash
       run: source $GITHUB_WORKSPACE/action_schedule.sh
+      
     - name: check if release
       id: check_release
       shell: bash
@@ -27,9 +29,10 @@ jobs:
         if version_gt $APP_LATEST_TAG $APP_LAST_TAG; then
           echo ::set-output name=if_release::true
         fi
+        
     - name: build apk
-      if: steps.check_release.outputs.if_release == 'true'
       id: build_apk
+      if: steps.check_release.outputs.if_release == 'true'
       shell: bash
       run: |
         source $GITHUB_WORKSPACE/action_app_custom.sh
