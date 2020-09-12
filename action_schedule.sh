@@ -28,9 +28,9 @@ set_env APP_UPLOAD_NAME $APP_UPLOAD_NAME
 
 cd $GITHUB_WORKSPACE
 sed "5c > 当前最新tag:$LatestTag 上次检查时间:$LatestCheck" README.md -i
-set_env APP_LAST_TAG    $(cat .github/workflows/.lastcheck|sed -n 1p)
-if version_gt $LatestTag $(cat .github/workflows/.lastcheck|sed -n 1p); then
-  sed "1i $LatestTag" .github/workflows/.lastcheck -i
+set_env APP_LAST_TAG    $(cat .lastcheck|sed -n 1p)
+if version_gt $LatestTag $(cat .lastcheck|sed -n 1p); then
+  sed "1i $LatestTag" .lastcheck -i
 fi
 
 git config user.name  github-actions
