@@ -22,10 +22,11 @@ cd $APP_WORKSPACE
 LatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
 LatestCheck=$(date -u -d"+8 hour" "+%Y-%m-%d %H:%M:%S")
 set_env APP_LATEST_TAG  $LatestTag
-set_ENV APP_LAST_TAG    $(cat .github/workflows/.lastcheck|sed -n 1p)
 set_env APP_UPLOAD_NAME $APP_NAME_$LatestTag
+
 cd $GITHUB_WORKSPACE
 sed "5c > 当前最新tag:$LatestTag 上次检查时间:$LatestCheck" README.md -i
+set_ENV APP_LAST_TAG    $(cat .github/workflows/.lastcheck|sed -n 1p)
 if version_gt $LatestTag $(cat .github/workflows/.lastcheck|sed -n 1p); then
   sed "1i $LatestTag" .github/workflows/.lastcheck -i
 fi
