@@ -22,7 +22,8 @@ cd $APP_WORKSPACE
 LatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
 LatestCheck=$(date -u -d"+8 hour" "+%Y-%m-%d %H:%M:%S")
 set_env APP_LATEST_TAG  $LatestTag
-set_env APP_UPLOAD_NAME "$APP_NAME_$LatestTag"
+APP_UPLOAD_NAME="$APP_NAME_$LatestTag"
+set_env APP_UPLOAD_NAME $APP_UPLOAD_NAME
 
 cd $GITHUB_WORKSPACE
 sed "5c > 当前最新tag:$LatestTag 上次检查时间:$LatestCheck" README.md -i
