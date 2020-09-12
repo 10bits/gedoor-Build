@@ -34,8 +34,37 @@ jobs:
       run: |
         source $GITHUB_WORKSPACE/action_app_custom.sh
         app_clear_18plus;app_rename;app_sign;app_live_together;app_not_apply_plugin;app_build
-        zip --junk-paths $APP_UPLOAD_NAME $APP_UPLOAD/*.apk
-
+        cd $GITHUB_WORKSPACE
+        if [ -d $APP_UPLOAD ]; then
+          if [ $(find $APP_UPLOAD -name "*.apk"|wc -l) ==1 ]; then
+            zip --junk-paths $APP_UPLOAD_NAME $APP_UPLOAD/*.apk
+            echo ::set-output name=if_publish::true
+            echo ::set-env name=APP_RELEASE_NAME::$APP_UPLOAD_NAME.zip
+            echo ::set-env name=APP_RELEASE::$GITHUB_WORKSPACE/$APP_UPLOAD_NAME.zip
+          fi
+        fi
+    - name: Create Release
+      if: steps.build_apk.outputs.if_publish == 'true'
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ env.APP_UPLOAD_NAME }}
+        release_name: ${{ env.APP_UPLOAD_NAME }}
+        draft: false
+        prerelease: false
+    - name: Upload Release Asset
+      if: steps.build_apk.outputs.if_publish == 'true'
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ${{ env.APP_RELEASE }}
+        asset_name: ${{ env.APP_RELEASE_NAME }}
+        asset_content_type: application/zip
   build:
     if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
