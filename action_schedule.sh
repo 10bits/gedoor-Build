@@ -22,7 +22,7 @@ git clone $APP_GIT_URL $APP_WORKSPACE
 cd $APP_WORKSPACE
 LatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
 LatestCheck=$(date -u -d"+8 hour" "+%Y-%m-%d %H:%M:%S")
-
+git checkout $LatestTag
 set_env APP_LATEST_TAG  $LatestTag
 set_env APP_UPLOAD_NAME $APP_NAME-$LatestTag
 
