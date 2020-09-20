@@ -33,6 +33,6 @@ if version_gt $LatestTag $(cat .lastcheck|sed -n 1p); then
   sed "1i $LatestTag" .lastcheck -i
   git config user.name  github-actions
   git config user.email github-actions@github.com
-  git commit -a -m "Release $APP_NAME-$LatestTag"
+  git commit -a -m "$APP_NAME-$LatestTag release"
   git push
 fi
