@@ -9,6 +9,7 @@ function app_clear_18plus()
         echo "">$APP_WORKSPACE/app/src/main/assets/18PlusList.txt
     fi
 }
+
 #修改桌面阅读名为阅读.A,安装多个阅读时候方便识别,默认启用
 function app_rename() 
 {
@@ -16,6 +17,7 @@ function app_rename()
         sed 's/"app_name">阅读/"app_name">阅读.'"$APP_SUFFIX"'/' $APP_WORKSPACE/app/src/main/res/values-zh/strings.xml -i
     fi
 }
+
 #软件内一些颜色调整,默认不启用
 function app_color_set()
 {
@@ -24,6 +26,7 @@ function app_color_set()
         sed '/id\/fb_stop/a\        android:backgroundTint="#389099"' $APP_WORKSPACE/app/src/main/res/layout/activity_book_search.xml -i
     fi
 }
+
 #删除一些用不到的资源
 function app_resources_unuse()
 {
@@ -33,6 +36,7 @@ function app_resources_unuse()
         #rm $APP_WORKSPACE/app/src/main/assets/web/new -rf
     fi
 }
+
 #最小化生成apk体积
 function app_minify()
 {
@@ -40,6 +44,7 @@ function app_minify()
     sed '/minifyEnabled/i\            shrinkResources true' $APP_WORKSPACE/app/build.gradle -i
     sed 's/minifyEnabled false/minifyEnabled true/'         $APP_WORKSPACE/app/build.gradle -i
 }
+
 #和已有阅读共存,默认启用
 function app_live_together()
 {
@@ -49,6 +54,7 @@ function app_live_together()
         sed "s/.release/.release$APP_SUFFIX/"     $APP_WORKSPACE/app/google-services.json -i 
     fi
 }
+
 #apk增加签名,默认启用
 function app_sign()
 {
@@ -59,6 +65,7 @@ function app_sign()
     sed '$a\RELEASE_STORE_PASSWORD=gedoor_legado'      $APP_WORKSPACE/gradle.properties -i
     sed '$a\RELEASE_KEY_PASSWORD=gedoor_legado'        $APP_WORKSPACE/gradle.properties -i
 }
+
 #禁用一些库
 function app_not_apply_plugin()
 {
@@ -69,6 +76,7 @@ function app_not_apply_plugin()
         sed '/com.google.gms/d'       $APP_WORKSPACE/app/build.gradle -i
     fi
 }
+
 #进入收尾工作
 function app_other()
 {
@@ -79,6 +87,7 @@ function app_other()
         #sed 's/com.gedoor.monkeybook/com.kunfei.bookshelf/' $APP_WORKSPACE/app/build.gradle -i
     fi
 }
+
 #先进行一些准备工作再开始编译
 function app_build()
 {
@@ -90,9 +99,11 @@ function app_build()
         echo ::set-env name=APP_UPLOAD::$APP_WORKSPACE/app/build/outputs/apk/release
     fi
 }
+
 #是否启用缩减apk体积
 if [ $SECRETS_MINIFY = 'true' ]; then
     app_minify;app_resources_unuse
 fi
-#准备工作在这里
+
+#准备工作在这里,可以删除你不需要的
 app_clear_18plus;app_rename;app_sign;app_live_together;app_not_apply_plugin
