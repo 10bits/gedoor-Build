@@ -2,7 +2,7 @@
 #本脚本会定时更新README.md里的最新tag显示
 
 function version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
-function set_env() { echo ::set-env name=$1::$2; }
+function set_env() { echo "$1=$2" >> $GITHUB_ENV; }
 
 APP_NAME="legado"
 APP_GIT_URL="https://github.com/gedoor/legado.git"
