@@ -42,8 +42,8 @@ jobs:
           if [ $(find $APP_UPLOAD -name "*.apk"|wc -l) == 1 ]; then
             zip --junk-paths $APP_UPLOAD_NAME.zip $APP_UPLOAD/*.apk
             echo ::set-output name=if_publish::true
-            echo ::set-env name=APP_RELEASE_NAME::$APP_UPLOAD_NAME.zip
-            echo ::set-env name=APP_RELEASE::$GITHUB_WORKSPACE/$APP_UPLOAD_NAME.zip
+            set_env APP_RELEASE_NAME $APP_UPLOAD_NAME.zip
+            set_env APP_RELEASE $GITHUB_WORKSPACE/$APP_UPLOAD_NAME.zip
           fi
         fi
         
