@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function set_env() { echo ::set-env name=$1::$2; }
+function set_env() { echo "$1=$2" >> $GITHUB_ENV; }
 
 APP_NAME="legado"
 APP_GIT_URL="https://github.com/gedoor/legado.git"
