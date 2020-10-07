@@ -1,6 +1,8 @@
 #!/bin/sh
 #本脚本用来个性化定制app,不会修改任何程序代码
 
+function set_env() { echo "$1=$2" >> $GITHUB_ENV; }
+
 #去除河蟹,默认启用
 function app_clear_18plus() 
 {
@@ -96,7 +98,7 @@ function app_build()
     chmod +x gradlew
     ./gradlew aR
     if [ $APP_NAME = 'MyBookshelf' ]; then
-        echo ::set-env name=APP_UPLOAD::$APP_WORKSPACE/app/build/outputs/apk/release
+        set_env APP_UPLOAD $APP_WORKSPACE/app/build/outputs/apk/release
     fi
 }
 
