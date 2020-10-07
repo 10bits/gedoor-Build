@@ -1,6 +1,6 @@
 #!/bin/sh
 #本脚本用来clone远端仓库
-
+function set_env() { echo "$1=$2" >> $GITHUB_ENV; }
 #建立工作目录
 function init_workspace()
 {
@@ -11,8 +11,8 @@ function init_workspace()
         LatestTag=$SECRETS_TAG
     fi
     git checkout $LatestTag
-    echo ::set-env name=APP_LATEST_TAG::$LatestTag
-    echo ::set-env name=APP_UPLOAD_NAME::$APP_NAME-$LatestTag
+    set_env APP_LATEST_TAG  $LatestTag
+    set_env APP_UPLOAD_NAME $APP_NAME-$LatestTag
     echo $LatestTag
 }
 init_workspace;
