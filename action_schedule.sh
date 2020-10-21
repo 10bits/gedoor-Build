@@ -10,13 +10,12 @@ APP_SUFFIX="A"
 APP_WORKSPACE="/opt/$APP_NAME"
 APP_UPLOAD="$APP_WORKSPACE/app/build/outputs/apk/app/release"
 
-SECRETS_MINIFY='true' # 是否压缩apk体积
-
 set_env APP_NAME        $APP_NAME
 set_env APP_WORKSPACE   $APP_WORKSPACE
 set_env APP_SUFFIX      $APP_SUFFIX
 set_env APP_UPLOAD      $APP_UPLOAD
 set_env SECRETS_MINIFY  $SECRETS_MINIFY 
+set_env SECRETS_RENAME  $SECRETS_RENAME 
 
 git clone $APP_GIT_URL $APP_WORKSPACE
 
