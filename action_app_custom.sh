@@ -17,6 +17,7 @@ function app_rename()
 {
     if [ $APP_NAME = 'legado' ]; then
         sed 's/"app_name">阅读/"app_name">阅读.'"$APP_SUFFIX"'/' $APP_WORKSPACE/app/src/main/res/values-zh/strings.xml -i
+        #sed "s/legado\//legado$APP_SUFFIX\//"                   $APP_WORKSPACE/app/src/main/java/io/legado/app/help/storage/WebDavHelp.kt -i
     fi
 }
 
