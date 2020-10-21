@@ -19,6 +19,9 @@ jobs:
           
     - name: check latest tag
       shell: bash
+      env:
+        SECRETS_MINIFY: ${{ secrets.MINIFY }}
+        SECRETS_RENAME: ${{ secrets.RENAME }}
       run: source $GITHUB_WORKSPACE/action_schedule.sh
     
     - name: check if release
