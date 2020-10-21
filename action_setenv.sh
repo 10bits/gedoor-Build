@@ -5,13 +5,16 @@ function set_env() { echo "$1=$2" >> $GITHUB_ENV; }
 APP_NAME="legado"
 APP_GIT_URL="https://github.com/gedoor/legado.git"
 APP_SUFFIX="A"
+
 if [ $SECRETS_ENABLE = 'true' ] && [ -n "$SECRETS_APP_NAME" ] && [ -n "$SECRETS_GIT_URL" ]; then
     APP_NAME=$SECRETS_APP_NAME
     APP_GIT_URL=$SECRETS_GIT_URL
 fi
+
 if [ -n "$SECRETS_SUFFIX" ]; then
     APP_SUFFIX=$SECRETS_SUFFIX
 fi
+
 APP_WORKSPACE="/opt/$APP_NAME"
 APP_LATEST_TAG='latest'
 APP_UPLOAD_NAME="$APP_NAME-$APP_LATEST_TAG"
