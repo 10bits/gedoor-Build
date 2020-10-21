@@ -22,10 +22,10 @@ APP_UPLOAD="$APP_WORKSPACE/app/build/outputs/apk/app/release"
 
 set_env APP_NAME        $APP_NAME
 set_env APP_WORKSPACE   $APP_WORKSPACE
-set_env APP_SUFFIX      $APP_SUFFIX
+set_env APP_SUFFIX      $APP_SUFFIX      
 set_env APP_GIT_URL     $APP_GIT_URL
 set_env APP_UPLOAD_NAME $APP_UPLOAD_NAME
 set_env APP_UPLOAD      $APP_UPLOAD
 set_env SECRETS_MINIFY  $SECRETS_MINIFY
 set_env SECRETS_TAG     $SECRETS_TAG
-
+set_env SECRETS_RENAME  $SECRETS_RENAME
