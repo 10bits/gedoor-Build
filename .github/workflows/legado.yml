@@ -91,7 +91,7 @@ jobs:
       env:
         SECRETS_APP_NAME: ${{ secrets.APP_NAME }}
         SECRETS_GIT_URL: ${{ secrets.GIT_URL }}
-        SECRETS_GIT_TAG: ${{ secrets.GIT_TAG }}
+        SECRETS_SUFFIX: ${{ secrets.SUFFIX }}
         SECRETS_ENABLE: ${{ secrets.ENABLE }}
         SECRETS_MINIFY: ${{ secrets.MINIFY }}
         SECRETS_TAG: ${{ secrets.TAG }}
