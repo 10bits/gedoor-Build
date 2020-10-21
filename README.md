@@ -40,6 +40,8 @@ sed 's/minifyEnabled false/minifyEnabled true/'         /opt/legado/app/build.gr
 |APP_WORKSPACE  |构建app的工作目录|
 |APP_UPLOAD_NAME|构建完打包名|
 |APP_UPLOAD     |构建完apk打包路径|
+## SECRETS环境变量
+<img src="https://i.loli.net/2020/10/21/7LqornKzC2hmsUd.png" width = "50%" height = "50%" alt="" align=center />
 ## 编译其他开源APP(MyBookshelf阅读2.0)
 > 修改`action_setenv.sh`脚本里的坏境变量`APP_NAME`,`APP_GIT_URL`
 ```bash
