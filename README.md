@@ -43,6 +43,15 @@ sed 's/minifyEnabled false/minifyEnabled true/'         /opt/legado/app/build.gr
 
 > SECRETS环境变量
 
+|环境变量名      |描述|
+|--|--|
+|APP_NAME       |构建其他仓库app的名字|
+|GIT_URL        |构建其他仓库app的git url|
+|ENABLE         |是否开启构建其他仓库|
+|MINIFY         |是否启用压缩apk体积|
+|RENAME         |是否更改桌面启动名称|
+|SUFFIX         |后缀名|
+
 <img src="https://i.loli.net/2020/10/21/7LqornKzC2hmsUd.png" width = "50%" height = "50%" alt="" align=center />
 
 ## 编译其他开源APP(MyBookshelf阅读2.0)
