@@ -9,7 +9,7 @@ if [ $SECRETS_ENABLE = 'true' ] && [ -n "$SECRETS_APP_NAME" ] && [ -n "$SECRETS_
     APP_NAME=$SECRETS_APP_NAME
     APP_GIT_URL=$SECRETS_GIT_URL
 fi
-if [ -n "$SECRETS_SUFFIX"]; then
+if [ -n "$SECRETS_SUFFIX" ]; then
     APP_SUFFIX=$SECRETS_SUFFIX
 fi
 APP_WORKSPACE="/opt/$APP_NAME"
