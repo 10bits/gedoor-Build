@@ -15,9 +15,9 @@ function app_clear_18plus()
 #修改桌面阅读名为阅读.A,安装多个阅读时候方便识别,默认启用
 function app_rename() 
 {
-    if [ $APP_NAME = 'legado' ]; then
+    if [ $APP_NAME = 'legado' ] && [ $SECRETS_RENAME = 'true' ]; then
         sed 's/"app_name">阅读/"app_name">阅读.'"$APP_SUFFIX"'/' $APP_WORKSPACE/app/src/main/res/values-zh/strings.xml -i
-        #sed "s/legado\//legado$APP_SUFFIX\//"                   $APP_WORKSPACE/app/src/main/java/io/legado/app/help/storage/WebDavHelp.kt -i
+        sed "s/legado\//legado$APP_SUFFIX\//"                   $APP_WORKSPACE/app/src/main/java/io/legado/app/help/storage/WebDavHelp.kt -i
     fi
 }
 
