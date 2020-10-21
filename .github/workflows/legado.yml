@@ -94,6 +94,7 @@ jobs:
         SECRETS_SUFFIX: ${{ secrets.SUFFIX }}
         SECRETS_ENABLE: ${{ secrets.ENABLE }}
         SECRETS_MINIFY: ${{ secrets.MINIFY }}
+        SECRETS_RENAME: ${{ secrets.RENAME }}
         SECRETS_TAG: ${{ secrets.TAG }}
       run: source $GITHUB_WORKSPACE/action_setenv.sh
       
