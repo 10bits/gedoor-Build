@@ -98,6 +98,8 @@ jobs:
         SECRETS_ENABLE: ${{ secrets.ENABLE }}
         SECRETS_MINIFY: ${{ secrets.MINIFY }}
         SECRETS_RENAME: ${{ secrets.RENAME }}
+        REPO_OWNER: ${{ github.repository_owner }}
+        REPO_ACTOR: ${{ github.actor }}
         SECRETS_TAG: ${{ secrets.TAG }}
       run: source $GITHUB_WORKSPACE/action_setenv.sh
       
