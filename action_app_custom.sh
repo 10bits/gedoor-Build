@@ -43,9 +43,11 @@ function app_resources_unuse()
 #最小化生成apk体积
 function app_minify()
 {
-    #缩小apk体积
-    sed '/minifyEnabled/i\            shrinkResources true' $APP_WORKSPACE/app/build.gradle -i
-    sed 's/minifyEnabled false/minifyEnabled true/'         $APP_WORKSPACE/app/build.gradle -i
+    if [ $APP_NAME = 'legado' ]; then
+        #缩小apk体积
+        sed '/minifyEnabled/i\            shrinkResources true' $APP_WORKSPACE/app/build.gradle -i
+        sed 's/minifyEnabled false/minifyEnabled true/'         $APP_WORKSPACE/app/build.gradle -i
+    fi
 }
 
 #和已有阅读共存,默认启用
