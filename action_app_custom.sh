@@ -99,7 +99,7 @@ function app_build()
     echo "build with gradle"
     cd $APP_WORKSPACE
     chmod +x gradlew
-    ./gradlew aR
+    ./gradlew assembleAppRelease
     if [ $APP_NAME = 'MyBookshelf' ]; then
         set_env APP_UPLOAD $APP_WORKSPACE/app/build/outputs/apk/release
     fi
