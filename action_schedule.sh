@@ -23,6 +23,6 @@ LatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
 LatestCheck=$(date -u -d"+8 hour" "+%Y-%m-%d %H:%M:%S")
 git checkout $LatestTag
 set_env APP_LATEST_TAG    $LatestTag
-set_env APP_LATEST_CHECK  $LatestCheck
+set_env APP_LATEST_CHECK  "$LatestCheck"
 set_env APP_UPLOAD_NAME   $APP_NAME-$LatestTag
 set_env APP_LAST_TAG      $(cat $GITHUB_WORKSPACE/.lastcheck|sed -n 1p)
