@@ -78,7 +78,12 @@ jobs:
         asset_path: ${{ env.APP_RELEASE }}
         asset_name: ${{ env.APP_RELEASE_NAME }}
         asset_content_type: application/zip
-  
+        
+    - name: update info
+      if: success()
+      shell: bash
+      run: source $GITHUB_WORKSPACE/action_update.sh
+      
   build:
     if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
