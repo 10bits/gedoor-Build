@@ -111,6 +111,7 @@ jobs:
         REPO_OWNER: ${{ github.repository_owner }}
         REPO_ACTOR: ${{ github.actor }}
         SECRETS_TAG: ${{ secrets.TAG }}
+        SECRETS_LAUNCH_NAME: ${{ secrets.LAUNCH_NAME }}
       run: source $GITHUB_WORKSPACE/action_setenv.sh
       
     - name: clone code
