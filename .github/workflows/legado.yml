@@ -31,6 +31,7 @@ jobs:
         function version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
         if version_gt $APP_LATEST_TAG $APP_LAST_TAG; then
           git clone $APP_GIT_URL $APP_WORKSPACE
+          cd $APP_WORKSPACE
           git checkout $LATEST_TAG 
           echo ::set-output name=if_release::true
         fi
