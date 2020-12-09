@@ -27,7 +27,7 @@ LatestCheck=$(date -u -d"+8 hour" "+%Y-%m-%d %H:%M:%S")
 
 set_env LATEST_TAG        $LatestTag
 set_env APP_LATEST_TAG    $(echo $LatestTag|grep -o '3\.[0-9]\{2\}\.[0-9]\{6\}')
-set_env APP_LATEST_BODY   $LatestBody
+set_env APP_LATEST_BODY   "$LatestBody"
 set_env APP_LATEST_CHECK  "$LatestCheck"
 set_env APP_UPLOAD_NAME   $APP_NAME-$LatestTag
 set_env APP_LAST_TAG      $(cat $GITHUB_WORKSPACE/.lastcheck|sed -n 1p)
