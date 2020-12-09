@@ -61,7 +61,7 @@ jobs:
       with:
         tag_name: ${{ env.APP_UPLOAD_NAME }}
         release_name: ${{ env.APP_UPLOAD_NAME }}
-        body: ${{ env.APP_LATEST_BODY }}
+        body_path: ${{ env.APP_LATEST_BODY }}
         draft: false
         prerelease: false
     
