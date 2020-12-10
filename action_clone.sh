@@ -12,6 +12,9 @@ function init_workspace()
     if [ $SECRETS_ENABLE = 'true' ] && [ -n "$SECRETS_TAG" ] && [ $REPO_ACTOR = $REPO_OWNER ]; then
         LatestTag=$SECRETS_TAG
     fi
+    if [ $APP_NAME = 'legado' ] && [ $SECRETS_TAG = 'master' ] && [ $REPO_ACTOR = $REPO_OWNER ]; then
+        LatestTag='master'
+    fi
     git checkout $LatestTag
     set_env APP_UPLOAD_NAME $APP_NAME-$LatestTag
     echo $LatestTag
