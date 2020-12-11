@@ -22,10 +22,9 @@ set_env SECRETS_MINIFY  $SECRETS_MINIFY
 set_env SECRETS_RENAME  $SECRETS_RENAME 
 
 LatestTag=$(curl -s $GITHUB_API_LATEST|jq .tag_name -r)
-LatestBody=$(curl -s $GITHUB_API_LATEST|jq .body)
 LatestCheck=$(date -u -d"+8 hour" "+%Y-%m-%d %H:%M:%S")
 
-echo $LatestBody|sed -e 's/^"//' -e 's/"$//'>/opt/latest.md
+curl -s $GITHUB_API_LATEST|jq .body -r>/opt/latest.md
 
 set_env LATEST_TAG        $LatestTag
 set_env APP_LATEST_TAG    $(echo $LatestTag|grep -o '3\.[0-9]\{2\}\.[0-9]\{6\}')
