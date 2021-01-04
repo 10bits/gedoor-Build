@@ -23,6 +23,16 @@ function app_rename()
     fi
 }
 
+#满足本人的一些小优化
+function app_bugme()
+{
+    if [ $APP_NAME = 'legado' ] && [ $REPO_OWNER = '10bits' ]; then
+        sed "/error(it)/i\isLoading = false"            $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowActivity.kt -i
+        sed 's/error(it)/error("网络错误!请尝试继续")/'  $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowActivity.kt -i
+        sed "s/30000L/10000L/"                          $APP_WORKSPACEapp/src/main/java/io/legado/app/ui/book/explore/ExploreShowViewModel.kt -i
+    fi
+}
+
 #软件内一些颜色调整,默认不启用
 function app_color_set()
 {
@@ -113,4 +123,4 @@ if [ $SECRETS_MINIFY = 'true' ]; then
 fi
 
 #准备工作在这里,可以删除你不需要的
-app_clear_18plus;app_rename;app_sign;app_live_together;app_not_apply_plugin
+app_bugme;app_clear_18plus;app_rename;app_sign;app_live_together;app_not_apply_plugin
