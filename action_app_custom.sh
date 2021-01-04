@@ -28,9 +28,9 @@ function app_bugme()
 {
     if [ $APP_NAME = 'legado' ] && [ $REPO_OWNER = '10bits' ]; then
         echo "bugme个人优化 for 10bits"
-        sed "/error(it)/i\isLoading = false"            $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowActivity.kt -i
+        sed "/error(it)/i\isLoading = false"          $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowActivity.kt -i
         sed 's/error(it)/error("网络错误!请尝试继续")/'  $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowActivity.kt -i
-        sed "s/30000L/10000L/"                          $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowViewModel.kt -i
+        sed "s/30000L/8000L/"                         $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowViewModel.kt -i
     fi
 }
 
