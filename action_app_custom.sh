@@ -33,7 +33,7 @@ function app_bugme()
         sed 's/error(it)/error("网络请求失败或超时")/' $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowActivity.kt -i
         sed "s/30000L/6000L/"                        $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowViewModel.kt -i
         #关闭加入书架提示
-        sed "/fun finish()/a\super.finish()"         $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt -i
+        sed "/!ReadBook.inBookshelf/a\viewModel.removeFromBookshelf{super.finish()}" $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt -i
     fi
 }
 
