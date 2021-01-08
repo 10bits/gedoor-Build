@@ -1,4 +1,4 @@
-## legado阅读3.0自动构建
+## legado阅读3.0自动构建[![Android CI](https://github.com/10bits/gedoor-Build/workflows/Android%20CI/badge.svg)](https://github.com/10bits/gedoor-Build/actions)
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
