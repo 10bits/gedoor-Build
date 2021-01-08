@@ -28,9 +28,12 @@ function app_bugme()
 {
     if [ $APP_NAME = 'legado' ] && [[ $REPO_ACTOR = '10bits' ]]; then
         echo "bugme个人优化 for 10bits"
-        sed "/error(it)/i\isLoading = false"        $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowActivity.kt -i
+        #发现界面优化
+        sed "/error(it)/i\isLoading = false"         $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowActivity.kt -i
         sed 's/error(it)/error("网络请求失败或超时")/' $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowActivity.kt -i
-        sed "s/30000L/6000L/"                       $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowViewModel.kt -i
+        sed "s/30000L/6000L/"                        $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowViewModel.kt -i
+        #关闭加入书架提示
+        sed "/fun finish()/a\super.finish()"         $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt -i
     fi
 }
 
