@@ -118,6 +118,8 @@ function app_build()
     cd $APP_WORKSPACE
     chmod +x gradlew
     ./gradlew assembleAppRelease
+    APP_BUILD_APK=$(find $APP_WORKSPACE/app/build -regex .*/release/.*.apk)
+    debug "build apk $APP_BUILD_APK"
     if [ $APP_NAME = 'MyBookshelf' ]; then
         set_env APP_UPLOAD $APP_WORKSPACE/app/build/outputs/apk/release
     fi
