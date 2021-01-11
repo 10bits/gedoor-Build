@@ -124,3 +124,14 @@ jobs:
       with:
         name: ${{ env.APP_UPLOAD_NAME }}
         path: ${{ env.APP_UPLOAD }}
+  
+    - name : upload to webdav
+      shell: bash
+      env:
+        UPLOAD: ${{ secrets.UPLOAD }}
+        WEBDAV_URL: ${{ secrets.WEBDAV_URL }}
+        WEBDAV_USER: ${{ secrets.WEBDAV_USER }}
+        WEBDAV_PASS: ${{ secrets.WEBDAV_PASS }}
+      run: |
+        source $GITHUB_WORKSPACE/action_upload.sh
+        
