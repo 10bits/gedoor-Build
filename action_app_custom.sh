@@ -2,12 +2,13 @@
 #本脚本用来个性化定制app,不会修改任何程序代码
 
 function set_env() { echo "$1=$2" >> $GITHUB_ENV; }
+function debug() { echo "::debug::$1"; }
 
 #去除河蟹,默认启用
 function app_clear_18plus() 
 {
     if [ $APP_NAME = 'legado' ]; then
-        echo "清空18PlusList.txt"
+        debug "清空18PlusList.txt"
         echo "">$APP_WORKSPACE/app/src/main/assets/18PlusList.txt
     fi
 }
@@ -16,10 +17,10 @@ function app_clear_18plus()
 function app_rename() 
 {
     if [ $APP_NAME = 'legado' ] && [ $SECRETS_RENAME = 'true' ]; then
-        #更改桌面启动名称
+        debug "更改桌面启动名称"
         sed 's/"app_name">阅读/"app_name">'"$APP_LAUNCH_NAME"'/' $APP_WORKSPACE/app/src/main/res/values-zh/strings.xml -i
-        #更改webdav备份目录legado为legado+后缀名
-        sed "s/legado\//legado$APP_SUFFIX\//"                    $APP_WORKSPACE/app/src/main/java/io/legado/app/help/storage/BookWebDav.kt -i
+        debug "更改webdav备份目录legado为legado+后缀名"
+        sed "s/legado\//legado$APP_SUFFIX\//" $APP_WORKSPACE/app/src/main/java/io/legado/app/help/storage/BookWebDav.kt -i
     fi
 }
 
@@ -27,12 +28,11 @@ function app_rename()
 function app_bugme()
 {
     if [ $APP_NAME = 'legado' ] && [[ $REPO_ACTOR = '10bits' ]]; then
-        echo "bugme个人优化 for 10bits"
-        #发现界面优化
+        debug "发现书籍界面优化"
         sed "/error(it)/i\isLoading = false"         $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowActivity.kt -i
         sed 's/error(it)/error("网络请求失败或超时")/' $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowActivity.kt -i
         sed "s/30000L/6000L/"                        $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowViewModel.kt -i
-        #关闭加入书架提示
+        debug "关闭加入书架提示"
         START=$(sed -n '/!ReadBook.inBookshelf/=' $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt)
         sed "$(echo $START+1|bc),$(echo $START+8|bc)d" $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt -i
         sed '/!ReadBook.inBookshelf/a\viewModel.removeFromBookshelf{ super.finish() }' $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt -i
@@ -43,7 +43,7 @@ function app_bugme()
 function app_color_set()
 {
     if [ $APP_NAME = 'legado' ]; then
-        #设置搜索界面浮动按钮颜色
+        debug "设置搜索界面浮动按钮颜色"
         sed '/id\/fb_stop/a\        android:backgroundTint="#389099"' $APP_WORKSPACE/app/src/main/res/layout/activity_book_search.xml -i
     fi
 }
@@ -52,7 +52,7 @@ function app_color_set()
 function app_resources_unuse()
 {
     if [ $APP_NAME = 'legado' ]; then
-        echo "删除一些用不到的资源"
+        debug "删除一些用不到的资源"
         rm $APP_WORKSPACE/app/src/main/assets/bg      -rf
         #rm $APP_WORKSPACE/app/src/main/assets/web/new -rf
     fi
@@ -62,7 +62,7 @@ function app_resources_unuse()
 function app_minify()
 {
     if [ $APP_NAME = 'legado' ]; then
-        #缩小apk体积
+        debug "缩小apk体积"
         sed '/minifyEnabled/i\            shrinkResources true' $APP_WORKSPACE/app/build.gradle -i
         sed 's/minifyEnabled false/minifyEnabled true/'         $APP_WORKSPACE/app/build.gradle -i
     fi
@@ -72,7 +72,7 @@ function app_minify()
 function app_live_together()
 {
     if [ $APP_NAME = 'legado' ]; then
-        echo "解决安装程序共存问题"
+        debug "解决安装程序共存问题"
         sed "s/'.release'/'.release$APP_SUFFIX'/" $APP_WORKSPACE/app/build.gradle -i
         sed "s/.release/.release$APP_SUFFIX/"     $APP_WORKSPACE/app/google-services.json -i 
     fi
@@ -81,7 +81,7 @@ function app_live_together()
 #apk增加签名,默认启用
 function app_sign()
 {
-    echo "给apk增加签名"
+    debug "给apk增加签名"
     cp $GITHUB_WORKSPACE/.github/workflows/legado.jks  $APP_WORKSPACE/app/legado.jks
     sed '$a\RELEASE_STORE_FILE=./legado.jks'           $APP_WORKSPACE/gradle.properties -i 
     sed '$a\RELEASE_KEY_ALIAS=legado'                  $APP_WORKSPACE/gradle.properties -i
@@ -93,7 +93,7 @@ function app_sign()
 function app_not_apply_plugin()
 {
     if [ $APP_NAME = 'MyBookshelf' ]; then
-        echo "删除google services相关"
+        debug "删除google services相关"
         sed '/io.fabric/d'            $APP_WORKSPACE/app/build.gradle -i
         sed '/com.google.firebase/d'  $APP_WORKSPACE/app/build.gradle -i
         sed '/com.google.gms/d'       $APP_WORKSPACE/app/build.gradle -i
@@ -104,7 +104,7 @@ function app_not_apply_plugin()
 function app_other()
 {
     if [ $APP_NAME = 'MyBookshelf' ]; then
-        echo "$APP_NAME 解压MyBookshelf_Keys.zip"
+        debug "$APP_NAME 解压MyBookshelf_Keys.zip"
         unzip -o $APP_WORKSPACE/app/MyBookshelf_Keys.zip -d $APP_WORKSPACE/app
         rm $APP_WORKSPACE/app/gradle.properties       
         #sed 's/com.gedoor.monkeybook/com.kunfei.bookshelf/' $APP_WORKSPACE/app/build.gradle -i
@@ -114,7 +114,7 @@ function app_other()
 #先进行一些准备工作再开始编译
 function app_build()
 {
-    echo "build with gradle"
+    debug "build with gradle"
     cd $APP_WORKSPACE
     chmod +x gradlew
     ./gradlew assembleAppRelease
@@ -125,6 +125,7 @@ function app_build()
 
 #是否启用缩减apk体积
 if [ $SECRETS_MINIFY = 'true' ]; then
+    debug "开启混淆压缩代码"
     app_minify;app_resources_unuse
 fi
 
