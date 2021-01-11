@@ -126,12 +126,13 @@ jobs:
         path: ${{ env.APP_UPLOAD }}
   
     - name : upload to webdav
+      if： secrets.WEBDAV_UPLOAD == 'true'
       shell: bash
       env:
-        WEBDAV_UPLOAD: ${{ secrets.WEBDAV_UPLOAD }}
         WEBDAV_URL: ${{ secrets.WEBDAV_URL }}
         WEBDAV_USER: ${{ secrets.WEBDAV_USER }}
         WEBDAV_PASS: ${{ secrets.WEBDAV_PASS }}
       run: |
         source $GITHUB_WORKSPACE/action_upload.sh
+        webdav_upload $APP_UPLOAD/*.apk
         
