@@ -120,8 +120,9 @@ function app_build()
     ./gradlew assembleAppRelease
     APP_BUILD_APK=$(find $APP_WORKSPACE/app/build -regex .*/release/.*.apk)
     debug "build apk $APP_BUILD_APK"
-    if [ $APP_NAME = 'MyBookshelf' ]; then
-        set_env APP_UPLOAD $APP_WORKSPACE/app/build/outputs/apk/release
+    if [ -f $APP_BUILD_APK ]; then
+        set_env APP_UPLOAD ${APP_BUILD_APK%/*}
+        debug "upload apk dir ${APP_BUILD_APK%/*}"
     fi
 }
 
@@ -131,5 +132,9 @@ if [ $SECRETS_MINIFY = 'true' ]; then
     app_minify;app_resources_unuse
 fi
 
-#准备工作在这里,可以删除你不需要的
-app_bugme;app_clear_18plus;app_rename;app_sign;app_live_together;app_not_apply_plugin
+#通用
+app_sign
+#阅读3.0
+app_bugme;app_clear_18plus;app_rename;app_live_together
+#阅读2.0
+app_not_apply_plugin
