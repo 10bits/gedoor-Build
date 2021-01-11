@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function debug(){ echo "::debug::$1"; }
+function debug() { echo "::debug::$1"; }
 
 #开始构建
 function app_build()
