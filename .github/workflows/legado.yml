@@ -42,6 +42,7 @@ jobs:
       shell: bash
       run: |
         source $GITHUB_WORKSPACE/action_app_custom.sh
+        source $GITHUB_WORKSPACE/action_app_build.sh
         app_build
         cd $GITHUB_WORKSPACE
         if [ -d $APP_UPLOAD ]; then
@@ -112,10 +113,15 @@ jobs:
       shell: bash
       run: source $GITHUB_WORKSPACE/action_clone.sh
 
-    - name: custom your app and build
+    - name: custom your app
       shell: bash
       run: |
         source $GITHUB_WORKSPACE/action_app_custom.sh
+
+    - name: build  your app
+      shell: bash
+      run: |
+        source $GITHUB_WORKSPACE/action_app_build.sh
         app_build
 
     - name: upload artifact
