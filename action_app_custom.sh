@@ -111,21 +111,6 @@ function app_other()
     fi
 }
 
-#先进行一些准备工作再开始编译
-function app_build()
-{
-    debug "build with gradle"
-    cd $APP_WORKSPACE
-    chmod +x gradlew
-    ./gradlew assembleAppRelease
-    APP_BUILD_APK=$(find $APP_WORKSPACE/app/build -regex .*/release/.*.apk)
-    debug "build apk $APP_BUILD_APK"
-    if [ -f $APP_BUILD_APK ]; then
-        set_env APP_UPLOAD ${APP_BUILD_APK%/*}
-        debug "upload apk dir ${APP_BUILD_APK%/*}"
-    fi
-}
-
 #是否启用缩减apk体积
 if [ $SECRETS_MINIFY = 'true' ]; then
     debug "开启混淆压缩代码"
