@@ -118,7 +118,7 @@ jobs:
         source $GITHUB_WORKSPACE/action_app_custom.sh
         app_build
 
-    - name : upload apk
+    - name : upload artifact
       uses: actions/upload-artifact@master
       if: always()
       with:
@@ -128,7 +128,7 @@ jobs:
     - name : upload to webdav
       shell: bash
       env:
-        UPLOAD: ${{ secrets.UPLOAD }}
+        WEBDAV_UPLOAD: ${{ secrets.WEBDAV_UPLOAD }}
         WEBDAV_URL: ${{ secrets.WEBDAV_URL }}
         WEBDAV_USER: ${{ secrets.WEBDAV_USER }}
         WEBDAV_PASS: ${{ secrets.WEBDAV_PASS }}
