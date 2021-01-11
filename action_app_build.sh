@@ -1,5 +1,6 @@
 #!/bin/sh
 
+function set_env() { echo "$1=$2" >> $GITHUB_ENV; }
 function debug() { echo "::debug::$1"; }
 
 #开始构建
