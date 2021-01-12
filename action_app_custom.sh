@@ -27,19 +27,26 @@ function app_rename()
 #满足本人的一些小优化
 function app_bugme()
 {
-    if [ $APP_NAME = 'legado' ] && [[ $REPO_ACTOR = '10bits' ]]; then
+    if [ $APP_NAME = 'legado' ] && [[ $REPO_ACTOR = '10bits' ]]; then 
         debug "发现书籍界面优化"
-        sed "/error(it)/i\isLoading = false"         $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowActivity.kt -i
-        sed 's/error(it)/error("网络请求失败或超时")/' $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowActivity.kt -i
-        sed "s/30000L/6000L/"                        $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowViewModel.kt -i
+        sed -e "/error(it)/i\isLoading = false" \
+            -e 's/error(it)/error("网络请求失败或超时")/' \
+            $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowActivity.kt -i
+        sed "s/30000L/6000L/" $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowViewModel.kt -i
+        
         debug "关闭加入书架提示"
         START=$(sed -n '/!ReadBook.inBookshelf/=' $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt)
-        sed "$(echo $START+1|bc),$(echo $START+8|bc)d" $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt -i
-        sed '/!ReadBook.inBookshelf/a\viewModel.removeFromBookshelf{ super.finish() }' $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt -i
+        sed -e "$(echo $START+1|bc),$(echo $START+8|bc)d" \
+            -e '/!ReadBook.inBookshelf/a\viewModel.removeFromBookshelf{ super.finish() }' \
+            $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt -i
+        
         debug "发现界面支持搜索书籍"
-        sed '/search_view.queryHint/c\search_view.queryHint="搜索书籍、书源"'         $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/main/explore/ExploreFragment.kt -i
-        sed '/ExploreFragment/i\import io.legado.app.ui.book.search.SearchActivity'  $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/main/explore/ExploreFragment.kt -i
-        sed '/onQueryTextSubmit/a\startActivity<SearchActivity>(Pair("key", query))' $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/main/explore/ExploreFragment.kt -i
+        sed -e '/search_view.queryHint/c\search_view.queryHint="搜索书籍、书源"' \
+            -e '/search_view.setQuery/i\putPrefString("searchGroup", item.title.toString())' \
+            -e '/ExploreFragment/i\import io.legado.app.ui.book.search.SearchActivity' \
+            -e '/ExploreFragment/i\import io.legado.app.utils.putPrefString' \
+            -e '/onQueryTextSubmit/a\startActivity<SearchActivity>(Pair("key", query))' \
+            $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/main/explore/ExploreFragment.kt -i
     fi
 }
 
