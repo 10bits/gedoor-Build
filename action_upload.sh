@@ -9,3 +9,27 @@ function webdav_upload()
     curl -u $WEBDAV_USER:$WEBDAV_PASS -T $1 $WEBDAV_URL
   fi
 }
+
+#TODO
+function http_upload()
+{
+
+}
+
+#TODO
+function ftp_upload()
+{
+
+}
+
+#TODO
+function sftp_upload()
+{
+
+}
+
+#TODO
+function baiduyun_upload()
+{
+
+}
