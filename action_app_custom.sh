@@ -41,10 +41,8 @@ function app_bugme()
             $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt -i
         
         debug "发现界面支持搜索书籍"
-        sed -e '/search_view.queryHint/c\search_view.queryHint="搜索书籍、书源"' \
-            -e '/search_view.setQuery/i\putPrefString("searchGroup", item.title.toString())' \
+        sed -e 's/getString(R.string.screen_find)/"搜索书籍、书源"/' \
             -e '/ExploreFragment/i\import io.legado.app.ui.book.search.SearchActivity' \
-            -e '/ExploreFragment/i\import io.legado.app.utils.putPrefString' \
             -e '/onQueryTextSubmit/a\if(!query?.contains("group:")!!){startActivity<SearchActivity>(Pair("key", query))}' \
             $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/main/explore/ExploreFragment.kt -i
     fi
