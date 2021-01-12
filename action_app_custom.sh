@@ -29,7 +29,7 @@ function app_bugme()
 {
     if [ $APP_NAME = 'legado' ] && [[ $REPO_ACTOR = '10bits' ]]; then 
         debug "maven中心仓库回归"
-        sed "/google()/i\        mavenCentral()" $APP_WORKSPACE/build.gradle
+        sed "/google()/i\        mavenCentral()" $APP_WORKSPACE/build.gradle -i
 
         debug "发现书籍界面优化"
         sed -e "/error(it)/i\isLoading = false" \
