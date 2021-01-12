@@ -36,6 +36,8 @@ function app_bugme()
         START=$(sed -n '/!ReadBook.inBookshelf/=' $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt)
         sed "$(echo $START+1|bc),$(echo $START+8|bc)d" $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt -i
         sed '/!ReadBook.inBookshelf/a\viewModel.removeFromBookshelf{ super.finish() }' $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt -i
+        debug "发现界面支持搜索书籍"
+        sed '/onQueryTextSubmit/a\startActivity<SearchActivity>(Pair("key", query))' $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/main/explore/ExploreFragment.kt -i
     fi
 }
 
