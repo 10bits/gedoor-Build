@@ -9,7 +9,7 @@ function app_build()
     debug "build with gradle"
     cd $APP_WORKSPACE
     chmod +x gradlew
-    ./gradlew assembleAppRelease
+    ./gradlew assembleAppRelease || ./gradlew clean && ./gradlew assembleAppRelease
     APP_BUILD_APK=$(find $APP_WORKSPACE/app/build -regex .*/release/.*.apk)
     debug "build apk $APP_BUILD_APK"
     if [ -f $APP_BUILD_APK ]; then
