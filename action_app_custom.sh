@@ -45,7 +45,7 @@ function app_bugme()
             -e '/search_view.setQuery/i\putPrefString("searchGroup", item.title.toString())' \
             -e '/ExploreFragment/i\import io.legado.app.ui.book.search.SearchActivity' \
             -e '/ExploreFragment/i\import io.legado.app.utils.putPrefString' \
-            -e '/onQueryTextSubmit/a\startActivity<SearchActivity>(Pair("key", query))' \
+            -e '/onQueryTextSubmit/a\if(!query?.contains("group:")!!){startActivity<SearchActivity>(Pair("key", query))}' \
             $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/main/explore/ExploreFragment.kt -i
     fi
 }
