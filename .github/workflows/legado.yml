@@ -80,7 +80,7 @@ jobs:
         asset_content_type: application/zip
         
     - name: update info
-      if: steps.build_apk.outputs.if_publish == 'true'
+      if: success()
       shell: bash
       run: source $GITHUB_WORKSPACE/action_update.sh
       
