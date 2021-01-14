@@ -45,6 +45,7 @@ function app_bugme()
         
         debug "发现界面支持搜索书籍"
         sed -e 's/getString(R.string.screen_find)/"搜索书籍、书源"/' \
+            -e '/fun initSearchView()/i\override fun onResume(){super.onResume();searchView.clearFocus()}' \
             -e '/ExploreFragment/i\import io.legado.app.ui.book.search.SearchActivity' \
             -e '/onQueryTextSubmit/a\if(!query?.contains("group:")!!){startActivity<SearchActivity>(Pair("key", query))}' \
             $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/main/explore/ExploreFragment.kt -i
