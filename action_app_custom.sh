@@ -33,6 +33,7 @@ function app_bugme()
 
         debug "发现书籍界面优化"
         sed -e "/error(it)/i\isLoading = false" \
+            -e '/error(it)/i\toast(it)' \
             -e 's/error(it)/error("网络请求失败或超时")/' \
             $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowActivity.kt -i
         sed "s/30000L/6000L/" $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowViewModel.kt -i
