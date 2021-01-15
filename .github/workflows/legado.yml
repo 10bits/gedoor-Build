@@ -44,15 +44,20 @@ jobs:
         source $GITHUB_WORKSPACE/action_app_custom.sh
         source $GITHUB_WORKSPACE/action_app_build.sh
         app_build
+     
+    - name: release apk
+      id: release_apk
+      shell: bash
+      run: |
         if [ -f $APP_BUILD_APK ]; then
             echo ::set-output name=if_publish::true
             set_env APP_RELEASE_NAME $(basename $APP_BUILD_APK)
             set_env APP_RELEASE      $APP_BUILD_APK
         fi
-        
+
     - name: create release
       id: create_release
-      if: steps.build_apk.outputs.if_publish == 'true'
+      if: steps.release_apk.outputs.if_publish == 'true'
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -65,7 +70,7 @@ jobs:
     
     - name: upload release asset
       id: upload-release-asset 
-      if: steps.build_apk.outputs.if_publish == 'true'
+      if: steps.release_apk.outputs.if_publish == 'true'
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
