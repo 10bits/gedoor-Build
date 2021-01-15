@@ -13,6 +13,7 @@ function app_build()
     APP_BUILD_APK=$(find $APP_WORKSPACE/app/build -regex .*/release/.*.apk)
     debug "build apk $APP_BUILD_APK"
     if [ -f $APP_BUILD_APK ]; then
+        set_env APP_BUILD_APK $APP_BUILD_APK
         set_env APP_UPLOAD ${APP_BUILD_APK%/*}
         debug "upload apk dir ${APP_BUILD_APK%/*}"
     fi
