@@ -15,7 +15,8 @@ if [ $APP_NAME = 'legado' ] && [[ $REPO_ACTOR = '10bits' ]]; then
         -e '/loadMoreView.error(it)/i\toast(it)' \
         -e 's/loadMoreView.error(it)/loadMoreView.error("网络请求失败或超时")/' \
         {} -i \;
-    sed "s/30000L/6000L/" $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/explore/ExploreShowViewModel.kt -i
+    find $APP_WORKSPACE/app/src -regex '.*/ExploreShowViewModel.kt' -exec \
+    sed "s/30000L/6000L/" {} -i \;
         
     debug "关闭加入书架提示"
     START=$(sed -n '/!ReadBook.inBookshelf/=' $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt)
@@ -25,7 +26,7 @@ if [ $APP_NAME = 'legado' ] && [[ $REPO_ACTOR = '10bits' ]]; then
         {} -i \;
         
     debug "发现界面支持搜索书籍"
-    find $APP_WORKSPACE/app/src -regex 'ExploreFragment.kt' -exec \
+    find $APP_WORKSPACE/app/src -regex '.*/ExploreFragment.kt' -exec \
     sed -e 's/getString(R.string.screen_find)/"搜索书籍、书源"/' \
         -e '/fun initSearchView()/i\override fun onResume(){super.onResume();searchView.clearFocus()}' \
         -e '/ExploreFragment/i\import io.legado.app.ui.book.search.SearchActivity' \
