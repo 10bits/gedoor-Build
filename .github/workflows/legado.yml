@@ -44,14 +44,10 @@ jobs:
         source $GITHUB_WORKSPACE/action_app_custom.sh
         source $GITHUB_WORKSPACE/action_app_build.sh
         app_build
-        cd $GITHUB_WORKSPACE
-        if [ -d $APP_UPLOAD ]; then
-          if [ $(find $APP_UPLOAD -name "*.apk"|wc -l) == 1 ]; then
-            zip --junk-paths $APP_UPLOAD_NAME.zip $APP_UPLOAD/*.apk
+        if [ -f $APP_BUILD_APK ]; then
             echo ::set-output name=if_publish::true
-            set_env APP_RELEASE_NAME $APP_UPLOAD_NAME.zip
-            set_env APP_RELEASE $GITHUB_WORKSPACE/$APP_UPLOAD_NAME.zip
-          fi
+            set_env APP_RELEASE_NAME $(basename $APP_BUILD_APK)
+            set_env APP_RELEASE      $APP_BUILD_APK
         fi
         
     - name: create release
@@ -82,6 +78,8 @@ jobs:
     - name: update info
       if: success()
       shell: bash
+      env:
+        APP_DOWNLOAD: ${{ steps.upload-release-asset.outputs.browser_download_url }}
       run: source $GITHUB_WORKSPACE/action_update.sh
       
   build:
