@@ -7,8 +7,8 @@ on:
     - cron: '30 1,4,10,13,16 * * *'
 
 jobs:
-  schedule:
-    if: github.event_name == 'schedule'
+  check release:
+    if: github.repository_owner == github.actor
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -87,7 +87,7 @@ jobs:
         APP_DOWNLOAD: ${{ steps.upload-release-asset.outputs.browser_download_url }}
       run: source $GITHUB_WORKSPACE/action_update.sh
       
-  build:
+  build apk:
     if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     steps:
