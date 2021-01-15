@@ -51,7 +51,7 @@ jobs:
       run: |
         if [ -f $APP_BUILD_APK ]; then
             echo ::set-output name=if_publish::true
-            set_env APP_RELEASE_NAME $(basename $APP_BUILD_APK)
+            set_env APP_RELEASE_NAME $APP_UPLOAD_NAME.apk
             set_env APP_RELEASE      $APP_BUILD_APK
         fi
 
