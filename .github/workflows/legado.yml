@@ -46,6 +46,7 @@ jobs:
         app_build
      
     - name: release apk
+      if: steps.check_release.outputs.if_release == 'true'
       id: release_apk
       shell: bash
       run: |
