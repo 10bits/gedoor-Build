@@ -95,6 +95,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/cache@v2
+      if: github.repository_owner == github.actor
       with:
         path: |
           ~/.gradle/caches
