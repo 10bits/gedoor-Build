@@ -1,9 +1,6 @@
 #!/bin/sh
 #本脚本用来个性化定制app,不会修改任何程序代码
-
-function set_env() { echo "$1=$2" >> $GITHUB_ENV; }
-function debug() { echo "::debug::$1"; }
-
+source $GITHUB_WORKSPACE/action_util.sh
 #去除河蟹,默认启用
 function app_clear_18plus() 
 {
