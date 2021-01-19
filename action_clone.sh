@@ -10,11 +10,11 @@ function init_workspace()
     if [[ -n "$SECRETS_TAG" ]] && [[ "$REPO_ACTOR" = "$REPO_OWNER" ]]; then
         [[ "$SECRETS_TAG" = "master" ]] && LatestTag="master"
         if [[ "$APP_NAME" = "legado" ]]; then 
-            if [[ -n "$(echo $LatestTag|grep -o '3\.[0-9]\{2\}\.[0-9]\{6\}')" ]]; then
+            if [[ -n "$(echo $SECRETS_TAG|grep -o '3\.[0-9]\{2\}\.[0-9]\{6\}')" ]]; then
                 LatestTag=$SECRETS_TAG
             fi
         elif [[ "$APP_NAME" = "MyBookshelf" ]]; then
-            if [[ -n "$(echo $LatestTag|grep -o '2\.[0-9]\{2\}\.[0-9]\{6\}')" ]]; then
+            if [[ -n "$(echo $SECRETS_TAG|grep -o '2\.[0-9]\{2\}\.[0-9]\{6\}')" ]]; then
                 LatestTag=$SECRETS_TAG
             fi
         else
