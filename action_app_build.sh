@@ -1,8 +1,5 @@
 #!/bin/sh
-
-function set_env() { echo "$1=$2" >> $GITHUB_ENV; }
-function debug() { echo "::debug::$1"; }
-
+source $GITHUB_WORKSPACE/action_util.sh
 #开始构建
 function app_build()
 {
