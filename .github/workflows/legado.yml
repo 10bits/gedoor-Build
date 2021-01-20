@@ -83,7 +83,7 @@ jobs:
         asset_content_type: application/vnd.android.package-archive
         
     - name: update info
-      if: success()
+      if: steps.upload-release-asset.outputs.browser_download_url != null
       shell: bash
       env:
         APP_DOWNLOAD: ${{ steps.upload-release-asset.outputs.browser_download_url }}
