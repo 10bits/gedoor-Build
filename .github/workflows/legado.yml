@@ -32,7 +32,7 @@ jobs:
         fi
 
     - name: set up JDK
-      steps.check_release.outputs.if_release == 'true'
+      if: steps.check_release.outputs.if_release == 'true'
       uses: actions/setup-java@v1
       with:
         java-version: 14
