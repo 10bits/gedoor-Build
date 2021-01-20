@@ -84,17 +84,12 @@ function app_other()
     fi
 }
 
-#是否启用缩减apk体积
-if [ $SECRETS_MINIFY = 'true' ]; then
-    debug "开启混淆压缩代码"
-    app_minify;app_resources_unuse
-fi
-
 #通用
 app_sign
+[[ "$SECRETS_MINIFY" = "true" ]] && app_minify
 
 #阅读3.0
-app_clear_18plus;app_rename;app_live_together
+app_clear_18plus;app_rename;app_live_together;app_resources_unuse
 #自用定制脚本
 source $GITHUB_WORKSPACE/action_legado_myself.sh
 
