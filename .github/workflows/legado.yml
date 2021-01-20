@@ -12,11 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: set up JDK
-      uses: actions/setup-java@v1
-      with:
-        java-version: 14
-     
     - name: check latest tag
       shell: bash
       env:
@@ -35,7 +30,13 @@ jobs:
           git checkout $LATEST_TAG 
           echo ::set-output name=if_release::true
         fi
-        
+
+    - name: set up JDK
+      steps.check_release.outputs.if_release == 'true'
+      uses: actions/setup-java@v1
+      with:
+        java-version: 14
+    
     - name: build apk
       id: build_apk
       if: steps.check_release.outputs.if_release == 'true'
