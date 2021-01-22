@@ -17,7 +17,8 @@ function app_rename()
         debug "更改桌面启动名称"
         sed 's/"app_name">阅读/"app_name">'"$APP_LAUNCH_NAME"'/' $APP_WORKSPACE/app/src/main/res/values-zh/strings.xml -i
         debug "更改webdav备份目录legado为legado+后缀名"
-        sed "s/legado\//legado$APP_SUFFIX\//" $APP_WORKSPACE/app/src/main/java/io/legado/app/help/storage/BookWebDav.kt -i
+        find $APP_WORKSPACE/app/src -regex '.*/storage/.*.kt' -exec \
+        sed 's/${url}legado/&$APP_SUFFIX/' {} -i \;
     fi
 }
 
