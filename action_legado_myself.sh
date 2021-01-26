@@ -33,4 +33,8 @@ if [ $APP_NAME = 'legado' ] && [[ $REPO_ACTOR = '10bits' ]]; then
         -e '/onQueryTextSubmit/a\if(!query?.contains("group:")!!){startActivity<SearchActivity>(Pair("key", query))}' \
         {} -i \;
 
+    debug "safe JsExtensions.kt"
+    yes | cp $GITHUB_WORKSPACE/fake/safe_JsExtensions.kt \
+             $(find $APP_WORKSPACE/app/src -regex '.*/JsExtensions.kt' -print|xargs dirname)/JsExtensions.kt
+
 fi
