@@ -135,6 +135,7 @@ jobs:
         source $GITHUB_WORKSPACE/action_app_custom.sh
 
     - name: build  your app
+      if: success()
       shell: bash
       run: |
         source $GITHUB_WORKSPACE/action_app_build.sh
@@ -142,12 +143,13 @@ jobs:
 
     - name: upload artifact
       uses: actions/upload-artifact@master
-      if: always()
+      if: success()
       with:
         name: ${{ env.APP_UPLOAD_NAME }}
         path: ${{ env.APP_UPLOAD }}
   
     - name: upload to webdav
+      if: success()
       shell: bash
       env:
         WEBDAV_URL: ${{ secrets.WEBDAV_URL }}
