@@ -91,12 +91,11 @@ jobs:
       run: source $GITHUB_WORKSPACE/action_update.sh
       
   build_apk:
-    if: github.event_name != 'schedule'
+    if: github.event_name != 'schedule' && github.repository_owner == github.actor
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: actions/cache@v2
-      if: github.repository_owner == github.actor
       with:
         path: |
           ~/.gradle/caches
