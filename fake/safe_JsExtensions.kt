@@ -17,6 +17,7 @@ import org.jsoup.Jsoup
 import rxhttp.wrapper.param.RxHttp
 import rxhttp.wrapper.param.toByteArray
 import java.io.File
+import java.net.URL
 import java.net.URLEncoder
 import java.util.*
 
@@ -154,6 +155,19 @@ interface JsExtensions {
         return String(unicode.toByteArray(charset("GBK")))
     }
 
+    fun getAbsUrl(baseUrl: String, src: String): String {
+        return if (src.startsWith("http://") || src.startsWith("https://")) {
+            src
+        } else {
+            val aURL = URL(baseUrl)
+            val url = when (aURL.port) {
+                -1, 80 -> aURL.protocol + "://" + aURL.host
+                else -> aURL.protocol + "://" + aURL.host + ":" + aURL.port
+            }
+            url + src
+        }
+    }
+    
     fun encodeURI(str: String): String {
         return try {
             URLEncoder.encode(str, "UTF-8")
