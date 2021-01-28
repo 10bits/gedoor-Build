@@ -167,6 +167,10 @@ interface JsExtensions {
             url + src
         }
     }
+
+    fun getUniqList(list: List<String>): List<String> {
+        return list.distinct()
+    }
     
     fun encodeURI(str: String): String {
         return try {
