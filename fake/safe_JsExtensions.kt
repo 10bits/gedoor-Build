@@ -41,6 +41,19 @@ interface JsExtensions {
         }
     }
 
+    fun ajaxCacheGet(url: String, saveTime: Int = 0): String {
+        return runBlocking {
+            var x = CacheManager.get(url)
+            if (x == null) {
+                x = RxHttp.get(url).toString()
+                x.let {
+                    CacheManager.put(url, saveTime)
+                }
+            }
+            return@runBlocking x
+        }
+    }
+    
     /**
      * 访问网络,返回Response<String>
      */
