@@ -6,8 +6,13 @@ function app_build()
     debug "build with gradle"
     cd $APP_WORKSPACE
     chmod +x gradlew
-    debug "默认编译Play版本"
-    ./gradlew assembleGoogleRelease
+    
+    debug "加入Play版功能"
+    [[ "$APP_NAME" == "legado" ]] && find $APP_WORKSPACE/app/src -regex '.*/help/AppConfig.kt' -exec \
+        sed '/val isGooglePlay/c\val isGooglePlay = true' {} -i \;
+        
+    ./gradlew aR --build-cache --parallel
+    
     APP_BUILD_APK=$(find $APP_WORKSPACE/app/build -regex .*/release/.*.apk)
     debug "build apk $APP_BUILD_APK"
     if [ -f $APP_BUILD_APK ]; then
