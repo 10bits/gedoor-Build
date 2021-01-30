@@ -2,11 +2,29 @@
 
 package io.legado.app.help
 
+import io.legado.app.constant.AppConst
 import org.mozilla.javascript.*
+import javax.script.SimpleBindings
 
 /**
  * 参考 https://codeutopia.net/blog/2009/01/02/sandboxing-rhino-in-java/
  */
+object SafeJSContext {
+    private val jsContext: ContextFactory by lazy {
+        ContextFactory.initGlobal(SandboxContextFactory())
+        ContextFactory.getGlobal()
+    }
+
+    fun eval(jsStr: String, bindings: SimpleBindings): Any {
+        val safe = true
+        return if (!safe) {
+            AppConst.SCRIPT_ENGINE0.eval(jsStr, bindings)
+        } else {
+            jsContext.eval(jsStr, bindings)
+        }
+    }
+}
+
 fun ContextFactory.eval(jsStr: String, scriptObjects: Map<String, Any>): Any {
     val ctx = this.enterContext()
     ctx.optimizationLevel = -1
