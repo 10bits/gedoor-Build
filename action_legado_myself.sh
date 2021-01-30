@@ -35,6 +35,6 @@ if [ $APP_NAME = 'legado' ] && [[ $REPO_ACTOR = '10bits' ]]; then
 
     debug "safe JsExtensions.kt"
     cp $GITHUB_WORKSPACE/fake/safe_JsExtensions.kt \
-       $(find $APP_WORKSPACE/app/src -regex '.*/JsExtensions.kt' -print|xargs dirname)/JsExtensions.kt
+       $(find $APP_WORKSPACE/app/src -regex '.*/help/JsExtensions.kt' -print|xargs dirname)/JsExtensions.kt
 
 fi
