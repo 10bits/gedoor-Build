@@ -11,7 +11,7 @@ function app_build()
     [[ "$APP_NAME" == "legado" ]] && find $APP_WORKSPACE/app/src -regex '.*/help/AppConfig.kt' -exec \
         sed '/val isGooglePlay/c\val isGooglePlay = true' {} -i \;
         
-    ./gradlew aR --build-cache --parallel
+    ./gradlew assembleAppRelease --build-cache --parallel
     
     APP_BUILD_APK=$(find $APP_WORKSPACE/app/build -regex .*/release/.*.apk)
     debug "build apk $APP_BUILD_APK"
