@@ -3,7 +3,7 @@
 function debug() { echo "::debug::$1"; }
 
 #阅读3.0自用定制脚本
-if [ $APP_NAME = 'legado' ] && [[ $REPO_ACTOR = '10bits' ]]; then 
+if [[ "$APP_NAME" = "legado" ]] && [[ "$REPO_ACTOR" = "10bits" ]]; then 
 
     debug "maven中心仓库回归"
     sed "/google()/i\        mavenCentral()" $APP_WORKSPACE/build.gradle -i
@@ -36,5 +36,8 @@ if [ $APP_NAME = 'legado' ] && [[ $REPO_ACTOR = '10bits' ]]; then
     debug "safe JsExtensions.kt"
     find $APP_WORKSPACE/app/src -type d -regex '.*/help' -exec \
     cp $GITHUB_WORKSPACE/fake/safe_JsExtensions.kt {}/JsExtensions.kt \;
+    
+    debug "开启Rhino安全沙箱,移步https://github.com/10bits/rhino-android"
+    sed "/gedoor:rhino-android/c\    implementation 'com.github.10bits:rhino-android:1.6'" $APP_WORKSPACE/app/build.gradle -i
 
 fi
