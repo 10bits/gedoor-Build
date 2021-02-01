@@ -34,7 +34,7 @@ if [[ "$APP_NAME" = "legado" ]] && [[ "$REPO_ACTOR" = "10bits" ]]; then
         {} -i \;
 
     debug "safe JsExtensions.kt"
-    find $APP_WORKSPACE/app/src -type d -regex '.*/help' -exec \
+    find $APP_WORKSPACE/app/src -type d -regex '.*/app/help' -exec \
     cp $GITHUB_WORKSPACE/fake/safe_JsExtensions.kt {}/JsExtensions.kt \;
     
     debug "开启Rhino安全沙箱,移步https://github.com/10bits/rhino-android"
