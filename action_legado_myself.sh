@@ -19,9 +19,8 @@ if [[ "$APP_NAME" = "legado" ]] && [[ "$REPO_ACTOR" = "10bits" ]]; then
     sed "s/30000L/6000L/" {} -i \;
         
     debug "关闭加入书架提示"
-    START=$(sed -n '/!ReadBook.inBookshelf/=' $APP_WORKSPACE/app/src/main/java/io/legado/app/ui/book/read/ReadBookActivity.kt)
     find $APP_WORKSPACE/app/src -regex '.*/ReadBookActivity.kt' -exec \
-    sed -e "$(echo $START+1|bc),$(echo $START+8|bc)d" \
+    sed -e '/fun finish()/,/fun onDestroy()/{s/alert/\/*&/;s/show()/&*\//}' \
         -e '/!ReadBook.inBookshelf/a\viewModel.removeFromBookshelf{ super.finish() }' \
         {} -i \;
         
