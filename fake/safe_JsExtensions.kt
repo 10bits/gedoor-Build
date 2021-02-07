@@ -16,7 +16,7 @@ import org.jsoup.Connection
 import org.jsoup.Jsoup
 import rxhttp.wrapper.param.RxHttp
 import rxhttp.wrapper.param.toByteArray
-import java.io.File
+import java.io.*
 import java.net.URL
 import java.net.URLEncoder
 import java.util.*
@@ -183,6 +183,71 @@ interface JsExtensions {
 
     fun getUniqList(list: List<String>): List<String> {
         return list.distinct()
+    }
+    
+    fun compress(primStr: String?): String? {
+        if (primStr == null || primStr.isEmpty()) {
+            return primStr
+        }
+        val out = ByteArrayOutputStream()
+        var gzip: GZIPOutputStream? = null
+        try {
+            gzip = GZIPOutputStream(out)
+            gzip.write(primStr.toByteArray())
+        } catch (e: IOException) {
+            e.printStackTrace()
+        } finally {
+            if (gzip != null) {
+                try {
+                    gzip.close()
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            }
+        }
+        return Base64.encodeToString(out.toByteArray(), Base64.NO_WRAP)
+    }
+
+    fun uncompress(compressedStr: String?): String? {
+        if (compressedStr == null) {
+            return null
+        }
+        val out = ByteArrayOutputStream()
+        var input: ByteArrayInputStream? = null
+        var ginzip: GZIPInputStream? = null
+        var compressed: ByteArray? = null
+        var decompressed: String? = null
+        try {
+            compressed = Base64.decode(compressedStr, Base64.NO_WRAP)
+            input = ByteArrayInputStream(compressed)
+            ginzip = GZIPInputStream(input)
+            val buffer = ByteArray(1024)
+            var offset = -1
+            while (ginzip.read(buffer).also { offset = it } != -1) {
+                out.write(buffer, 0, offset)
+            }
+            decompressed = out.toString()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        } finally {
+            if (ginzip != null) {
+                try {
+                    ginzip.close()
+                } catch (e: IOException) {
+                }
+            }
+            if (input != null) {
+                try {
+                    input.close()
+                } catch (e: IOException) {
+                }
+            }
+            try {
+                out.close()
+            } catch (e: IOException) {
+            }
+        }
+        return decompressed
     }
     
     fun encodeURI(str: String): String {
