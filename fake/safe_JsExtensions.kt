@@ -20,6 +20,8 @@ import java.io.*
 import java.net.URL
 import java.net.URLEncoder
 import java.util.*
+import java.util.zip.GZIPInputStream
+import java.util.zip.GZIPOutputStream
 
 @Keep
 @Suppress("unused")
