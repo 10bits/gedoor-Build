@@ -49,7 +49,7 @@ interface JsExtensions {
             if (x == null) {
                 x = RxHttp.get(url).toString()
                 x.let {
-                    CacheManager.put(url, saveTime)
+                    CacheManager.put(url, x, saveTime)
                 }
             }
             return@runBlocking x
