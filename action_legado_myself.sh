@@ -38,5 +38,10 @@ if [[ "$APP_NAME" = "legado" ]] && [[ "$REPO_ACTOR" = "10bits" ]]; then
     
     debug "开启Rhino安全沙箱,移步https://github.com/10bits/rhino-android"
     sed "/gedoor:rhino-android/c\    implementation 'com.github.10bits:rhino-android:1.6'" $APP_WORKSPACE/app/build.gradle -i
+    
+    debug "删除google services相关"
+    sed -e '/com.google.firebase/d' \
+        -e '/com.google.gms/d' \
+        $APP_WORKSPACE/app/build.gradle -i
 
 fi
