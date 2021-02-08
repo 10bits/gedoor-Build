@@ -40,8 +40,9 @@ if [[ "$APP_NAME" = "legado" ]] && [[ "$REPO_ACTOR" = "10bits" ]]; then
     sed "/gedoor:rhino-android/c\    implementation 'com.github.10bits:rhino-android:1.6'" $APP_WORKSPACE/app/build.gradle -i
     
     debug "删除google services相关"
-    sed -e '/com.google.firebase/d' \
-        -e '/com.google.gms/d' \
+    sed -e "/com.google.firebase/d" \
+        -e "/com.google.gms/d" \
+        -e "/androidx.appcompat/a\    implementation 'androidx.documentfile:documentfile:1.0.1'" \
         $APP_WORKSPACE/app/build.gradle -i
 
 fi
