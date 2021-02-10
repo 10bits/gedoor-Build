@@ -119,7 +119,7 @@ jobs:
       run: |
         find $APP_WORKSPACE -type f -regex '.*/\(.*\.gradle\|gradle-wrapper\.properties\)' -exec \
         cat '{}' \; >$APP_WORKSPACE/bindfile
-        echo ::set-output name=hash::$(sha1sum $APP_WORKSPACE/bindfile | awk '{print $1|')
+        echo ::set-output name=hash::$(sha1sum $APP_WORKSPACE/bindfile | awk '{print $1}')
         
     - uses: actions/cache@v2
       if: env.APP_NAME == "legado"
