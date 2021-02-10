@@ -31,12 +31,6 @@ jobs:
           echo ::set-output name=if_release::true
         fi
 
-    - name: set up JDK
-      if: steps.check_release.outputs.if_release == 'true'
-      uses: actions/setup-java@v1
-      with:
-        java-version: 14
-    
     - name: build apk
       id: build_apk
       if: steps.check_release.outputs.if_release == 'true'
@@ -95,20 +89,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/cache@v2
-      with:
-        path: |
-          ~/.gradle/caches
-          ~/.gradle/wrapper
-        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-        restore-keys: |
-          ${{ runner.os }}-gradle-  
-
-    - name: set up JDK
-      uses: actions/setup-java@v1
-      with:
-        java-version: 14
-
     - name: set env
       shell: bash
       env:
@@ -123,7 +103,7 @@ jobs:
         SECRETS_TAG: ${{ secrets.TAG }}
         SECRETS_LAUNCH_NAME: ${{ secrets.LAUNCH_NAME }}
       run: source $GITHUB_WORKSPACE/action_setenv.sh
-      
+    
     - name: clone code
       shell: bash
       run: source $GITHUB_WORKSPACE/action_clone.sh
@@ -132,6 +112,15 @@ jobs:
       shell: bash
       run: |
         source $GITHUB_WORKSPACE/action_app_custom.sh
+    
+    - uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ env.APP_UPLOAD_NAME }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
 
     - name: build  your app
       if: success()
