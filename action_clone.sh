@@ -23,6 +23,8 @@ function init_workspace()
     fi
     git checkout $LatestTag
     set_env APP_UPLOAD_NAME $APP_NAME-$LatestTag
+    [[ "$APP_NAME" = "legado" ]] && \
+    set_env APP_TAG    $(echo $LatestTag|grep -o '3\.[0-9]\{2\}\.[0-9]\{6\}')
     debug "$APP_NAME latest tag is $LatestTag"
 }
 init_workspace;
