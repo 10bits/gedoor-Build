@@ -122,7 +122,7 @@ jobs:
         echo ::set-output name=hash::$(sha1sum $APP_WORKSPACE/bindfile | awk '{print $1}')
         
     - uses: actions/cache@v2
-      if: env.APP_NAME == "legado"
+      if: env.APP_NAME == 'legado'
       with:
         path: |
           ~/.gradle/caches
