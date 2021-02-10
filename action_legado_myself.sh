@@ -1,22 +1,27 @@
 #!/bin/sh
-
-function debug() { echo "::debug::$1"; }
-
+source $GITHUB_WORKSPACE/action_util.sh
 #阅读3.0自用定制脚本
 if [[ "$APP_NAME" = "legado" ]] && [[ "$REPO_ACTOR" = "10bits" ]]; then 
 
-    debug "maven中心仓库回归"
+    debug "预处理"
+    if version_ge "$APP_TAG" "3.21.021012"; then
+        sed -e '/^import io.legado.app.App$/c\import splitties.init.appCtx' \
+            -e 's/(App.INSTANCE)/(appCtx)/' \
+            $GITHUB_WORKSPACE/fake/safe_JsExtensions.kt
+    fi
+    
+    debug "maven中央仓库回归"
     sed "/google()/i\        mavenCentral()" $APP_WORKSPACE/build.gradle -i
 
     debug "发现书籍界面优化"
     find $APP_WORKSPACE/app/src -regex '.*/ExploreShowActivity.kt' -exec \
     sed -e "/loadMoreView.error(it)/i\isLoading = false" \
-        -e "/ExploreShowActivity/i\import org.jetbrains.anko.toast" \
-        -e '/loadMoreView.error(it)/i\toast(it)' \
+        -e "/ExploreShowActivity/i\import io.legado.app.utils.longToastOnUi" \
+        -e '/loadMoreView.error(it)/i\longToastOnUi(it)' \
         -e 's/loadMoreView.error(it)/loadMoreView.error("网络请求失败或超时")/' \
         {} -i \;
     find $APP_WORKSPACE/app/src -regex '.*/ExploreShowViewModel.kt' -exec \
-    sed "s/30000L/6000L/" {} -i \;
+    sed "s/30000L/10000L/" {} -i \;
         
     debug "关闭加入书架提示"
     find $APP_WORKSPACE/app/src -regex '.*/ReadBookActivity.kt' -exec \
@@ -29,7 +34,7 @@ if [[ "$APP_NAME" = "legado" ]] && [[ "$REPO_ACTOR" = "10bits" ]]; then
     sed -e 's/getString(R.string.screen_find)/"搜索书籍、书源"/' \
         -e '/fun initSearchView()/i\override fun onResume(){super.onResume();searchView.clearFocus()}' \
         -e '/ExploreFragment/i\import io.legado.app.ui.book.search.SearchActivity' \
-        -e '/onQueryTextSubmit/a\if(!query?.contains("group:")!!){startActivity<SearchActivity>(Pair("key", query))}' \
+        -e '/onQueryTextSubmit/a\if(!query?.contains("group:")!!){startActivity<SearchActivity> { putExtra("key", query) }}' \
         {} -i \;
 
     debug "safe JsExtensions.kt"
