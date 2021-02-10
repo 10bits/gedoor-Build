@@ -133,6 +133,7 @@ jobs:
         source $GITHUB_WORKSPACE/action_app_custom.sh
         
     - name: hash files
+      if: success()
       id: hash_files
       shell: bash
       run: |
@@ -141,7 +142,7 @@ jobs:
         echo ::set-output name=hash::$(sha1sum $APP_WORKSPACE/bindfile | awk '{print $1}')
         
     - uses: actions/cache@v2
-      if: env.APP_NAME == 'legado'
+      if: env.APP_NAME == 'legado' && steps.hash_files.outputs.hash != null
       with:
         path: |
           ~/.gradle/caches
