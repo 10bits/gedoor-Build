@@ -30,25 +30,6 @@ jobs:
           git checkout $LATEST_TAG 
           echo ::set-output name=if_release::true
         fi
-        
-    - name: hash files
-      if: steps.check_release.outputs.if_release == 'true'
-      id: hash_files
-      shell: bash
-      run: |
-        find $APP_WORKSPACE -type f -regex '.*/\(.*\.gradle\|gradle-wrapper\.properties\)' -exec \
-        cat '{}' \; >$APP_WORKSPACE/bindfile
-        echo ::set-output name=hash::$(sha1sum $APP_WORKSPACE/bindfile | awk '{print $1}')
-        
-    - uses: actions/cache@v2
-      if: steps.check_release.outputs.if_release == 'true'
-      with:
-        path: |
-          ~/.gradle/caches
-          ~/.gradle/wrapper
-        key: ${{ runner.os }}-legado-${{ steps.hash_files.outputs.hash }}
-        restore-keys: |
-          ${{ runner.os }}-legado-
           
     - name: build apk
       id: build_apk
@@ -147,9 +128,9 @@ jobs:
         path: |
           ~/.gradle/caches
           ~/.gradle/wrapper
-        key: ${{ runner.os }}-legado-${{ steps.hash_files.outputs.hash }}
+        key: ${{ runner.os }}-${{ hashFiles('**/.lastcheck') }}-${{ steps.hash_files.outputs.hash }}
         restore-keys: |
-          ${{ runner.os }}-legado-
+          ${{ runner.os }}-${{ hashFiles('**/.lastcheck') }}-
 
     - name: build  your app
       if: success()
