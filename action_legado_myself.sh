@@ -3,13 +3,6 @@ source $GITHUB_WORKSPACE/action_util.sh
 #阅读3.0自用定制脚本
 if [[ "$APP_NAME" = "legado" ]] && [[ "$REPO_ACTOR" = "10bits" ]]; then 
 
-    debug "预处理"
-    if version_ge "$APP_TAG" "3.21.021012"; then
-        sed -e '/^import io.legado.app.App$/c\import splitties.init.appCtx' \
-            -e 's/(App.INSTANCE)/(appCtx)/' \
-            $GITHUB_WORKSPACE/fake/safe_JsExtensions.kt
-    fi
-    
     debug "maven中央仓库回归"
     sed "/google()/i\        mavenCentral()" $APP_WORKSPACE/build.gradle -i
 
@@ -38,6 +31,11 @@ if [[ "$APP_NAME" = "legado" ]] && [[ "$REPO_ACTOR" = "10bits" ]]; then
         {} -i \;
 
     debug "safe JsExtensions.kt"
+    if version_ge "$APP_TAG" "3.21.021012"; then
+        sed -e '/^import io.legado.app.App$/c\import splitties.init.appCtx' \
+            -e 's/(App.INSTANCE)/(appCtx)/' \
+            $GITHUB_WORKSPACE/fake/safe_JsExtensions.kt -i
+    fi
     find $APP_WORKSPACE/app/src -type d -regex '.*/app/help' -exec \
     cp $GITHUB_WORKSPACE/fake/safe_JsExtensions.kt {}/JsExtensions.kt \;
     
