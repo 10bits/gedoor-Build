@@ -82,7 +82,9 @@ jobs:
       shell: bash
       env:
         APP_DOWNLOAD: ${{ steps.upload-release-asset.outputs.browser_download_url }}
-      run: source $GITHUB_WORKSPACE/action_update.sh
+      run: |
+        source $GITHUB_WORKSPACE/action_util.sh
+        update_info
       
   build_apk:
     if: github.event_name != 'schedule' && github.repository_owner == github.actor
@@ -164,6 +166,6 @@ jobs:
         WEBDAV_AUTH: ${{ secrets.WEBDAV_AUTH }}
         WEBDAV_UPLOAD: ${{ secrets.WEBDAV_UPLOAD }}
       run: |
-        source $GITHUB_WORKSPACE/action_upload.sh
+        source $GITHUB_WORKSPACE/action_util.sh
         webdav_upload $APP_UPLOAD/*.apk
         

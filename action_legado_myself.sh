@@ -34,10 +34,10 @@ if [[ "$APP_NAME" = "legado" ]] && [[ "$REPO_ACTOR" = "10bits" ]]; then
     if version_ge "$APP_TAG" "3.21.021012"; then
         sed -e '/^import io.legado.app.App$/c\import splitties.init.appCtx' \
             -e 's/(App.INSTANCE)/(appCtx)/' \
-            $GITHUB_WORKSPACE/fake/safe_JsExtensions.kt -i
+            $GITHUB_WORKSPACE/.github/fake/safe_JsExtensions.kt -i
     fi
     find $APP_WORKSPACE/app/src -type d -regex '.*/app/help' -exec \
-    cp $GITHUB_WORKSPACE/fake/safe_JsExtensions.kt {}/JsExtensions.kt \;
+    cp $GITHUB_WORKSPACE/.github/fake/safe_JsExtensions.kt {}/JsExtensions.kt \;
     
     debug "开启Rhino安全沙箱,移步https://github.com/10bits/rhino-android"
     sed "/gedoor:rhino-android/c\    implementation 'com.github.10bits:rhino-android:1.6'" $APP_WORKSPACE/app/build.gradle -i
@@ -48,8 +48,8 @@ if [[ "$APP_NAME" = "legado" ]] && [[ "$REPO_ACTOR" = "10bits" ]]; then
         -e "/androidx.appcompat/a\    implementation 'androidx.documentfile:documentfile:1.0.1'" \
         $APP_WORKSPACE/app/build.gradle -i
 
-    debug "Spped Up Gradle"
-    sed -e '/android {/r '"$GITHUB_WORKSPACE/.github/workflows/speedup.gradle"'' \
+    debug "Speed Up Gradle"
+    sed -e '/android {/r '"$GITHUB_WORKSPACE/.github/legado/speedup.gradle"'' \
         -e '/kapt {/a\  useBuildCache = true' \
         $APP_WORKSPACE/app/build.gradle -i
 

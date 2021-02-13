@@ -60,9 +60,9 @@ function app_live_together()
 function app_sign()
 {
     debug "给apk增加签名"
-    cp $GITHUB_WORKSPACE/.github/workflows/legado.jks \
+    cp $GITHUB_WORKSPACE/.github/legado/legado.jks \
        $APP_WORKSPACE/app/legado.jks
-    sed '$r '"$GITHUB_WORKSPACE/.github/workflows/legado.sign"'' \
+    sed '$r '"$GITHUB_WORKSPACE/.github/legado/legado.sign"'' \
        $APP_WORKSPACE/gradle.properties -i
 }
 
