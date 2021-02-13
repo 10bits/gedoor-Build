@@ -127,6 +127,7 @@ jobs:
       with:
         path: |
           ~/.gradle/caches
+          !~/.gradle/caches/build-cache-1
           ~/.gradle/wrapper
         key: legado-gradle-${{ hashFiles('**/.lastcheck') }}-${{ steps.hash_files.outputs.hash }}
         restore-keys: |
@@ -136,10 +137,10 @@ jobs:
       if: env.APP_NAME == 'legado'
       with:
         path: |
-          /opt/legado/app/build
-        key: legado-build-${{ hashFiles('**/.lastcheck') }}-${{ env.APP_TAG }}
+          ~/.gradle/caches/build-cache-1
+        key: legado-cache-${{ hashFiles('**/.lastcheck') }}-${{ env.APP_TAG }}
         restore-keys: |
-          legado-build-${{ hashFiles('**/.lastcheck') }}-          
+          legado-cache-${{ hashFiles('**/.lastcheck') }}-          
 
     - name: build  your app
       if: success()
