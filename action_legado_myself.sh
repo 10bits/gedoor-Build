@@ -11,7 +11,7 @@ if [[ "$APP_NAME" = "legado" ]] && [[ "$REPO_ACTOR" = "10bits" ]]; then
     sed -e "/loadMoreView.error(it)/i\isLoading = false" \
         -e "/ExploreShowActivity/i\import io.legado.app.utils.longToastOnUi" \
         -e '/loadMoreView.error(it)/i\longToastOnUi(it)' \
-        -e 's/loadMoreView.error(it)/loadMoreView.error("网络请求失败或超时")/' \
+        -e 's/loadMoreView.error(it)/loadMoreView.error("目标网站连接失败或超时")/' \
         {} -i \;
     find $APP_WORKSPACE/app/src -regex '.*/ExploreShowViewModel.kt' -exec \
     sed "s/30000L/8000L/" {} -i \;
