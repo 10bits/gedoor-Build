@@ -1,13 +1,11 @@
 #!/bin/sh
-
-function debug() { echo "::debug::$1"; }
-
+source $GITHUB_WORKSPACE/action_util.sh
 function webdav_upload()
 {
-  if [ $WEBDAV_UPLOAD = 'true' ] && [ -n "$WEBDAV_USER" ] && [ -n "$WEBDAV_PASS" ] && [ -n "$WEBDAV_URL" ] && [ $REPO_OWNER = $REPO_ACTOR ]; then
+  if [[ "$WEBDAV_UPLOAD" = "true" ]] && [[ -n "$WEBDAV_AUTH" ]] && [[ -n "$WEBDAV_URL" ]] && [[ "$REPO_OWNER" = "$REPO_ACTOR" ]]; then
     debug "已开启webdav上传"
-    curl -X MKCOL -u $WEBDAV_USER:$WEBDAV_PASS $WEBDAV_URL
-    curl -u $WEBDAV_USER:$WEBDAV_PASS -T $1 $WEBDAV_URL
+    curl -X MKCOL -u $WEBDAV_AUTH $WEBDAV_URL
+    curl -u $WEBDAV_AUTH -T $1 $WEBDAV_URL
   fi
 }
 

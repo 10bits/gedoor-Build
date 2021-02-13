@@ -151,8 +151,7 @@ jobs:
       shell: bash
       env:
         WEBDAV_URL: ${{ secrets.WEBDAV_URL }}
-        WEBDAV_USER: ${{ secrets.WEBDAV_USER }}
-        WEBDAV_PASS: ${{ secrets.WEBDAV_PASS }}
+        WEBDAV_AUTH: ${{ secrets.WEBDAV_AUTH }}
         WEBDAV_UPLOAD: ${{ secrets.WEBDAV_UPLOAD }}
       run: |
         source $GITHUB_WORKSPACE/action_upload.sh
