@@ -48,4 +48,9 @@ if [[ "$APP_NAME" = "legado" ]] && [[ "$REPO_ACTOR" = "10bits" ]]; then
         -e "/androidx.appcompat/a\    implementation 'androidx.documentfile:documentfile:1.0.1'" \
         $APP_WORKSPACE/app/build.gradle -i
 
+    debug "Spped Up Gradle"
+    sed -e '/android {/r '"$GITHUB_WORKSPACE/.github/workflows/speedup.gradle"'' \
+        -e '/kapt {/a\  useBuildCache = true' \
+        $APP_WORKSPACE/app/build.gradle -i
+
 fi
