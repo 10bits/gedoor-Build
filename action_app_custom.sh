@@ -62,9 +62,9 @@ function app_sign()
     debug "给apk增加签名"
     cp $GITHUB_WORKSPACE/.github/workflows/legado.jks \
        $APP_WORKSPACE/app/legado.jks
-
     sed "$r $GITHUB_WORKSPACE/.github/workflows/legado.sign" \
        $APP_WORKSPACE/gradle.properties -i
+    cat $APP_WORKSPACE/gradle.properties
 }
 
 #禁用一些库
