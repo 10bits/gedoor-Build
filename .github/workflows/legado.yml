@@ -138,7 +138,7 @@ jobs:
       with:
         path: |
           ~/.gradle/caches/build-cache-1
-        key: legado-cache-${{ hashFiles('**/.lastcheck') }}-${{ env.APP_TAG }}
+        key: legado-cache-${{ hashFiles('**/.lastcheck') }}-${{ github.run_id }}
         restore-keys: |
           legado-cache-${{ hashFiles('**/.lastcheck') }}-          
 
