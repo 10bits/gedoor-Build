@@ -64,6 +64,9 @@ function app_sign()
        $APP_WORKSPACE/app/legado.jks
     sed '$r '"$GITHUB_WORKSPACE/.github/workflows/legado.sign"'' \
        $APP_WORKSPACE/gradle.properties -i
+    debug "Spped Up Gradle"
+    sed '/android {/r '"$GITHUB_WORKSPACE/.github/workflows/speedup.gradle"'' \
+       $APP_WORKSPACE/app/build.gradle -i
 }
 
 #禁用一些库
