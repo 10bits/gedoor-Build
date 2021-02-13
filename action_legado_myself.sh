@@ -14,7 +14,7 @@ if [[ "$APP_NAME" = "legado" ]] && [[ "$REPO_ACTOR" = "10bits" ]]; then
         -e 's/loadMoreView.error(it)/loadMoreView.error("网络请求失败或超时")/' \
         {} -i \;
     find $APP_WORKSPACE/app/src -regex '.*/ExploreShowViewModel.kt' -exec \
-    sed "s/30000L/10000L/" {} -i \;
+    sed "s/30000L/8000L/" {} -i \;
         
     debug "关闭加入书架提示"
     find $APP_WORKSPACE/app/src -regex '.*/ReadBookActivity.kt' -exec \

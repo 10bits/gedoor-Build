@@ -14,11 +14,9 @@ function app_clear_18plus()
 function app_rename() 
 {
     if [[ "$APP_NAME" = "legado" ]] && [[ "$SECRETS_RENAME" = "true" ]]; then
-
         debug "更改桌面启动名称"
         sed 's/"app_name">阅读/"app_name">'"$APP_LAUNCH_NAME"'/' \
             $APP_WORKSPACE/app/src/main/res/values-zh/strings.xml -i
-
         debug "更改webdav备份目录legado为legado+后缀名"
         find $APP_WORKSPACE/app/src -regex '.*/storage/.*.kt' -exec \
         sed "s/\${url}legado/&$APP_SUFFIX/" {} -i \;
