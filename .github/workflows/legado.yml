@@ -131,7 +131,7 @@ jobs:
           ~/.gradle/wrapper
         key: legado-gradle-${{ hashFiles('**/.lastcheck') }}-${{ steps.hash_files.outputs.hash }}
         restore-keys: |
-          legado--gradle-${{ hashFiles('**/.lastcheck') }}-
+          legado-gradle-${{ hashFiles('**/.lastcheck') }}-
           
     - uses: actions/cache@v2
       if: env.APP_NAME == 'legado'
