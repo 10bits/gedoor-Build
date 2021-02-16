@@ -4,7 +4,7 @@ source $GITHUB_WORKSPACE/action_util.sh
 #去除河蟹,默认启用
 function app_clear_18plus() 
 {
-    if [[ "$APP_NAME" = "legado" ]]; then
+    if [[ "$APP_NAME" == "legado" ]]; then
         debug "清空18PlusList.txt"
         echo "">$APP_WORKSPACE/app/src/main/assets/18PlusList.txt
     fi
@@ -13,7 +13,7 @@ function app_clear_18plus()
 #修改桌面阅读名为阅读.A,安装多个阅读时候方便识别,默认启用
 function app_rename() 
 {
-    if [[ "$APP_NAME" = "legado" ]] && [[ "$SECRETS_RENAME" = "true" ]]; then
+    if [[ "$APP_NAME" == "legado" ]] && [[ "$SECRETS_RENAME" == "true" ]]; then
         debug "更改桌面启动名称"
         sed 's/"app_name">阅读/"app_name">'"$APP_LAUNCH_NAME"'/' \
             $APP_WORKSPACE/app/src/main/res/values-zh/strings.xml -i
@@ -26,17 +26,16 @@ function app_rename()
 #删除一些用不到的资源
 function app_resources_unuse()
 {
-    if [[ "$APP_NAME" = "legado" ]]; then
+    if [[ "$APP_NAME" == "legado" ]]; then
         debug "删除一些用不到的资源"
-        rm $APP_WORKSPACE/app/src/main/assets/bg      -rf
-        #rm $APP_WORKSPACE/app/src/main/assets/web/new -rf
+        rm $APP_WORKSPACE/app/src/main/assets/bg -rf
     fi
 }
 
 #最小化生成apk体积
 function app_minify()
 {
-    if [[ "$APP_NAME" = "legado" ]]; then
+    if [[ "$APP_NAME" == "legado" ]]; then
         debug "缩小apk体积"
         sed -e '/minifyEnabled/i\            shrinkResources true' \
             -e 's/minifyEnabled false/minifyEnabled true/' \
@@ -47,7 +46,7 @@ function app_minify()
 #和已有阅读共存,默认启用
 function app_live_together()
 {
-    if [[ "$APP_NAME" = "legado" ]]; then
+    if [[ "$APP_NAME" == "legado" ]]; then
         debug "解决安装程序共存问题"
         sed "s/'.release'/'.release$APP_SUFFIX'/" \
             $APP_WORKSPACE/app/build.gradle -i
@@ -69,7 +68,7 @@ function app_sign()
 #禁用一些库
 function app_not_apply_plugin()
 {
-    if [[ "$APP_NAME" = "MyBookshelf" ]]; then
+    if [[ "$APP_NAME" == "MyBookshelf" ]]; then
         debug "删除google services相关"
         sed -e '/io.fabric/d' \
             -e '/com.google.firebase/d' \
@@ -78,25 +77,20 @@ function app_not_apply_plugin()
     fi
 }
 
-#进入收尾工作
-function app_other()
-{
-    if [[ "$APP_NAME" = "MyBookshelf" ]]; then
-        debug "$APP_NAME 解压MyBookshelf_Keys.zip"
-        unzip -o $APP_WORKSPACE/app/MyBookshelf_Keys.zip -d $APP_WORKSPACE/app
-        rm $APP_WORKSPACE/app/gradle.properties       
-        #sed 's/com.gedoor.monkeybook/com.kunfei.bookshelf/' $APP_WORKSPACE/app/build.gradle -i
-    fi
-}
+#签名
+app_sign;
 
-#通用
-app_sign
-[[ "$SECRETS_MINIFY" = "true" ]] && app_minify
+#是否启用资源压缩,默认不压缩
+[[ "$SECRETS_MINIFY" == "true" ]] && app_minify;
 
 #阅读3.0
-app_clear_18plus;app_rename;app_live_together;app_resources_unuse
+app_clear_18plus;
+app_rename;
+app_live_together;
+app_resources_unuse;
+
 #自用定制脚本
 source $GITHUB_WORKSPACE/action_legado_myself.sh
 
 #阅读2.0
-app_not_apply_plugin
+app_not_apply_plugin;
