@@ -9,6 +9,7 @@ function build_gradle_setting()
     debug "Speed Up Gradle"
     sed -e '/android {/r '"$GITHUB_WORKSPACE/.github/legado/speedup.gradle"'' \
         -e '/kapt {/a\  useBuildCache = true' \
+        -e '/minSdkVersion/c\        minSdkVersion 26' \
         $APP_WORKSPACE/app/build.gradle -i
 }
 
