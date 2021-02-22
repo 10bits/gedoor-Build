@@ -13,6 +13,7 @@ function update_info()
         sed -e 's/^/> &/' \
             -e '1i\<!--start-->' \
             -e '$a\<!--end-->' \
+            -e 's/\r//' \
             $APP_LATEST_BODY -i
         sed -e '/<!--start-->/,/<!--end-->/d' \
             -e '5r '"$APP_LATEST_BODY"'' \
