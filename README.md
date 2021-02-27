@@ -2,13 +2,16 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.022121.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.022121/legado-3.21.022121.apk) 上次构建时间:2021-02-22 02:42:39
+> 最新构建下载:[legado-3.21.022715.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.022715/legado-3.21.022715.apk) 上次构建时间:2021-02-27 19:57:39
 <!--start-->
-> **2021/02/21**
-> * 下一页规则改为在内容规则之后执行
-> * 书籍导出增加编码设置和导出文件夹设置,使用替换设置
-> * 导入源添加等待框
-> * 修复一些崩溃bug
+> **2021/02/26**
+> * 添加反转内容功能
+> * 更新章节是如果没有目录url自动加载详情页
+> * 添加变量nextChapterUrl
+> * 订阅跳转外部应用时提示
+> * 修复恢复bug
+> * 详情页拼接url改为重定向后的地址
+> * 不重复解析详情页
 <!--end-->
   
 1. fork到你自己的仓库
