@@ -2,17 +2,12 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.030812.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.030812/legado-3.21.030812.apk) 上次构建时间:2021-03-08 14:13:32
+> 最新构建下载:[legado-3.21.031511.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.031511/legado-3.21.031511.apk) 上次构建时间:2021-03-15 13:08:56
 <!--start-->
-> **2021/03/08**
-> * 阅读页面停留10分钟之后自动备份进度
-> * 添加了针对中文的断行排版处理-by hoodie13, 需要再阅读界面设置里手动开启
-> * 添加朗读快捷方式
-> * 优化Epub解析 by hoodie13
-> * epub书籍增加cache by hoodie13
-> * 修复切换书籍或者章节时的断言崩溃问题。看漫画容易复现。 by hoodie13
-> * 修正增加书签alert的正文内容较多时，确定键溢出屏幕问题 by hoodie13
-> * 图片样式添加TEXT, 阅读界面菜单里可以选择图片样式
+> **2021/03/15**
+> * 优化图片TEXT样式显示
+> * 图片url在解析正文时就拼接成绝对url
+> * 修复一些bug
 <!--end-->
   
 1. fork到你自己的仓库
