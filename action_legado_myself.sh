@@ -55,7 +55,7 @@ function rhino_safe_js()
             $GITHUB_WORKSPACE/.github/fake/safe_JsExtensions.kt -i
     fi
     if version_ge "$APP_TAG" "3.21.031511"; then
-        sed "s/str.htmlFormat/HtmlFormatter.formatKeepImg/" \
+        sed "s/str.htmlFormat()/HtmlFormatter.formatKeepImg(str)/" \
             $GITHUB_WORKSPACE/.github/fake/safe_JsExtensions.kt -i
     fi
     find $APP_WORKSPACE/app/src -type d -regex '.*/app/help' -exec \
