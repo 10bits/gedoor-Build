@@ -2,12 +2,10 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.031511.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.031511/legado-3.21.031511.apk) 上次构建时间:2021-03-15 13:08:56
+> 最新构建下载:[legado-3.21.031720.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.031720/legado-3.21.031720.apk) 上次构建时间:2021-03-18 00:44:40
 <!--start-->
-> **2021/03/15**
-> * 优化图片TEXT样式显示
-> * 图片url在解析正文时就拼接成绝对url
-> * 修复一些bug
+> **2021/03/17**
+> * 修复图片地址参数缺少的bug
 <!--end-->
   
 1. fork到你自己的仓库
