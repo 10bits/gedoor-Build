@@ -2,10 +2,13 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.031720.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.031720/legado-3.21.031720.apk) 上次构建时间:2021-03-18 00:44:40
+> 最新构建下载:[legado-3.21.032520.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.032520/legado-3.21.032520.apk) 上次构建时间:2021-03-25 20:59:23
 <!--start-->
-> **2021/03/17**
-> * 修复图片地址参数缺少的bug
+> **2021/03/23**
+> * 修复繁简转换“勐”“十”问题。使用了剥离HanLP简繁代码的民间库。APK减少6M左右
+> * js添加一个并发访问的方法 java.ajaxAll(urlList: Array<String>) 返回 Array<StrResponse?>
+> * 优化目录并发访问
+> * 添加自定义epublib,支持epub v3解析目录。by ag2s20150909
 <!--end-->
   
 1. fork到你自己的仓库
