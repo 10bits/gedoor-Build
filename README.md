@@ -2,12 +2,13 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.033111.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.033111/legado-3.21.033111.apk) 上次构建时间:2021-03-31 20:23:10
+> 最新构建下载:[legado-3.21.040323.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.040323/legado-3.21.040323.apk) 上次构建时间:2021-04-04 01:20:21
 <!--start-->
-> **2021/03/31**
-> * 优化epubLib by ag2s20150909
-> * 升级库,修改弃用方法
-> * tts引擎添加导入导出功能
+> **2021/04/02**
+> * 修复bug
+> * 书源调试添加源码查看
+> * 添加导出epub by ag2s20150909
+> * 换源添加是否校验作者选项
 <!--end-->
   
 1. fork到你自己的仓库
