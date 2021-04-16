@@ -2,11 +2,11 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.041415.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.041415/legado-3.21.041415.apk) 上次构建时间:2021-04-14 20:22:30
+> 最新构建下载:[legado-3.21.041610.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.041610/legado-3.21.041610.apk) 上次构建时间:2021-04-16 20:23:13
 <!--start-->
-> **2021/04/13**
-> * 修复导入布局bug
-> * 修复订阅切换布局bug
+> **2021/04/16**
+> * 去掉google统计,解决华为手机使用崩溃的bug
+> * 添加规则订阅时判断重复提醒
 <!--end-->
   
 1. fork到你自己的仓库
