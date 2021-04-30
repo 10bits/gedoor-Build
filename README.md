@@ -2,11 +2,13 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.041610.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.041610/legado-3.21.041610.apk) 上次构建时间:2021-04-16 20:23:13
+> 最新构建下载:[legado-3.21.043022.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.043022/legado-3.21.043022.apk) 上次构建时间:2021-04-30 23:55:16
 <!--start-->
-> **2021/04/16**
-> * 去掉google统计,解决华为手机使用崩溃的bug
-> * 添加规则订阅时判断重复提醒
+> **2021/04/30**
+> * epub插图,epublib优化,图片解码优化,epub读取导出优化。by ag2s20150909
+> * 添加高刷设置
+> * 其它一些优化
+> * pro版本被play商店下架了,先把pro设置图片背景的功能开放到所有版本,使用pro版本的可以使用备份恢复功能切换最新版本
 <!--end-->
   
 1. fork到你自己的仓库
