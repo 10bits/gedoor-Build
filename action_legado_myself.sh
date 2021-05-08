@@ -81,5 +81,5 @@ if [[ "$APP_NAME" == "legado" ]] && [[ "$REPO_ACTOR" == "10bits" ]]; then
     build_gradle_setting;
     explore_can_search;
     no_google_services;
-    rhino_safe_js;
+    #rhino_safe_js;
 fi
