@@ -2,11 +2,13 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.050808.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.050808/legado-3.21.050808.apk) 上次构建时间:2021-05-08 09:58:16
+> 最新构建下载:[legado-3.21.050816.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.050816/legado-3.21.050816.apk) 上次构建时间:2021-05-08 17:58:53
 <!--start-->
 > **2021/05/08**
 > * 预下载章节可调整数目
 > * 修复低版本Android使用TTS闪退。 by ag2s20150909
+> * 修复WebDav报错
+> * 优化翻页动画点击翻页
 <!--end-->
   
 1. fork到你自己的仓库
