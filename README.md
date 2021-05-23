@@ -2,12 +2,13 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.051618.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.051618/legado-3.21.051618.apk) 上次构建时间:2021-05-17 02:28:42
+> 最新构建下载:[legado-3.21.052320.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.052320/legado-3.21.052320.apk) 上次构建时间:2021-05-23 21:59:28
 <!--start-->
-> **2021/05/16**
-> * 添加总是使用默认封面配置
-> * 添加一种语言 ptbr translation by mezysinc
-> * epublib 修bug by ag2s20150909
+> **2021/05/21**
+> * 添加反转目录功能
+> * 修复分享bug
+> * 详情页添加登录菜单
+> * 添加发现界面隐藏配置
 <!--end-->
   
 1. fork到你自己的仓库
