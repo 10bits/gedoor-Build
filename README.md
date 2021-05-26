@@ -2,12 +2,11 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.052422.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.052422/legado-3.21.052422.apk) 上次构建时间:2021-05-25 02:37:47
+> 最新构建下载:[legado-3.21.052622.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.052622/legado-3.21.052622.apk) 上次构建时间:2021-05-27 02:51:59
 <!--start-->
-> **2021/05/24**
-> * 反转目录后刷新内容
-> * 修复上下滑动会导致左右切换问题
-> * 精确搜索增加包含关键词的,比如搜索五行 五行天也显示出来, 五天行不显示
+> **2021/05/26**
+> * 书签绑定书名与作者
+> * 修复详情页目录问题
 <!--end-->
   
 1. fork到你自己的仓库
