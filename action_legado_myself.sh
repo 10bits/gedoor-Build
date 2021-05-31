@@ -75,6 +75,12 @@ function no_google_services()
         $APP_WORKSPACE/app/build.gradle -i
 }
 
+function my_launcher_icon(){
+    debug "替换图标"
+    find $APP_WORKSPACE/app/src -type d -regex '*/res/drawable' -exec \
+    cp $GITHUB_WORKSPACE/.github/legado/ic_launcher_my.xml {}/ic_launcher2.xml \;
+}
+
 if [[ "$APP_NAME" == "legado" ]] && [[ "$REPO_ACTOR" == "10bits" ]]; then
     exploreShow_be_better;
     bookshelfAdd_no_alert;
@@ -82,4 +88,5 @@ if [[ "$APP_NAME" == "legado" ]] && [[ "$REPO_ACTOR" == "10bits" ]]; then
     explore_can_search;
     no_google_services;
     #rhino_safe_js;
+    my_launcher_icon
 fi
