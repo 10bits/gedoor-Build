@@ -77,7 +77,7 @@ function no_google_services()
 
 function my_launcher_icon(){
     debug "替换图标"
-    find $APP_WORKSPACE/app/src -type d -regex '*/res/drawable' -exec \
+    find $APP_WORKSPACE/app/src -type d -regex '.*/res/drawable' -exec \
     cp $GITHUB_WORKSPACE/.github/legado/ic_launcher_my.xml {}/ic_launcher2.xml \;
 }
 
