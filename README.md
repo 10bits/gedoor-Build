@@ -2,12 +2,12 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.060618.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.060618/legado-3.21.060618.apk) 上次构建时间:2021-06-06 20:43:56
+> 最新构建下载:[legado-3.21.062820.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.062820/legado-3.21.062820.apk) 上次构建时间:2021-06-28 22:05:11
 <!--start-->
-> **2021/06/06**
-> * 添加自定义导出文件名
-> * 添加书架文件夹分组样式,未完成
-> * viewPager2 3层嵌套有问题,书架换回viewPager
+> **2021/06/26**
+> * 订阅界面webView支持css prefers-color-scheme: dark 查询,需webView v76或更高版本
+> * 如webView低于v76可以用js调用activity.isNightTheme()来获取当前是否暗模式
+> * 修复一些书籍导出epub失败 by ag2s20150909
 <!--end-->
   
 1. fork到你自己的仓库
