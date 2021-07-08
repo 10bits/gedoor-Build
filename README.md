@@ -2,7 +2,7 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.070815.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.070815/legado-3.21.070815.apk) 上次构建时间:2021-07-08 20:19:33
+> 最新构建下载:[legado-3.21.070820.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.070820/legado-3.21.070820.apk) 上次构建时间:2021-07-09 02:14:50
 <!--start-->
 > **2021/07/07**
 > 1. 默认规则新增类似`jsonPath`的索引写法 by bushixuanqi
