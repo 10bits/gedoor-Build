@@ -2,27 +2,11 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.070914.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.070914/legado-3.21.070914.apk) 上次构建时间:2021-07-09 20:18:30
+> 最新构建下载:[legado-3.21.071017.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.071017/legado-3.21.071017.apk) 上次构建时间:2021-07-10 20:17:49
 <!--start-->
-> **2021/07/09**
-> 1. 发现url添加json格式, 支持设置标签样式
-> * 样式属性可以搜索 [FleboxLayout子元素支持的属性介绍](https://www.jianshu.com/p/3c471953e36d)
-> * 样式属性可省略,有默认值
-> ```json
-> [
->   {
->     "title": "xxx",
->     "url": "",
->     "style": {
->       "layout_flexGrow": 0,
->       "layout_flexShrink": 1,
->       "layout_alignSelf": "auto",
->       "layout_flexBasisPercent": -1,
->       "layout_wrapBefore": false
->     }
->   }
-> ]
-> ```
+> **2021/07/10**
+> 1. 阅读界面长按菜单改回原来样式
+> 2. 解决导入书源时重命名分组和保留名称冲突的问题
 <!--end-->
   
 1. fork到你自己的仓库
