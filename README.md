@@ -2,11 +2,15 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.071017.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.071017/legado-3.21.071017.apk) 上次构建时间:2021-07-10 20:17:49
+> 最新构建下载:[legado-3.21.071314.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.071314/legado-3.21.071314.apk) 上次构建时间:2021-07-13 20:20:36
 <!--start-->
-> **2021/07/10**
-> 1. 阅读界面长按菜单改回原来样式
-> 2. 解决导入书源时重命名分组和保留名称冲突的问题
+> **2021/07/11**
+> 1. 开启JS沙箱限制
+> * 禁止在js里exec运行命令
+> * 禁止在js里通过geClass反射
+> * 禁止在js里创建File对象
+> * 禁止在js里获取Packages scope
+> 2. 优化并修复bug
 <!--end-->
   
 1. fork到你自己的仓库
