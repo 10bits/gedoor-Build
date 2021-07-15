@@ -2,15 +2,27 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.071314.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.071314/legado-3.21.071314.apk) 上次构建时间:2021-07-13 20:20:36
+> 最新构建下载:[legado-3.21.071520.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.071520/legado-3.21.071520.apk) 上次构建时间:2021-07-16 02:14:36
 <!--start-->
-> **2021/07/11**
-> 1. 开启JS沙箱限制
-> * 禁止在js里exec运行命令
-> * 禁止在js里通过geClass反射
-> * 禁止在js里创建File对象
-> * 禁止在js里获取Packages scope
-> 2. 优化并修复bug
+> **2021/07/15**
+> 1. 添加js函数来修复开启js沙箱后某些书源失效。by ag2s20150909
+> ```kotlin
+> /**
+> * 获取网络zip文件里面的数据
+> * @param url zip文件的链接
+> * @param path 所需获取文件在zip内的路径
+> * @return zip指定文件的数据
+> */
+> fun getZipStringContent(url: String, path: String): String
+> /**
+> * 获取网络zip文件里面的数据
+> * @param url zip文件的链接
+> * @param path 所需获取文件在zip内的路径
+> * @return zip指定文件的数据
+> */
+> fun getZipByteArrayContent(url: String, path: String): ByteArray?
+> ```
+> * web服务添加一个导航页
 <!--end-->
   
 1. fork到你自己的仓库
