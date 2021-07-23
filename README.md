@@ -2,11 +2,12 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.071723.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.071723/legado-3.21.071723.apk) 上次构建时间:2021-07-18 02:14:13
+> 最新构建下载:[legado-3.21.072317.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.072317/legado-3.21.072317.apk) 上次构建时间:2021-07-23 20:19:03
 <!--start-->
-> **2021/07/16**
-> 1. js扩展函数添加删除本地文件方法
-> 2. js扩展函数对于文件的读写删操作都是相对路径,只能操作阅读缓存内的文件,/android/data/{package}/cache/...
+> **2021/07/23**
+> 1. 修复bug
+> 2. web使用api获取封面,不会再出现没有封面的情况
+> 3. 阅读亮度手动调节分别记住白天和夜间模式
 <!--end-->
   
 1. fork到你自己的仓库
