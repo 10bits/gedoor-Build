@@ -2,14 +2,20 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.072722.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.072722/legado-3.21.072722.apk) 上次构建时间:2021-07-28 02:14:38
+> 最新构建下载:[legado-3.21.080111.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.080111/legado-3.21.080111.apk) 上次构建时间:2021-08-01 14:15:09
 <!--start-->
-> **2021/07/27**
-> 1. 修复bug
-> 2. web使用api获取封面,不会再出现没有封面的情况
-> 3. 阅读亮度手动调节分别记住白天和夜间模式
-> 4. legado://import/auto?src={url}, 自动识别导入类型
-> 5. 一些优化并更新了一下web首页,感谢沚水, 传书暂时还不好用
+> **2021/07/31**
+> 
+> 1. 为webService添加快捷操作
+> 2. 规则内替换使用正则错误时自动切换为不使用正则
+> 3. 优化Cronet
+> 4. 阅读界面菜单显示的时候停止按键翻页和自动阅读
+> 
+> **2021/07/29**
+> 
+> 1. 修复每次更新都重新导入text规则的bug
+> 2. RSS阅读页添加刷新按钮以应对页面内容过期失效的BUG by JiuZhouWorlds
+> 3. 规则内替换使用正则报错时自动使用非正则替换
 <!--end-->
   
 1. fork到你自己的仓库
