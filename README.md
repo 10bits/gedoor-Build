@@ -2,14 +2,15 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.080116.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.080116/legado-3.21.080116.apk) 上次构建时间:2021-08-01 20:18:16
+> 最新构建下载:[legado-3.21.080211.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.080211/legado-3.21.080211.apk) 上次构建时间:2021-08-02 14:15:43
 <!--start-->
-> **2021/07/31**
+> **2021/08/01**
 > 
 > 1. 为webService添加快捷操作
 > 2. 规则内替换使用正则错误时自动切换为不使用正则
 > 3. 优化Cronet
 > 4. 阅读界面菜单显示的时候停止按键翻页和自动阅读
+> 5. 切换后台停止自动阅读
 > 
 > **2021/07/29**
 > 
