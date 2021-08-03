@@ -2,21 +2,16 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.080211.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.080211/legado-3.21.080211.apk) 上次构建时间:2021-08-02 14:15:43
+> 最新构建下载:[legado-3.21.080316.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.080316/legado-3.21.080316.apk) 上次构建时间:2021-08-03 20:19:52
 <!--start-->
-> **2021/08/01**
+> **2021/08/02**
 > 
-> 1. 为webService添加快捷操作
-> 2. 规则内替换使用正则错误时自动切换为不使用正则
-> 3. 优化Cronet
-> 4. 阅读界面菜单显示的时候停止按键翻页和自动阅读
-> 5. 切换后台停止自动阅读
+> * 关于最近版本有时候界面没有数据的问题是因为把LiveData组件换成了谷歌推荐的Flow组件导致的问题,正在查找解决办法
 > 
-> **2021/07/29**
-> 
-> 1. 修复每次更新都重新导入text规则的bug
-> 2. RSS阅读页添加刷新按钮以应对页面内容过期失效的BUG by JiuZhouWorlds
-> 3. 规则内替换使用正则报错时自动使用非正则替换
+> 1. 换源界面功能添加：置顶，置底，删除 by h11128
+> 2. Cronet:优化 by ag2s20150909
+> 3. 优化自动翻页 by jiuZhouWorlds
+> 4. 封面设置移到主题里面,白天和夜间可分别设置
 <!--end-->
   
 1. fork到你自己的仓库
