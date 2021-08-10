@@ -2,13 +2,12 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.081008.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.081008/legado-3.21.081008.apk) 上次构建时间:2021-08-10 08:42:44
+> 最新构建下载:[legado-3.21.081020.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.081020/legado-3.21.081020.apk) 上次构建时间:2021-08-11 02:14:57
 <!--start-->
 > **2021/08/09**
 > 
 > 1. 修复选择文字不能选择单个文字的bug
-> 2. 
-> 
+> 2. 分组可选择封面
 <!--end-->
   
 1. fork到你自己的仓库
