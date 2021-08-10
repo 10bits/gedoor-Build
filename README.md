@@ -2,15 +2,13 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.080816.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.080816/legado-3.21.080816.apk) 上次构建时间:2021-08-08 20:18:31
+> 最新构建下载:[legado-3.21.081008.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.081008/legado-3.21.081008.apk) 上次构建时间:2021-08-10 08:42:44
 <!--start-->
-> **2021/08/08**
+> **2021/08/09**
 > 
-> 1. 背景图片添加模糊设置
-> 2. 书籍信息界面添加置顶操作
-> 3. 自动翻页时屏幕常亮
-> 4. 字典:中文使用百度汉语字典，英文使用海词字典。 by ag2s20150909
-> 5. 导入规则时可以选择添加分组还是替换分组
+> 1. 修复选择文字不能选择单个文字的bug
+> 2. 
+> 
 <!--end-->
   
 1. fork到你自己的仓库
