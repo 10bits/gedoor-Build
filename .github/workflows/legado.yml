@@ -162,6 +162,7 @@ jobs:
       uses: actions/upload-artifact@v2
       if: env.CRONET_BUILD_APK != null
       with:
+        name: ${{ env.CRONET_BUILD_APK }}
         path: ${{ env.CRONET_BUILD_APK }}
 
     - name: upload to webdav
