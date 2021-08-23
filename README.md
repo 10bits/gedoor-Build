@@ -2,17 +2,12 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.082212.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.082212/legado-3.21.082212.apk) 上次构建时间:2021-08-22 13:20:37
+> 最新构建下载:[legado-3.21.082311.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.082311/legado-3.21.082311.apk) 上次构建时间:2021-08-23 14:14:55
 <!--start-->
-> **2021/08/21**
+> **2021/08/23**
 > 
-> 1. 阅读时自动更新最新章节
-> 2. 朗读添加媒体按键配置
-> 3. 修复rss列表界面分类往回切换时没有数据的bug
-> 4. 修复订阅分类往回切换时不显示内容的bug
-> 5. 导入书源防止非json格式导入
-> 6. 校验书源显示详细信息 by h11128
-> 7. 其它一些优化
+> 1. 修复bug
+> 2. 可以加载证书过期网站的图片
 <!--end-->
   
 1. fork到你自己的仓库
