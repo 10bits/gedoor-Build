@@ -2,12 +2,15 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.082311.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.082311/legado-3.21.082311.apk) 上次构建时间:2021-08-23 14:14:55
+> 最新构建下载:[legado-3.21.082409.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.082409/legado-3.21.082409.apk) 上次构建时间:2021-08-24 14:14:31
 <!--start-->
-> **2021/08/23**
+> **2021/08/24**
 > 
 > 1. 修复bug
 > 2. 可以加载证书过期网站的图片
+> 3. 修复书源不兼容老版本的问题
+> 4. 书源添加登录ui,和登录检测配置,稍后会给出示例,可以用来制作一些采用token登录的源,稍后会给出示例
+> 5. 修复web阅读进度没有同步到webDav的问题
 <!--end-->
   
 1. fork到你自己的仓库
