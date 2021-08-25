@@ -158,13 +158,6 @@ jobs:
         name: ${{ env.APP_UPLOAD_NAME }}
         path: ${{ env.APP_UPLOAD }}
 
-    - name: cronet build upload
-      uses: actions/upload-artifact@v2
-      if: env.CRONET_BUILD_APK != null
-      with:
-        name: legado-cronet-build
-        path: ${{ env.CRONET_BUILD_APK }}
-
     - name: upload to webdav
       if: success()
       shell: bash
@@ -175,5 +168,4 @@ jobs:
       run: |
         source $GITHUB_WORKSPACE/action_util.sh
         webdav_upload $APP_UPLOAD/*.apk
-        webdav_upload $CRONET_BUILD_APK
         
