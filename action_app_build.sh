@@ -5,12 +5,7 @@ function app_build()
 {
     debug "build with gradle"
     cd $APP_WORKSPACE
-    chmod +x gradlew
-    
-    debug "加入Play版功能"
-    [[ "$APP_NAME" == "legado" ]] && find $APP_WORKSPACE/app/src -regex '.*/help/AppConfig.kt' -exec \
-        sed '/val isGooglePlay/c\val isGooglePlay = true' {} -i \;
-        
+    chmod +x gradlew   
     ./gradlew assembleAppRelease --build-cache --parallel
     
     APP_BUILD_APK=$(find $APP_WORKSPACE/app/build -regex .*/app/release/.*.apk)
@@ -21,8 +16,4 @@ function app_build()
         debug "upload apk dir ${APP_BUILD_APK%/*}"
     fi
 
-    if [[ "$APP_NAME" == "legado" ]]; then
-        ./gradlew assembleCronetRelease
-        set_env CRONET_BUILD_APK $(find $APP_WORKSPACE/app/build -regex .*/cronet/release/.*.apk)
-    fi
 }
