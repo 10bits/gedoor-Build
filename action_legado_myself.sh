@@ -84,6 +84,15 @@ function my_launcher_icon(){
     sed "/background/d" {} -i \;
 }
 
+function quick_checkSource(){
+    debug "快速校验书源"
+    find $APP_WORKSPACE/app/src -regex '.*/service/CheckSourceService.kt' -exec \
+    sed -e "/getBookInfoAwait/i\/*" \
+        -e "/timeout(/i\*/" \
+        -e "/exploreBookAwait/a\if(books.isEmpty()){throw Exception("发现书籍为空")}" \
+        {} -i \;
+}
+
 if [[ "$APP_NAME" == "legado" ]] && [[ "$REPO_ACTOR" == "10bits" ]]; then
     exploreShow_be_better;
     bookshelfAdd_no_alert;
@@ -91,5 +100,6 @@ if [[ "$APP_NAME" == "legado" ]] && [[ "$REPO_ACTOR" == "10bits" ]]; then
     explore_can_search;
     no_google_services;
     #rhino_safe_js;
-    my_launcher_icon
+    my_launcher_icon;
+    quick_checkSource;
 fi
