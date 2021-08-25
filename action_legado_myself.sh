@@ -89,7 +89,7 @@ function quick_checkSource(){
     find $APP_WORKSPACE/app/src -regex '.*/service/CheckSourceService.kt' -exec \
     sed -e "/getBookInfoAwait/i\/*" \
         -e "/timeout(/i\*/" \
-        -e "/exploreBookAwait/a\if(books.isEmpty()){throw Exception("发现书籍为空")}" \
+        -e '/exploreBookAwait/a\if(books.isEmpty()){throw Exception("发现书籍为空")}' \
         {} -i \;
 }
 
