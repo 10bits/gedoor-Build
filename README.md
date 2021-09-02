@@ -2,16 +2,12 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.082719.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.082719/legado-3.21.082719.apk) 上次构建时间:2021-08-27 20:19:38
+> 最新构建下载:[legado-3.21.090117.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.090117/legado-3.21.090117.apk) 上次构建时间:2021-09-03 02:14:13
 <!--start-->
-> **2021/08/27**
+> **2021/09/01**
 > 
-> 1. 修复导入书源问题
-> 2. 合并cornet版本,添加cornet开关
-> 3. 详情也选择分组后自动加入书架
-> 4. 书源管理可以筛选有登录url的书源,分组需登录
-> 5. 修复定时加快的问题
-> 7. 修复其它一些小bug
+> 1. 可以直接导出为链接,方便分享
+> 2. 修复一些bug
 <!--end-->
   
 1. fork到你自己的仓库
