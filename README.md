@@ -2,12 +2,13 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-app_3.21.091512.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-app_3.21.091512/legado-app_3.21.091512.apk) 上次构建时间:2021-09-15 14:14:30
+> 最新构建下载:[legado-3.21.091611.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.091611/legado-3.21.091611.apk) 上次构建时间:2021-09-16 14:14:38
 <!--start-->
-> **2021/09/15**
+> **2021/09/16**
 > 
-> 1. 修复因标题加入替换和简繁转换导致的缩进问题
-> 2. 如果出现标题不显示是净化规则的问题,可以先关闭净化
+> 1. 优化正文重复标题的去除,必须包含标题且标题后面有空格或换行才会去除,防止误删
+> 
+> ```^(\s|\p{P}|${name})*${title}(\s|\p{P})+```
 <!--end-->
   
 1. fork到你自己的仓库
