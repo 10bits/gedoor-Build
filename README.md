@@ -2,12 +2,12 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.091816.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.091816/legado-3.21.091816.apk) 上次构建时间:2021-09-18 20:18:27
+> 最新构建下载:[legado-3.21.092013.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.092013/legado-3.21.092013.apk) 上次构建时间:2021-09-20 14:15:01
 <!--start-->
-> **2021/09/18**
+> **2021/09/20**
 > 
-> 1. 朗读可以选择非默认tts
-> 2. 其它一些优化和bug修复
+> 1. 修复在线朗读跳段的bug
+> 2. 优化默认封面,添加显示书名作者的配置, 后面会添加书名和作者大小位置配置
 <!--end-->
   
 1. fork到你自己的仓库
