@@ -2,12 +2,13 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.092208.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.092208/legado-3.21.092208.apk) 上次构建时间:2021-09-22 14:14:43
+> 最新构建下载:[legado-3.21.092709.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.092709/legado-3.21.092709.apk) 上次构建时间:2021-09-27 14:15:12
 <!--start-->
-> **2021/09/22**
+> **2021/09/27**
 > 
-> 1. 修复在线朗读遇到单独......崩溃的问题
-> 2. 有人提到在线朗读能及时翻页了,本地行不行,这个是要靠本地的tts支持的,我目前用的谷歌文字转语音就是支持的,其它的我不太清楚
+> 1. 内置更新检测和下载,目前从github检测并下载, 不会自动提醒需手动检测, 可以关注公众号,比较重要的更新会在公众号发布然后可以在软件内更新
+> 2. js添加java.webView(html: String?, url: String?, js: String?): String?
+> 3. 修复一些bug
 <!--end-->
   
 1. fork到你自己的仓库
