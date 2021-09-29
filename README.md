@@ -2,11 +2,14 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.092817.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.092817/legado-3.21.092817.apk) 上次构建时间:2021-09-28 20:20:20
+> 最新构建下载:[legado-3.21.092920.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.092920/legado-3.21.092920.apk) 上次构建时间:2021-09-30 02:14:13
 <!--start-->
-> **2021/09/28**
+> **2021/09/29**
 > 
-> 1. 添加横屏双页模式
+> 1. 修复阅读界面导航栏挡住内容的bug
+> 2. 修复webView=ture是自动跳转移动网站的bug
+> 3. 导出添加进度条
+> 
 <!--end-->
   
 1. fork到你自己的仓库
