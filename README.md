@@ -2,8 +2,12 @@
 
 > 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.100121.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.100121/legado-3.21.100121.apk) 上次构建时间:2021-10-02 02:14:21
+> 最新构建下载:[legado-3.21.100206.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.100206/legado-3.21.100206.apk) 上次构建时间:2021-10-02 08:42:02
 <!--start-->
+> **2021/10/02**
+> 
+> 1. 紧急修复弹出框崩溃bug
+> 
 > **2021/10/01**
 > 
 > 1. 默认封面名称显示全
