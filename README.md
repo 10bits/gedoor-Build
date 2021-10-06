@@ -2,14 +2,18 @@
 
 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.100223.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.100223/legado-3.21.100223.apk) 上次构建时间:2021-10-03 02:13:54
+> 最新构建下载:[legado-3.21.100623.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.100623/legado-3.21.100623.apk) 上次构建时间:2021-10-07 02:14:18
 <!--start-->
-> **2021/10/02**
+> **2021/10/05**
 > 
-> 1. 紧急修复弹出框崩溃bug
-> 2. 修复字体变粗后不能变回的bug
-> 3. 修复底部对齐有时无效的bug
-> * 不要嫌更新得频繁,这是因为最近新加的功能比较多,出bug很正常,而且我是一个人写软件,没有测试人员,只有发出来大家一起找bug了,遇到bug及时反馈,能修复的我都会在第一时间修复
+> 1. 优化阅读界面导航栏
+> 2. 规则添加代码高亮
+> 3. web写源添加订阅源
+> 4. httpTts朗读添加登录功能
+> 
+> ```
+> 返回语音之前加入了检测是否登录传入result为okhttp的Response,里面有headers和body,检测是否登录的js需返回正确的Response
+> ```
 <!--end-->
   
 使用app过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
