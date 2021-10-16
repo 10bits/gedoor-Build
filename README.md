@@ -2,12 +2,13 @@
 
 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.21.101420.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.101420/legado-3.21.101420.apk) 上次构建时间:2021-10-15 02:14:22
+> 最新构建下载:[legado-3.21.101610.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.21.101610/legado-3.21.101610.apk) 上次构建时间:2021-10-16 14:14:23
 <!--start-->
-> **2021/10/14**
+> **2021/10/16**
 > 
-> * 修复遇到一些存标点段朗读出错后不继续的问题
-> * 朗读出错记录错误日志,现在很多界面的菜单里都可以打开日志
+> * 再次修复朗读卡住问题
+> * 导入书单改为多线程
+> * 修复其它一些bug
 <!--end-->
   
 使用app过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
