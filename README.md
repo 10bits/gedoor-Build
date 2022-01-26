@@ -2,12 +2,12 @@
 
 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.22.012019.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.012019/legado-3.22.012019.apk) 上次构建时间:2022-01-20 20:20:52
+> 最新构建下载:[legado-3.22.012619.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.012619/legado-3.22.012619.apk) 上次构建时间:2022-01-26 20:19:40
 <!--start-->
-> **2020/01/20**
+> **2022/01/26**
 > 
-> * 添加payAction规则，返回购买链接
-> * 书源编辑中的辅助键盘❓中可查看js说明文档 by Xwite
+> * 修复web写源订阅源保存失败bug
+> * http朗读下载错误连续5次后自动暂停
 > * 其它一些优化
 <!--end-->
   
