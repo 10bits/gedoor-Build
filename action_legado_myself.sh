@@ -95,11 +95,11 @@ function quick_checkSource(){
 
 if [[ "$APP_NAME" == "legado" ]] && [[ "$REPO_ACTOR" == "10bits" ]]; then
     exploreShow_be_better;
-    bookshelfAdd_no_alert;
+    #bookshelfAdd_no_alert;
     build_gradle_setting;
     explore_can_search;
     no_google_services;
     #rhino_safe_js;
     my_launcher_icon;
-    quick_checkSource;
+    #quick_checkSource;
 fi
