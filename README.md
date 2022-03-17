@@ -2,14 +2,13 @@
 
 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.22.031519.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.031519/legado-3.22.031519.apk) 上次构建时间:2022-03-15 20:23:15
+> 最新构建下载:[legado-3.22.031722.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.031722/legado-3.22.031722.apk) 上次构建时间:2022-03-18 02:16:28
 <!--start-->
-> **2022/03/15**
+> **2022/03/17**
 > 
-> * 引入compose包
-> * 书源类型为image的书源,翻译默认为滚动,图片样式默认为FULL
-> * url参数辅助输入
-> * 修复一些bug
+> * 添加仅在wifi下加载网络封面
+> * 修复web书架白条
+> * 换源增加当前源快速定位
 <!--end-->
   
 使用app过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
