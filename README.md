@@ -2,7 +2,7 @@
 
 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.22.041418.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.041418/legado-3.22.041418.apk) 上次构建时间:2022-04-14 20:28:40
+> 最新构建下载:[legado-3.22.041421.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.041421/legado-3.22.041421.apk) 上次构建时间:2022-04-15 02:17:01
 <!--start-->
 > **2022/04/14**
 > 
@@ -10,6 +10,7 @@
 > * js文档：java.toast java.longToast
 > * cookie保存策略更改，若登录失效请重新登录
 > * cronet和okHttp共用线程池
+> * 限制图片缓存大小,超过自动清除,防止OOM
 > * 其它一些优化
 <!--end-->
   
