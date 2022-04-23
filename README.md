@@ -2,14 +2,19 @@
 
 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.22.042218.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.042218/legado-3.22.042218.apk) 上次构建时间:2022-04-22 20:27:53
+> 最新构建下载:[legado-3.22.042309.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.042309/legado-3.22.042309.apk) 上次构建时间:2022-04-23 14:17:14
 <!--start-->
+> **2022/04/23**
+> 
+> * 修复js问题
+> 
 > **2022/04/22**
 > 
 > * 键盘辅助配置加入备份恢复文件
 > * 修复源管理界面添加删除分组不及时显示的bug
 > * 修复其它一些bug
 > * 更新js库
+> 
 > ```
 > 实现 ES6 Object.values Object.entries Object.fromEntries
 > 实现 ES2017 Object.getOwnPropertyDescriptors
