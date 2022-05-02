@@ -2,14 +2,12 @@
 
 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.22.050122.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.050122/legado-3.22.050122.apk) 上次构建时间:2022-05-02 02:16:46
+> 最新构建下载:[legado-3.22.050215.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.050215/legado-3.22.050215.apk) 上次构建时间:2022-05-02 20:32:33
 <!--start-->
-> **2022/05/01**
+> **2022/05/02**
 > 
-> * 更新cronet: 101.0.4951.41
-> * 优化webDav备份,显示错误代码,自动备份错误不提示只记录错误日志,
-> * 修复图片加载失败卡顿的问题
-> * 打开应用时如果服务器备份比本地新,提示是否恢复
+> * 优化强调色和文字颜色一样的情况下一些文字的显示
+> * 修复bug
 <!--end-->
   
 使用app过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
