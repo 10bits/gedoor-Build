@@ -2,18 +2,12 @@
 
 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.22.060120.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.060120/legado-3.22.060120.apk) 上次构建时间:2022-06-02 02:23:12
+> 最新构建下载:[legado-3.22.061022.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.061022/legado-3.22.061022.apk) 上次构建时间:2022-06-11 02:18:41
 <!--start-->
-> **2022/06/01**
+> **2022/06/10**
 > 
-> * 更新cronet: 102.0.5005.78
-> * 缓存导出添加导出图片文件选项 by Xwite
-> * 其他设置添加图片绘制缓存选项 by Xwite
-> * 移除书源详情页规则添加刷新时重新获取目录页链接Url
-> * 添加刷新前Js,功能更强大,可重新获取书籍和刷新目录Url
-> * java.reGetBook(), 重新获取书籍
-> * java.refreshTocUrl(), 刷新目录Url
-> * 修复一些bug by Xwite
+> * 添加源变量说明,输入源变量界面显示说明
+> * 修复阅读界面因WebDav连接不上无响应的bug
 <!--end-->
   
 使用app过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
