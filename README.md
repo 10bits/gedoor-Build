@@ -2,8 +2,12 @@
 
 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.22.070921.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.070921/legado-3.22.070921.apk) 上次构建时间:2022-07-10 02:16:22
+> 最新构建下载:[legado-3.22.071010.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.071010/legado-3.22.071010.apk) 上次构建时间:2022-07-10 14:17:36
 <!--start-->
+> **2022/07/10**
+> 
+> * 修复bug
+> 
 > **2022/07/09**
 > 
 > * 书源添加未分组筛选
