@@ -2,15 +2,17 @@
 
 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.22.091719.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.091719/legado-3.22.091719.apk) 上次构建时间:2022-09-17 20:28:43
+> 最新构建下载:[legado-3.22.091920.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.091920/legado-3.22.091920.apk) 上次构建时间:2022-09-20 02:23:28
 <!--start-->
-> **2022/09/17**
+> **2022/09/19**
 > 
-> * SDK暂时退回32,解决webView夜间模式不起作用的问题
-> * android studio新版本有bug,快捷方式报错,采用idea编译
-> * 音频从默认未分组移除
-> * 修复图片文字样式错误bug
-> * 修复阅读界面主题bug by 821938089
+> * 发现为空时不校验
+> * 订阅添加刷新分类功能,菜单中
+> * 修复webView因为不支持新夜间模式导致的崩溃
+> * 修复阅读背景分主题设置bug by 821938089
+> * 修复朗读高亮位置不对的问题 by 821938089
+> * 添加忽略音频焦点设置 by 821938089
+> * 优化web端写源 by Xwite
 <!--end-->
   
 使用app过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
