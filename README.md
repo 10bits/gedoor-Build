@@ -2,20 +2,14 @@
 
 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.22.100210.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.100210/legado-3.22.100210.apk) 上次构建时间:2022-10-02 14:27:14
+> 最新构建下载:[legado-3.22.100521.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.22.100521/legado-3.22.100521.apk) 上次构建时间:2022-10-06 02:31:36
 <!--start-->
-> **2022/10/02**
+> **2022/10/05**
 > 
-> * 更新cronet: 106.0.5249.79
-> * 正文选择菜单朗读按钮长按可切换朗读选择内容和从选择开始处一直朗读
-> * 源编辑输入框设置最大行数12,在行数特别多的时候更容易滚动到其它输入
-> * 修复某些情况下无法搜索到标题的bug，净化规则较多的可能会降低搜索速度 by Xwite
-> * 修复文件类书源换源后阅读bug by Xwite
-> * Cronet 支持DnsHttpsSvcb by g2s20150909
-> * 修复web进度同步问题 by 821938089
-> * 启用混淆以减小app大小 有bug请带日志反馈
-> * 其它一些优化
-> 
+> * 优化书架数据库查询速度
+> * 如果WebDav的书籍比本地新,详情页的刷新可以更新本地书籍,之前的书籍不行没有记录远程书籍地址
+> * 本地文件被删除如果记录了webDav地址会自动下载webDav书籍 by Xwite
+> * 一些优化 by 821938089
 <!--end-->
   
 使用app过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
