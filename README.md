@@ -2,16 +2,22 @@
 
 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.23.032123.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.23.032123/legado-3.23.032123.apk) 上次构建时间:2023-03-22 02:15:10
+> 最新构建下载:[legado-3.23.032820.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.23.032820/legado-3.23.032820.apk) 上次构建时间:2023-03-29 02:15:31
 <!--start-->
-> **2023/03/21**
+> **2023/03/28**
 > 
-> * 修复书签界面删除条目后界面错乱bug
-> * 一些带有搜索框的界面自动隐藏软键盘
-> * 本地书籍和远程书籍导入界面支持压缩包
-> * 内置了两个直链上传配置,可以通过导入默认切换
-> * 修复无法导入不在数组内的单个书源的本地文件
-> * getVariable() 默认返回 ""
+> * 更新cronet: 111.0.5563.115
+> * 更新rhino: 1.7.14-2
+> * 修复bug
+> * 详情页下拉刷新
+> * 导出为本地文件时不保留vip标识
+> * 列表结果为NativeObject时支持{{}}@get@put##规则
+> ```
+> {bookId: 1}
+> https://www.example.com/book/{{result.bookId}}
+> ```
+> 
+> * 书架整理搜索支持分类和简介
 > * 其中一些更新由 Xwite, Horis提供
 <!--end-->
   
