@@ -7,6 +7,10 @@ on:
         description: 'Your legado git url'      
         required: true 
         default: 'https://github.com/gedoor/legado.git'
+      git_tag:
+        description: 'Your legado git tag'      
+        required: true 
+        default: 'master'
       app_custom:
         description: 'Your legado custom script'      
         required: true 
@@ -51,13 +55,13 @@ jobs:
       env:
         SECRETS_APP_NAME: ${{ github.event.inputs.app_name }}
         SECRETS_GIT_URL: ${{ github.event.inputs.git_url }}
-        SECRETS_SUFFIX: ${{ github.event.inputs.suffix }}
+        SECRETS_SUFFIX: ${{ github.event.inputs.app_suffix }}
         SECRETS_ENABLE: ${{ secrets.ENABLE }}
         SECRETS_MINIFY: ${{ secrets.MINIFY }}
-        SECRETS_RENAME: ${{ secrets.RENAME }}
+        SECRETS_RENAME: ${{ github.event.inputs.app_rename }}
         REPO_OWNER: ${{ github.repository_owner }}
         REPO_ACTOR: ${{ github.actor }}
-        SECRETS_TAG: ${{ secrets.TAG }}
+        SECRETS_TAG: ${{ github.event.inputs.git_tag }}
         SECRETS_LAUNCH_NAME: ${{ github.event.inputs.app_launch_name }}
       run: source $GITHUB_WORKSPACE/action_setenv.sh
     
