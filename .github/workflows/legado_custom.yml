@@ -1,0 +1,171 @@
+name: LegadoCustom
+
+on: 
+  watch:
+    types: [started]
+  schedule:
+    - cron: '0 */6 * * *'
+
+jobs:
+  check_release:
+    if: github.repository_owner == github.actor
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: check latest tag
+      shell: bash
+      env:
+        SECRETS_MINIFY: ${{ secrets.MINIFY }}
+        SECRETS_RENAME: ${{ secrets.RENAME }}
+      run: source $GITHUB_WORKSPACE/action_schedule.sh
+    
+    - name: check if release
+      id: check_release
+      shell: bash
+      run: |
+        function version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
+        if version_gt $APP_LATEST_TAG $APP_LAST_TAG; then
+          git clone $APP_GIT_URL $APP_WORKSPACE
+          cd $APP_WORKSPACE
+          git checkout $LATEST_TAG 
+          echo ::set-output name=if_release::true
+        fi
+          
+    - name: build apk
+      id: build_apk
+      if: steps.check_release.outputs.if_release == 'true'
+      shell: bash
+      run: |
+        source $GITHUB_WORKSPACE/action_app_custom.sh
+        source $GITHUB_WORKSPACE/action_app_build.sh
+        app_build
+     
+    - name: release apk
+      if: steps.check_release.outputs.if_release == 'true'
+      id: release_apk
+      shell: bash
+      run: |
+        function set_env() { echo "$1=$2" >> $GITHUB_ENV; }
+        if [ -f $APP_BUILD_APK ]; then
+            echo ::set-output name=if_publish::true
+            set_env APP_RELEASE_NAME $APP_UPLOAD_NAME.apk
+            set_env APP_RELEASE      $APP_BUILD_APK
+        fi
+
+    - name: create release
+      id: create_release
+      if: steps.release_apk.outputs.if_publish == 'true'
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ env.APP_UPLOAD_NAME }}
+        release_name: ${{ env.APP_UPLOAD_NAME }}
+        body_path: ${{ env.APP_LATEST_BODY }}
+        draft: false
+        prerelease: false
+    
+    - name: upload release asset
+      id: upload-release-asset 
+      if: steps.release_apk.outputs.if_publish == 'true'
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ${{ env.APP_RELEASE }}
+        asset_name: ${{ env.APP_RELEASE_NAME }}
+        asset_content_type: application/vnd.android.package-archive
+        
+    - name: update info
+      if: steps.upload-release-asset.outputs.browser_download_url != null
+      shell: bash
+      env:
+        APP_DOWNLOAD: ${{ steps.upload-release-asset.outputs.browser_download_url }}
+      run: |
+        source $GITHUB_WORKSPACE/action_util.sh
+        update_info
+      
+  build_apk:
+    if: github.event_name != 'schedule' && github.repository_owner == github.actor
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: set env
+      shell: bash
+      env:
+        SECRETS_APP_NAME: ${{ secrets.APP_NAME }}
+        SECRETS_GIT_URL: ${{ secrets.GIT_URL }}
+        SECRETS_SUFFIX: ${{ secrets.SUFFIX }}
+        SECRETS_ENABLE: ${{ secrets.ENABLE }}
+        SECRETS_MINIFY: ${{ secrets.MINIFY }}
+        SECRETS_RENAME: ${{ secrets.RENAME }}
+        REPO_OWNER: ${{ github.repository_owner }}
+        REPO_ACTOR: ${{ github.actor }}
+        SECRETS_TAG: ${{ secrets.TAG }}
+        SECRETS_LAUNCH_NAME: ${{ secrets.LAUNCH_NAME }}
+      run: source $GITHUB_WORKSPACE/action_setenv.sh
+    
+    - name: clone code
+      shell: bash
+      run: source $GITHUB_WORKSPACE/action_clone.sh
+
+    - name: custom your app
+      shell: bash
+      run: |
+        source $GITHUB_WORKSPACE/action_app_custom.sh
+        
+    - name: hash files
+      if: success()
+      id: hash_files
+      shell: bash
+      run: |
+        find $APP_WORKSPACE -type f -regex '.*/\(.*\.gradle\|gradle-wrapper\.properties\)' -exec \
+        cat '{}' \; >$APP_WORKSPACE/bindfile
+        echo ::set-output name=hash::$(sha1sum $APP_WORKSPACE/bindfile | awk '{print $1}')
+        
+    - uses: actions/cache@v2
+      if: env.APP_NAME == 'legado' && steps.hash_files.outputs.hash != null
+      with:
+        path: |
+          ~/.gradle/caches
+          !~/.gradle/caches/build-cache-1
+          ~/.gradle/wrapper
+        key: legado-gradle-${{ hashFiles('**/.lastcheck') }}-${{ steps.hash_files.outputs.hash }}
+        restore-keys: |
+          legado-gradle-${{ hashFiles('**/.lastcheck') }}-
+          
+    - uses: actions/cache@v2
+      if: env.APP_NAME == 'legado'
+      with:
+        path: |
+          ~/.gradle/caches/build-cache-1
+        key: legado-cache-${{ hashFiles('**/.lastcheck') }}-${{ github.run_id }}
+        restore-keys: |
+          legado-cache-${{ hashFiles('**/.lastcheck') }}-          
+
+    - name: build  your app
+      if: success()
+      shell: bash
+      run: |
+        source $GITHUB_WORKSPACE/action_app_build.sh
+        app_build
+
+    - name: upload artifact
+      uses: actions/upload-artifact@v2
+      if: success()
+      with:
+        name: ${{ env.APP_UPLOAD_NAME }}
+        path: ${{ env.APP_UPLOAD }}
+
+    - name: upload to webdav
+      if: success()
+      shell: bash
+      env:
+        WEBDAV_URL: ${{ secrets.WEBDAV_URL }}
+        WEBDAV_AUTH: ${{ secrets.WEBDAV_AUTH }}
+        WEBDAV_UPLOAD: ${{ secrets.WEBDAV_UPLOAD }}
+      run: |
+        source $GITHUB_WORKSPACE/action_util.sh
+        webdav_upload $APP_UPLOAD/*.apk
+        
