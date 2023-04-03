@@ -88,9 +88,3 @@ app_clear_18plus;
 app_rename;
 app_live_together;
 app_resources_unuse;
-
-#自用定制脚本
-source $GITHUB_WORKSPACE/action_legado_myself.sh
-
-#阅读2.0
-app_not_apply_plugin;
