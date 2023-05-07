@@ -28,7 +28,14 @@ jobs:
           git checkout $LATEST_TAG 
           echo ::set-output name=if_release::true
         fi
-          
+        
+    - name: Set up JDK 17
+      if: steps.check_release.outputs.if_release == 'true'
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: 17
+        
     - name: build apk
       id: build_apk
       if: steps.check_release.outputs.if_release == 'true'
