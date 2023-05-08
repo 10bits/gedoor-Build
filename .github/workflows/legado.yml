@@ -51,7 +51,6 @@ jobs:
       run: |
         function set_env() { echo "$1=$2" >> $GITHUB_ENV; }
         if [ -f $APP_BUILD_APK ]; then
-            echo ::set-output name=if_publish::true
             echo "if_publish=true" >>$GITHUB_OUTPUT
             set_env APP_RELEASE_NAME $APP_UPLOAD_NAME.apk
             set_env APP_RELEASE      $APP_BUILD_APK
