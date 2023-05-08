@@ -1,5 +1,5 @@
 #!/bin/sh
-source $GITHUB_WORKSPACE/action_util.sh
+source $GITHUB_WORKSPACE/action_app_custom.sh
 function my_launcher_icon(){
     debug "替换图标"
     find $APP_WORKSPACE/app/src -type d -regex '.*/res/drawable' -exec \
