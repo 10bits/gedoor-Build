@@ -5,6 +5,7 @@ function app_build()
 {
     debug "build with gradle"
     cd $APP_WORKSPACE
+    cat gradle.properties
     chmod +x gradlew   
     ./gradlew assembleAppRelease --build-cache --parallel --daemon --warning-mode all
     
