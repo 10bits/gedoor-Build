@@ -11,6 +11,10 @@ on:
         description: 'Your legado git tag'      
         required: true 
         default: 'master'
+      app_channel:
+        description: 'Your legado build channel(App,Google,Lollipop)'      
+        required: true 
+        default: 'App'
       app_custom:
         description: 'Your legado custom script'      
         required: true 
@@ -62,6 +66,7 @@ jobs:
       env:
         SECRETS_APP_NAME: ${{ github.event.inputs.app_name }}
         SECRETS_GIT_URL: ${{ github.event.inputs.git_url }}
+        SECRETS_CHANNEL: ${{ github.event.inputs.app_channel }}
         SECRETS_SUFFIX: ${{ github.event.inputs.app_suffix }}
         SECRETS_ENABLE: ${{ secrets.ENABLE }}
         SECRETS_MINIFY: ${{ secrets.MINIFY }}
