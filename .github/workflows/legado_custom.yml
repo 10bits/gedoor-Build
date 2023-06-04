@@ -31,10 +31,6 @@ on:
         description: 'Legado app launch name'      
         required: true 
         default: '阅读.A'
-      app_rename: 
-        description: 'Legado app rename enable'      
-        required: true 
-        default: 'true'
       webdav_upload: 
         description: 'Webdav upload when build apk finish'      
         required: true
@@ -70,7 +66,7 @@ jobs:
         SECRETS_SUFFIX: ${{ github.event.inputs.app_suffix }}
         SECRETS_ENABLE: ${{ secrets.ENABLE }}
         SECRETS_MINIFY: ${{ secrets.MINIFY }}
-        SECRETS_RENAME: ${{ github.event.inputs.app_rename }}
+        SECRETS_RENAME: ${{ secrets.RENAME }}
         REPO_OWNER: ${{ github.repository_owner }}
         REPO_ACTOR: ${{ github.actor }}
         SECRETS_TAG: ${{ github.event.inputs.git_tag }}
