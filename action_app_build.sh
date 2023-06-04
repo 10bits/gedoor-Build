@@ -7,7 +7,7 @@ function app_build()
     cd $APP_WORKSPACE
     cat gradle.properties
     chmod +x gradlew   
-    ./gradlew assembleAppRelease --build-cache --parallel --daemon --warning-mode all
+    ./gradlew assemble${APP_CHANNEL}Release --build-cache --parallel --daemon --warning-mode all
     
     APP_BUILD_APK=$(find $APP_WORKSPACE/app/build -regex .*/app/release/.*.apk)
     debug "build apk $APP_BUILD_APK"
