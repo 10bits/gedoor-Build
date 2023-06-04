@@ -9,7 +9,7 @@ function app_build()
     chmod +x gradlew   
     ./gradlew assemble${APP_CHANNEL}Release --build-cache --parallel --daemon --warning-mode all
     
-    APP_BUILD_APK=$(find $APP_WORKSPACE/app/build -regex .*/app/release/.*.apk)
+    APP_BUILD_APK=$(find $APP_WORKSPACE/app/build/outputs -name "*.apk")
     debug "build apk $APP_BUILD_APK"
     if [ -f $APP_BUILD_APK ]; then
         set_env APP_BUILD_APK $APP_BUILD_APK
