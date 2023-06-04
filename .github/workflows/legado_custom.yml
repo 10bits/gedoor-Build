@@ -14,7 +14,7 @@ on:
       app_channel:
         description: 'Your legado build channel(App,Google,Lollipop)'      
         required: true 
-        default: 'App'
+        default: 'Lollipop'
       app_custom:
         description: 'Your legado custom script'      
         required: true 
