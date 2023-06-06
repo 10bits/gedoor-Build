@@ -87,4 +87,3 @@ app_sign;
 app_clear_18plus;
 app_rename;
 app_live_together;
-app_resources_unuse;
