@@ -57,6 +57,10 @@ jobs:
         distribution: 'temurin'
         java-version: 17
         
+    - name: setup Gradle
+      if: steps.check_release.outputs.if_release == 'true'
+      uses: gradle/gradle-build-action@v2.4.2
+      
     - name: set env
       shell: bash
       env:
