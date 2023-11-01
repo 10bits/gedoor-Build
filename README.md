@@ -2,9 +2,11 @@
 
 默认从最新发布的tag构建,每次构建会自动清空18PlusList.txt
 
-> 最新构建下载:[legado-3.23.103114.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.23.103114/legado-3.23.103114.apk) 上次构建时间:2023-10-31 20:10:52
+> 最新构建下载:[legado-3.23.110115.apk](https://github.com/10bits/gedoor-Build/releases/download/legado-3.23.110115/legado-3.23.110115.apk) 上次构建时间:2023-11-01 20:10:57
 <!--start-->
+> **2023/11/01**
 > 
+> * 修复一些bug
 <!--end-->
   
 使用app过程中遇到问题,请到这里解决[gedoor/legado](https://github.com/gedoor/legado/issues)
