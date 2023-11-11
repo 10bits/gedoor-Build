@@ -14,7 +14,7 @@ on:
       app_channel:
         description: 'Your legado build channel(App)'      
         required: true 
-        default: 'AppAppApp'
+        default: 'App'
       app_custom:
         description: 'Your legado custom script'      
         required: true 
