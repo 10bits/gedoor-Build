@@ -12,9 +12,9 @@ on:
         required: true 
         default: 'master'
       app_channel:
-        description: 'Your legado build channel(App,Google,Lollipop)'      
+        description: 'Your legado build channel(App)'      
         required: true 
-        default: 'Lollipop'
+        default: 'AppAppApp'
       app_custom:
         description: 'Your legado custom script'      
         required: true 
