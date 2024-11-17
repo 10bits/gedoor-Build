@@ -10,7 +10,7 @@ on:
       git_tag:
         description: 'Your legado git tag'      
         required: true 
-        default: 'master'
+        default: '3.23.110211'
       app_channel:
         description: 'Your legado build channel(App)'      
         required: true 
