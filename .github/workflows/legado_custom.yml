@@ -18,7 +18,7 @@ on:
       app_custom:
         description: 'Your legado custom script'      
         required: true 
-        default: 'diy_10bits.sh'
+        default: 'diy_test.sh'
       app_name: 
         description: 'Legado app name'      
         required: true 
